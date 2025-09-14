@@ -5,6 +5,11 @@ import { CommonModule } from '@angular/common';
   selector: 'app-footer',
   standalone: true,
   imports: [CommonModule],
+  styles: [
+    `
+      @import 'tailwindcss';
+    `,
+  ],
   template: `
     <footer class="bg-gray-900 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -12,7 +17,9 @@ import { CommonModule } from '@angular/common';
           <!-- Logo va ma'lumot -->
           <div class="col-span-1 md:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
-              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center"
+              >
                 <span class="text-white font-bold text-lg">M</span>
               </div>
               <div>
@@ -21,8 +28,9 @@ import { CommonModule } from '@angular/common';
               </div>
             </div>
             <p class="text-gray-400 mb-4 max-w-md">
-              Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional o'qituvchi. 
-              Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar taqdim etamiz.
+              Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional
+              o'qituvchi. Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar
+              taqdim etamiz.
             </p>
             <div class="flex space-x-4">
               <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
@@ -41,10 +49,26 @@ import { CommonModule } from '@angular/common';
           <div>
             <h4 class="text-lg font-semibold mb-4">Tezkor havolalar</h4>
             <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">O'quv ishlanmalari</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Kurslar</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Testlar</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Aloqa</a></li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >O'quv ishlanmalari</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Kurslar</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Testlar</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Aloqa</a
+                >
+              </li>
             </ul>
           </div>
 
@@ -75,7 +99,7 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
     </footer>
-  `
+  `,
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
