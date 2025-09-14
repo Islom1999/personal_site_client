@@ -59,7 +59,8 @@ interface TestResult {
     RadioButtonModule,
     FormsModule,
     ChartModule,
-    TabViewModule,
+    TabView,
+    TabPanel,
   ],
   template: `
     <div class="min-h-screen bg-gray-50 py-8">
