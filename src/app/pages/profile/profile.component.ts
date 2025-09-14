@@ -358,13 +358,6 @@ interface TestResult {
                         <p-datepicker [(ngModel)]="editForm.birthDate" name="birthDate"
                           dateFormat="dd/mm/yy"
                           class="w-full" />
-                        // <p-calendar
-                        //   [(ngModel)]="editForm.birthDate"
-                        //   name="birthDate"
-                        //   dateFormat="dd/mm/yy"
-                        //   class="w-full"
-                        // >
-                        // </p-calendar>
                       </div>
                     </div>
 
