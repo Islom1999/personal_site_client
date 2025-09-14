@@ -9,11 +9,6 @@ import { DividerModule } from 'primeng/divider';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterLink, ButtonModule, CardModule, DividerModule],
-  styles: [
-    `
-      @import 'tailwindcss';
-    `,
-  ],
   template: `
     <!-- Hero Section -->
     <section class="relative py-20 lg:py-32 overflow-hidden">

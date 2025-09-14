@@ -21,11 +21,6 @@ interface Material {
   selector: 'app-materials',
   standalone: true,
   imports: [CommonModule, ButtonModule, CardModule, InputTextModule, SelectModule, FormsModule],
-  styles: [
-    `
-      @import 'tailwindcss';
-    `,
-  ],
   template: `
     <div class="min-h-screen bg-gray-50 py-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

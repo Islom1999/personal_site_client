@@ -8,11 +8,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, ButtonModule, MenubarModule, CommonModule],
-  styles: [
-    `
-      @import 'tailwindcss';
-    `,
-  ],
   template: `
     <header
       class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
