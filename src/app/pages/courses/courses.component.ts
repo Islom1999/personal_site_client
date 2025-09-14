@@ -434,16 +434,16 @@ interface Lesson {
               <!-- Course Content -->
                 <p-tabpanel value="content">
                 <div class="max-w-4xl">
-                  <p-accordion [multiple]="true">
-                    <p-accordionTab 
+                  <p-accordion [multiple]="true" value="0">
+                    <p-accordion-panel 
                       *ngFor="let module of selectedCourse.modules; let i = index" 
-                      [header]="'module.title'"
+                      [value]="i.toString()"
                     >
-                      <ng-template pTemplate="header">
+                      <p-accordion-header>
                         <div class="flex items-center justify-between w-full">
                           <div class="flex items-center">
                             <i class="pi pi-folder mr-3 text-blue-600"></i>
-                            <span class="font-semibold">{{ 'module.title' }}</span>
+                            <span class="font-semibold">{{ module.title }}</span>
                           </div>
                           <div class="flex items-center space-x-4 text-sm text-gray-600">
                             <span>{{ module.lessons.length }} dars</span>
@@ -451,31 +451,32 @@ interface Lesson {
                             <i *ngIf="module.completed" class="pi pi-check-circle text-green-600"></i>
                           </div>
                         </div>
-                      </ng-template>
-                      
-                      <div class="space-y-3">
-                        <div 
-                          *ngFor="let lesson of module.lessons" 
-                          class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
-                          (click)="playLesson(lesson)"
-                        >
-                          <div class="flex items-center">
-                            <i 
-                              [class]="getLessonIcon(lesson.type)" 
-                              class="mr-3 text-blue-600"
-                            ></i>
-                            <div>
-                              <h6 class="font-medium text-gray-900">{{ lesson.title }}</h6>
-                              <p class="text-sm text-gray-600">{{ lesson.type | titlecase }} • {{ lesson.duration }}</p>
+                      </p-accordion-header>
+                      <p-accordion-content>
+                        <div class="space-y-3">
+                          <div 
+                            *ngFor="let lesson of module.lessons" 
+                            class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+                            (click)="playLesson(lesson)"
+                          >
+                            <div class="flex items-center">
+                              <i 
+                                [class]="getLessonIcon(lesson.type)" 
+                                class="mr-3 text-blue-600"
+                              ></i>
+                              <div>
+                                <h6 class="font-medium text-gray-900">{{ lesson.title }}</h6>
+                                <p class="text-sm text-gray-600">{{ lesson.type | titlecase }} • {{ lesson.duration }}</p>
+                              </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                              <i *ngIf="lesson.completed" class="pi pi-check-circle text-green-600"></i>
+                              <i class="pi pi-play text-gray-400"></i>
                             </div>
                           </div>
-                          <div class="flex items-center space-x-2">
-                            <i *ngIf="lesson.completed" class="pi pi-check-circle text-green-600"></i>
-                            <i class="pi pi-play text-gray-400"></i>
-                          </div>
                         </div>
-                      </div>
-                    </p-accordionTab>
+                      </p-accordion-content>
+                    </p-accordion-panel>
                   </p-accordion>
                 </div>
                 </p-tabpanel>
