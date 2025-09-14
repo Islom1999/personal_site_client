@@ -9,6 +9,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
 import { ChartModule } from 'primeng/chart';
 import { TabViewModule } from 'primeng/tabview';
+import { TabsModule } from 'primeng/tabs';
 
 interface Test {
   id: number;
@@ -59,8 +60,7 @@ interface TestResult {
     RadioButtonModule,
     FormsModule,
     ChartModule,
-    TabView,
-    TabPanel,
+    TabsModule
   ],
   template: `
     <div class="min-h-screen bg-gray-50 py-8">
