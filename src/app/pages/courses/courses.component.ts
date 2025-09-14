@@ -7,7 +7,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
-import { TabViewModule } from 'primeng/tabview';
+import { TabsModule } from 'primeng/tabs';
 import { AccordionModule } from 'primeng/accordion';
 import { CheckboxModule } from 'primeng/checkbox';
 
@@ -59,8 +59,7 @@ interface Lesson {
     RatingModule,
     FormsModule,
     DialogModule,
-    TabView,
-    TabPanel,
+    TabsModule,
     AccordionModule,
     CheckboxModule,
   ],
@@ -314,9 +313,24 @@ interface Lesson {
           </ng-template>
 
           <div class="h-full overflow-hidden" *ngIf="selectedCourse">
-            <p-tabView class="h-full">
+            <p-tabs value="overview" class="h-full">
+              <p-tablist>
+                <p-tab value="overview">
+                  <i class="pi pi-info-circle mr-2"></i>
+                  Kurs haqida
+                </p-tab>
+                <p-tab value="content">
+                  <i class="pi pi-list mr-2"></i>
+                  Kurs mazmuni
+                </p-tab>
+                <p-tab value="reviews">
+                  <i class="pi pi-star mr-2"></i>
+                  Sharhlar
+                </p-tab>
+              </p-tablist>
+              <p-tabpanels>
               <!-- Course Overview -->
-              <p-tabPanel header="Kurs haqida" leftIcon="pi pi-info-circle">
+                <p-tabpanel value="overview">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
                   <div class="lg:col-span-2">
                     <!-- Video Preview -->
@@ -415,10 +429,10 @@ interface Lesson {
                     </div>
                   </div>
                 </div>
-              </p-tabPanel>
+                </p-tabpanel>
 
               <!-- Course Content -->
-              <p-tabPanel header="Kurs mazmuni" leftIcon="pi pi-list">
+                <p-tabpanel value="content">
                 <div class="max-w-4xl">
                   <p-accordion [multiple]="true">
                     <p-accordionTab 
@@ -464,10 +478,10 @@ interface Lesson {
                     </p-accordionTab>
                   </p-accordion>
                 </div>
-              </p-tabPanel>
+                </p-tabpanel>
 
               <!-- Reviews -->
-              <p-tabPanel header="Sharhlar" leftIcon="pi pi-star">
+                <p-tabpanel value="reviews">
                 <div class="max-w-4xl">
                   <!-- Reviews Summary -->
                   <div class="bg-gray-50 rounded-xl p-6 mb-8">
@@ -528,8 +542,9 @@ interface Lesson {
                     </div>
                   </div>
                 </div>
-              </p-tabPanel>
-            </p-tabView>
+                </p-tabpanel>
+              </p-tabpanels>
+            </p-tabs>
           </div>
         </p-dialog>
 

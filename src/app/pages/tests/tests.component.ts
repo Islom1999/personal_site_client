@@ -8,7 +8,6 @@ import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
 import { ChartModule } from 'primeng/chart';
-import { TabViewModule } from 'primeng/tabview';
 import { TabsModule } from 'primeng/tabs';
 
 interface Test {
@@ -380,9 +379,24 @@ interface TestResult {
           </ng-template>
 
           <div class="h-full overflow-auto" *ngIf="currentResult">
-            <p-tabView class="h-full">
+            <p-tabs value="overview" class="h-full">
+              <p-tablist>
+                <p-tab value="overview">
+                  <i class="pi pi-chart-pie mr-2"></i>
+                  Umumiy natija
+                </p-tab>
+                <p-tab value="detailed">
+                  <i class="pi pi-list mr-2"></i>
+                  Batafsil ko'rib chiqish
+                </p-tab>
+                <p-tab value="history">
+                  <i class="pi pi-history mr-2"></i>
+                  Natijalar tarixi
+                </p-tab>
+              </p-tablist>
+              <p-tabpanels>
               <!-- Results Overview -->
-              <p-tabPanel header="Umumiy natija" leftIcon="pi pi-chart-pie">
+                <p-tabpanel value="overview">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <!-- Score Summary -->
                   <div class="space-y-6">
@@ -485,10 +499,10 @@ interface TestResult {
                     </div>
                   </div>
                 </div>
-              </p-tabPanel>
+                </p-tabpanel>
 
               <!-- Detailed Review -->
-              <p-tabPanel header="Batafsil ko'rib chiqish" leftIcon="pi pi-list">
+                <p-tabpanel value="detailed">
                 <div class="max-w-4xl mx-auto">
                   <div class="space-y-6">
                     <div 
@@ -578,10 +592,10 @@ interface TestResult {
                     </div>
                   </div>
                 </div>
-              </p-tabPanel>
+                </p-tabpanel>
 
               <!-- Performance History -->
-              <p-tabPanel header="Natijalar tarixi" leftIcon="pi pi-history">
+                <p-tabpanel value="history">
                 <div class="max-w-4xl mx-auto">
                   <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
                     <h4 class="text-lg font-semibold text-gray-900 mb-4">Test natijalari dinamikasi</h4>
@@ -634,8 +648,9 @@ interface TestResult {
                     </div>
                   </div>
                 </div>
-              </p-tabPanel>
-            </p-tabView>
+                </p-tabpanel>
+              </p-tabpanels>
+            </p-tabs>
           </div>
         </p-dialog>
       </div>
