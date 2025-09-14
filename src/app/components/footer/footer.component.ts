@@ -1,0 +1,82 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-footer',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Logo va ma'lumot -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
+                <span class="text-white font-bold text-lg">M</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Prof. Matematik</h3>
+                <p class="text-gray-400 text-sm">O'qituvchi</p>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md">
+              Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional o'qituvchi. 
+              Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar taqdim etamiz.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                <i class="pi pi-facebook text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                <i class="pi pi-telegram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                <i class="pi pi-youtube text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tezkor havolalar -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tezkor havolalar</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">O'quv ishlanmalari</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Kurslar</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Testlar</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Aloqa</a></li>
+            </ul>
+          </div>
+
+          <!-- Aloqa ma'lumotlari -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Aloqa</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center space-x-2">
+                <i class="pi pi-phone text-blue-400"></i>
+                <span class="text-gray-400">+998 90 123 45 67</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="pi pi-envelope text-blue-400"></i>
+                <span class="text-gray-400">info@matematik.uz</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="pi pi-map-marker text-blue-400"></i>
+                <span class="text-gray-400">Toshkent, O'zbekiston</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            © {{ currentYear }} Prof. Matematik. Barcha huquqlar himoyalangan.
+          </p>
+        </div>
+      </div>
+    </footer>
+  `
+})
+export class FooterComponent {
+  currentYear = new Date().getFullYear();
+}
