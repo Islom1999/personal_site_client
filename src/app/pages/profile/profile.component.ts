@@ -10,7 +10,7 @@ import { TabsModule } from 'primeng/tabs';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePickerModule } from 'primeng/datepicker';
 
 interface UserCourse {
   id: number;
@@ -47,7 +47,7 @@ interface TestResult {
     ProgressBarModule,
     TagModule,
     ChartModule,
-    CalendarModule
+    DatePickerModule
   ],
   template: `
     <div class="min-h-screen bg-gray-50 py-8">
@@ -355,6 +355,9 @@ interface TestResult {
                       </div>
                       <div class="flex flex-col">
                         <label class="text-sm font-medium text-gray-700 mb-2">Tug'ilgan sana</label>
+                        <p-datepicker [(ngModel)]="editForm.birthDate" name="birthDate"
+                          dateFormat="dd/mm/yy"
+                          class="w-full" />
                         <p-calendar
                           [(ngModel)]="editForm.birthDate"
                           name="birthDate"
