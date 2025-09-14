@@ -437,7 +437,7 @@ interface Lesson {
                   <p-accordion [multiple]="true">
                     <p-accordionTab 
                       *ngFor="let module of selectedCourse.modules; let i = index" 
-                      [header]="module.title"
+                      [header]="'module.title'"
                     >
                       <ng-template pTemplate="header">
                         <div class="flex items-center justify-between w-full">
