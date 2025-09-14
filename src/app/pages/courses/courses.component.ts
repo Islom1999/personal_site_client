@@ -443,7 +443,7 @@ interface Lesson {
                         <div class="flex items-center justify-between w-full">
                           <div class="flex items-center">
                             <i class="pi pi-folder mr-3 text-blue-600"></i>
-                            <span class="font-semibold">{{ module.title }}</span>
+                            <span class="font-semibold">{{ 'module.title' }}</span>
                           </div>
                           <div class="flex items-center space-x-4 text-sm text-gray-600">
                             <span>{{ module.lessons.length }} dars</span>
