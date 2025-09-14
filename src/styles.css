@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@plugin "tailwindcss-primeui";
+@import 'primeicons/primeicons.css';
+
+/*==================================================================*/
+/*==================== CUSTOM THEMES ===============================*/
+/*==================================================================*/
+
+@theme {
+  --color-primary: rgb(16 134 255);
+  /*--color-dark-text: rgba(45, 55, 72, 1);
+  --color-medium-text: rgba(160, 174, 192, 1);
+  --color-text-gray: rgba(113, 128, 150, 1);
+  --color-light-text: rgba(203, 213, 224, 1);
+  --shadow-sm: 0px 3.6px 5.5px 0px rgba(0, 0, 0, 0.02);*/
+}
+
+/*==================================================================*/
+/*==================== BASE STYLES =================================*/
+/*==================================================================*/
+@layer base {
+  /* TYPE BUTTTON BASE CURSOR STYLE*/
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+@layer utilities {
+}
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap shadow-lg transition-all duration-300 outline-none hover:shadow-xl focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-gradient-to-r from-[#50aaff] via-[#1086ff] to-[#0a64c8] hover:from-[#63b3ff] hover:via-[#2a90ff] hover:to-[#0b5bb5];
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+.p-breadcrumb {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
