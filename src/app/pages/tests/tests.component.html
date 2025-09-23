@@ -1,0 +1,214 @@
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Matematik Testlar</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Bilimingizni sinab ko'ring va matematik ko'nikmalaringizni rivojlantiring. Har xil
+        darajadagi testlar orqali o'z darajangizni aniqlang
+      </p>
+    </div>
+
+    <!-- Statistics -->
+    <!-- <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+      <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="pi pi-check-circle text-blue-600 text-xl"></i>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">{{ completedTests }}</div>
+        <div class="text-gray-600 text-sm">Yakunlangan testlar</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div
+          class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+        >
+          <i class="pi pi-star text-green-600 text-xl"></i>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">{{ averageScore }}%</div>
+        <div class="text-gray-600 text-sm">O'rtacha natija</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div
+          class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+        >
+          <i class="pi pi-clock text-purple-600 text-xl"></i>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">{{ totalTimeSpent }}</div>
+        <div class="text-gray-600 text-sm">Sarflangan daqiqalar</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div
+          class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+        >
+          <i class="pi pi-trophy text-orange-600 text-xl"></i>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">{{ highScores }}</div>
+        <div class="text-gray-600 text-sm">Yuqori natijalar</div>
+      </div>
+    </div> -->
+
+    <!-- Test Categories -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Test Kategoriyalari</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+          (click)="filterByCategory('all')"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div
+              [class]="
+                'w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ' +
+                getTestCategoryStyle(10).bgColor
+              "
+            >
+              <i [class]="'pi pi-list' + ' text-xl ' + getTestCategoryStyle(10).textColor"></i>
+            </div>
+            <span
+              [class]="
+                'px-3 py-1 text-xs font-medium rounded-full ' + getTestCategoryStyle(10).badgeColor
+              "
+            >
+              test
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{{ 'Barchasi' }}</h3>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-500">{{ getTestCategoryStyle(10).difficulty }}</span>
+            <p-button
+              label="Boshlash"
+              [text]="true"
+              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle(10).textColor"
+            >
+            </p-button>
+          </div>
+        </div>
+        @for (category of categories(); track $index) {
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+          (click)="filterByCategory(category.id)"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div
+              [class]="
+                'w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ' +
+                getTestCategoryStyle($index).bgColor
+              "
+            >
+              <i [class]="category.icon + ' text-xl ' + getTestCategoryStyle($index).textColor"></i>
+            </div>
+            <span
+              [class]="
+                'px-3 py-1 text-xs font-medium rounded-full ' +
+                getTestCategoryStyle($index).badgeColor
+              "
+            >
+              test
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{{ category.name }}</h3>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-500">{{ getTestCategoryStyle($index).difficulty }}</span>
+            <p-button
+              label="Boshlash"
+              [text]="true"
+              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle($index).textColor"
+            >
+            </p-button>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Available Tests -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">Mavjud Testlar</h2>
+
+        <div class="flex space-x-2">
+          <p-button
+            [label]="'Barchasi'"
+            [text]="true"
+            [class]="
+              selectedCategory === 'all'
+                ? 'text-blue-600 bg-blue-50'
+                : 'text-gray-600 hover:bg-gray-50'
+            "
+            (onClick)="filterByLevel('all')"
+          >
+          </p-button>
+          @for(level of levels(); track level.id){
+          <p-button
+            [label]="level.name"
+            [text]="true"
+            [class]="
+              selectedCategory === level.id
+                ? 'text-blue-600 bg-blue-50'
+                : 'text-gray-600 hover:bg-gray-50'
+            "
+            (onClick)="filterByLevel(level.id)"
+          >
+          </p-button>
+          }
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          *ngFor="let test of filteredTests"
+          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+        >
+          <div class="p-6">
+            <!-- Test Header -->
+            <div class="flex items-center justify-between mb-4">
+              <div
+                [class]="
+                  'w-12 h-12 rounded-xl flex items-center justify-center ' +
+                  'bg-gradient-to-br from-green-500 to-green-600'
+                "
+              >
+                <i [class]="test.icon" class="text-white text-xl"></i>
+              </div>
+              <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
+                {{ test.sp_level_id | selectItemLabel : levels() }}
+              </span>
+            </div>
+
+            <!-- Test Title -->
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ test.name }}</h3>
+
+            <!-- Test Description -->
+            <p class="text-gray-600 mb-4 line-clamp-2">{{ test.description }}</p>
+
+            <!-- Test Info -->
+            <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+              <div class="flex items-center text-gray-500">
+                <i class="pi pi-question-circle mr-2"></i>
+                {{ 'test.questions' }} savol
+              </div>
+              <div class="flex items-center text-gray-500">
+                <i class="pi pi-clock mr-2"></i>
+                {{ test.duration }} daqiqa
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex space-x-2">
+              <p-button [label]="'Testni boshlash'" icon="pi pi-play" class="flex-1 btn-primary">
+              </p-button>
+              <p-button
+                icon="pi pi-chart-bar"
+                [text]="true"
+                [rounded]="true"
+                class="text-blue-600 hover:bg-blue-50"
+                pTooltip="Natijalarni ko'rish"
+              >
+              </p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

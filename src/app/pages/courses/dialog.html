@@ -1,0 +1,357 @@
+<!-- Course Detail Dialog -->
+<p-dialog
+  [(visible)]="showCourseDialog"
+  [modal]="true"
+  [closable]="true"
+  [style]="{ width: '90vw', maxWidth: '1200px', height: '90vh' }"
+  styleClass="course-dialog"
+>
+  <ng-template pTemplate="header">
+    <div class="flex items-center justify-between w-full">
+      <h3 class="text-2xl font-bold text-gray-900">{{ selectedCourse?.title }}</h3>
+      <div class="flex items-center space-x-4">
+        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+          {{ selectedCourse?.level }}
+        </span>
+        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+          {{ selectedCourse?.price }}
+        </span>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="h-full overflow-hidden" *ngIf="selectedCourse">
+    <p-tabs value="overview" class="h-full">
+      <p-tablist>
+        <p-tab value="overview">
+          <i class="pi pi-info-circle mr-2"></i>
+          Kurs haqida
+        </p-tab>
+        <p-tab value="content">
+          <i class="pi pi-list mr-2"></i>
+          Kurs mazmuni
+        </p-tab>
+        <p-tab value="reviews">
+          <i class="pi pi-star mr-2"></i>
+          Sharhlar
+        </p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <!-- Course Overview -->
+        <p-tabpanel value="overview">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+            <div class="lg:col-span-2">
+              <!-- Video Preview -->
+              <div
+                class="bg-gray-900 rounded-xl mb-6 relative overflow-hidden"
+                style="aspect-ratio: 16/9"
+              >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
+                  >
+                    <i class="pi pi-play text-white text-3xl ml-1"></i>
+                  </div>
+                </div>
+                <div class="absolute bottom-4 left-4 text-white">
+                  <span class="bg-black/50 px-2 py-1 rounded text-sm">Preview</span>
+                </div>
+              </div>
+
+              <!-- Course Description -->
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-gray-900 mb-4">Kurs haqida</h4>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                  {{ selectedCourse.description }}
+                </p>
+
+                <!-- What you'll learn -->
+                <h5 class="text-lg font-semibold text-gray-900 mb-3">Nima o'rganasiz:</h5>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <i class="pi pi-check text-green-600 mr-2 mt-1"></i>
+                    Matematik analizning asosiy tushunchalari
+                  </li>
+                  <li class="flex items-start">
+                    <i class="pi pi-check text-green-600 mr-2 mt-1"></i>
+                    Limitlar va uzluksizlik nazariyasi
+                  </li>
+                  <li class="flex items-start">
+                    <i class="pi pi-check text-green-600 mr-2 mt-1"></i>
+                    Hosilalar va ularning qo'llanilishi
+                  </li>
+                  <li class="flex items-start">
+                    <i class="pi pi-check text-green-600 mr-2 mt-1"></i>
+                    Integrallar va amaliy masalalar
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Course Info Sidebar -->
+            <div class="space-y-6">
+              <!-- Course Stats -->
+              <div class="bg-gray-50 rounded-xl p-6">
+                <h5 class="font-semibold text-gray-900 mb-4">Kurs ma'lumotlari</h5>
+                <div class="space-y-3 text-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-600">Davomiyligi:</span>
+                    <span class="font-medium">{{ selectedCourse.duration }}</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-600">Darslar soni:</span>
+                    <span class="font-medium">{{ selectedCourse.lessons }}</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-600">Daraja:</span>
+                    <span class="font-medium">{{ selectedCourse.level }}</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-600">Talabalar:</span>
+                    <span class="font-medium">{{ selectedCourse.students }}</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-600">Reyting:</span>
+                    <div class="flex items-center">
+                      <p-rating
+                        [(ngModel)]="selectedCourse.rating"
+                        [readonly]="true"
+                        class="text-xs mr-2"
+                      >
+                      </p-rating>
+                      <span class="font-medium">({{ selectedCourse.rating }})</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Enroll Button -->
+              <div class="bg-blue-50 rounded-xl p-6 text-center">
+                <div class="text-2xl font-bold text-blue-600 mb-2">
+                  {{ selectedCourse.price }}
+                </div>
+                <p-button
+                  [label]="selectedCourse.enrolled ? 'Kursni davom ettirish' : 'Kursga yozilish'"
+                  [icon]="selectedCourse.enrolled ? 'pi pi-play' : 'pi pi-shopping-cart'"
+                  class="w-full btn-primary mb-3"
+                  (onClick)="
+                    selectedCourse.enrolled
+                      ? continueCourse(selectedCourse)
+                      : enrollCourse(selectedCourse)
+                  "
+                >
+                </p-button>
+                <p class="text-xs text-gray-600">30 kunlik pul qaytarish kafolati</p>
+              </div>
+
+              <!-- Tags -->
+              <div>
+                <h5 class="font-semibold text-gray-900 mb-3">Teglar</h5>
+                <div class="flex flex-wrap gap-2">
+                  <p-tag *ngFor="let tag of selectedCourse.tags" [value]="tag" class="text-xs">
+                  </p-tag>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabpanel>
+
+        <!-- Course Content -->
+        <p-tabpanel value="content">
+          <div class="max-w-4xl">
+            <p-accordion [multiple]="true" value="0">
+              <p-accordion-panel
+                *ngFor="let module of selectedCourse.modules; let i = index"
+                [value]="i.toString()"
+              >
+                <p-accordion-header>
+                  <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center">
+                      <i class="pi pi-folder mr-3 text-blue-600"></i>
+                      <span class="font-semibold">{{ module.title }}</span>
+                    </div>
+                    <div class="flex items-center space-x-4 text-sm text-gray-600">
+                      <span>{{ module.lessons.length }} dars</span>
+                      <span>{{ module.duration }}</span>
+                      <i *ngIf="module.completed" class="pi pi-check-circle text-green-600"></i>
+                    </div>
+                  </div>
+                </p-accordion-header>
+                <p-accordion-content>
+                  <div class="space-y-3">
+                    <div
+                      *ngFor="let lesson of module.lessons"
+                      class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+                      (click)="playLesson(lesson)"
+                    >
+                      <div class="flex items-center">
+                        <i [class]="getLessonIcon(lesson.type)" class="mr-3 text-blue-600"></i>
+                        <div>
+                          <h6 class="font-medium text-gray-900">{{ lesson.title }}</h6>
+                          <p class="text-sm text-gray-600">
+                            {{ lesson.type | titlecase }} • {{ lesson.duration }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <i *ngIf="lesson.completed" class="pi pi-check-circle text-green-600"></i>
+                        <i class="pi pi-play text-gray-400"></i>
+                      </div>
+                    </div>
+                  </div>
+                </p-accordion-content>
+              </p-accordion-panel>
+            </p-accordion>
+          </div>
+        </p-tabpanel>
+
+        <!-- Reviews -->
+        <p-tabpanel value="reviews">
+          <div class="max-w-4xl">
+            <!-- Reviews Summary -->
+            <div class="bg-gray-50 rounded-xl p-6 mb-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                  <div class="text-4xl font-bold text-gray-900 mb-2">
+                    {{ selectedCourse.rating }}
+                  </div>
+                  <p-rating [(ngModel)]="selectedCourse.rating" [readonly]="true" class="mb-2">
+                  </p-rating>
+                  <p class="text-gray-600">{{ selectedCourse.students }} talaba baholadi</p>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <span class="text-sm w-8">5 ⭐</span>
+                    <p-progressBar [value]="75" class="flex-1 h-2"></p-progressBar>
+                    <span class="text-sm text-gray-600 w-8">75%</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="text-sm w-8">4 ⭐</span>
+                    <p-progressBar [value]="20" class="flex-1 h-2"></p-progressBar>
+                    <span class="text-sm text-gray-600 w-8">20%</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="text-sm w-8">3 ⭐</span>
+                    <p-progressBar [value]="3" class="flex-1 h-2"></p-progressBar>
+                    <span class="text-sm text-gray-600 w-8">3%</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="text-sm w-8">2 ⭐</span>
+                    <p-progressBar [value]="1" class="flex-1 h-2"></p-progressBar>
+                    <span class="text-sm text-gray-600 w-8">1%</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="text-sm w-8">1 ⭐</span>
+                    <p-progressBar [value]="1" class="flex-1 h-2"></p-progressBar>
+                    <span class="text-sm text-gray-600 w-8">1%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Individual Reviews -->
+            <!-- <div class="space-y-6">
+              <div *ngFor="let review of courseReviews" class="border-b border-gray-200 pb-6">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span class="text-blue-600 font-semibold">{{ review.author.charAt(0) }}</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-2">
+                      <h6 class="font-semibold text-gray-900">{{ review.author }}</h6>
+                      <span class="text-sm text-gray-500">{{ review.date }}</span>
+                    </div>
+                    <p-rating [(ngModel)]="review.rating" [readonly]="true" class="mb-3 text-sm">
+                    </p-rating>
+                    <p class="text-gray-600">{{ review.comment }}</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  </div>
+</p-dialog>
+
+<!-- Video Player Dialog -->
+<p-dialog
+  [(visible)]="showVideoDialog"
+  [modal]="true"
+  [closable]="true"
+  [style]="{ width: '90vw', maxWidth: '1000px' }"
+  styleClass="video-dialog"
+>
+  <ng-template pTemplate="header">
+    <div class="flex items-center justify-between w-full">
+      <h3 class="text-xl font-bold text-gray-900">{{ currentLesson?.title }}</h3>
+      <div class="flex items-center space-x-4 text-sm text-gray-600">
+        <span>{{ currentLesson?.type | titlecase }}</span>
+        <span>{{ currentLesson?.duration }}</span>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="currentLesson">
+    <!-- Video Player -->
+    <div
+      *ngIf="currentLesson.type === 'video'"
+      class="bg-gray-900 rounded-xl mb-6 relative overflow-hidden"
+      style="aspect-ratio: 16/9"
+    >
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center cursor-pointer"
+        >
+          <i class="pi pi-play text-white text-3xl ml-1"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Content -->
+    <div *ngIf="currentLesson.type === 'text'" class="prose max-w-none mb-6">
+      <div class="bg-gray-50 rounded-xl p-6">
+        <p>
+          {{
+            currentLesson.content ||
+              "Bu darsda matematik analizning asosiy tushunchalari batafsil ko'rib chiqiladi..."
+          }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Lesson Navigation -->
+    <div class="flex items-center justify-between">
+      <p-button
+        label="Oldingi dars"
+        icon="pi pi-chevron-left"
+        [outlined]="true"
+        (onClick)="previousLesson()"
+      >
+      </p-button>
+
+      <div class="flex items-center space-x-4">
+        <p-checkbox
+          [(ngModel)]="currentLesson.completed"
+          [binary]="true"
+          inputId="completed"
+          (onChange)="markLessonComplete()"
+        >
+        </p-checkbox>
+        <label for="completed" class="text-sm text-gray-600"
+          >Darsni yakunlangan deb belgilash</label
+        >
+      </div>
+
+      <p-button
+        label="Keyingi dars"
+        icon="pi pi-chevron-right"
+        iconPos="right"
+        (onClick)="nextLesson()"
+        class="btn-primary"
+      >
+      </p-button>
+    </div>
+  </div>
+</p-dialog>
