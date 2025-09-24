@@ -125,7 +125,6 @@ export class TestsComponent implements OnInit {
   }
 
   showTestInfo(test: ISpTests) {
-    console.log(test, '1')
     this.selectedTest = test;
     this.showTestInfoDialog = true;
   }
@@ -136,7 +135,6 @@ export class TestsComponent implements OnInit {
   }
 
   startTest() {
-    console.log(this.selectedTest, '2')
     if (this.selectedTest) {
       this.closeTestInfo();
       this._router.navigate(['/tests', this.selectedTest?.id]);
