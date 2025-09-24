@@ -12,7 +12,7 @@ export class SpTestsService extends BaseService<ISpTests> {
   }
 
   submitTestResult(testResult: any): Observable<any> {
-    return this.http.post(`${this.fullUrl}/result`, testResult);
+    return this.http.post(`${this.fullUrl}/check`, testResult);
   }
 
 }
