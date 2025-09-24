@@ -6,9 +6,9 @@
       <div class="flex items-center justify-between">
         <!-- Course Info -->
         <div class="flex items-center space-x-4">
-          <p-button 
-            icon="pi pi-arrow-left" 
-            [text]="true" 
+          <p-button
+            icon="pi pi-arrow-left"
+            [text]="true"
             [rounded]="true"
             class="text-gray-600 hover:bg-gray-100"
             routerLink="/courses"
@@ -42,27 +42,29 @@
       <div class="lg:col-span-1">
         <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
           <h3 class="text-lg font-bold text-gray-900 mb-4">Kurs Modullari</h3>
-          
+
           <div class="space-y-3">
-            <div 
+            <div
               *ngFor="let module of courseData?.sp_courses_modules; let moduleIndex = index"
               class="border rounded-lg overflow-hidden"
             >
               <!-- Module Header -->
-              <div 
+              <div
                 class="p-3 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors"
                 (click)="toggleModule(moduleIndex)"
               >
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-2">
-                    <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">
+                    <div
+                      class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold"
+                    >
                       {{ moduleIndex + 1 }}
                     </div>
                     <span class="font-medium text-gray-900 text-sm">
                       {{ module.name_uz || module.name_ru || module.name_kr }}
                     </span>
                   </div>
-                  <i 
+                  <i
                     class="pi text-gray-400 text-sm transition-transform"
                     [class.pi-chevron-down]="!expandedModules[moduleIndex]"
                     [class.pi-chevron-up]="expandedModules[moduleIndex]"
@@ -73,25 +75,37 @@
 
               <!-- Module Parts -->
               <div *ngIf="expandedModules[moduleIndex]" class="border-t">
-                <div 
+                <div
                   *ngFor="let part of module.sp_courses_module_parts; let partIndex = index"
                   class="p-3 hover:bg-gray-50 cursor-pointer transition-colors border-b last:border-b-0"
-                  [class.bg-blue-50]="currentModuleIndex === moduleIndex && currentPartIndex === partIndex"
+                  [class.bg-blue-50]="
+                    currentModuleIndex === moduleIndex && currentPartIndex === partIndex
+                  "
                   (click)="selectPart(moduleIndex, partIndex)"
                 >
                   <div class="flex items-center space-x-2">
-                    <i 
+                    <i
                       class="text-sm"
-                      [class.pi-play-circle]="part.type === 'video_youtube' || part.type === 'video_server'"
+                      [class.pi-play-circle]="
+                        part.type === 'video_youtube' || part.type === 'video_server'
+                      "
                       [class.pi-file-text]="part.type === 'text'"
                       [class.pi-book]="part.type === 'gibrid'"
-                      [class.text-green-600]="currentModuleIndex === moduleIndex && currentPartIndex === partIndex"
-                      [class.text-gray-400]="!(currentModuleIndex === moduleIndex && currentPartIndex === partIndex)"
+                      [class.text-green-600]="
+                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
+                      "
+                      [class.text-gray-400]="
+                        !(currentModuleIndex === moduleIndex && currentPartIndex === partIndex)
+                      "
                     ></i>
-                    <span 
+                    <span
                       class="text-sm"
-                      [class.text-blue-600]="currentModuleIndex === moduleIndex && currentPartIndex === partIndex"
-                      [class.font-medium]="currentModuleIndex === moduleIndex && currentPartIndex === partIndex"
+                      [class.text-blue-600]="
+                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
+                      "
+                      [class.font-medium]="
+                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
+                      "
                     >
                       {{ part.name_uz || part.name_ru || part.name_kr }}
                     </span>
@@ -112,7 +126,12 @@
             <div class="flex items-center justify-between">
               <div>
                 <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                  {{ currentPart?.name_uz || currentPart?.name_ru || currentPart?.name_kr || 'Kursga xush kelibsiz' }}
+                  {{
+                    currentPart?.name_uz ||
+                      currentPart?.name_ru ||
+                      currentPart?.name_kr ||
+                      'Kursga xush kelibsiz'
+                  }}
                 </h2>
                 <div class="flex items-center space-x-4 text-sm text-gray-600">
                   <span class="flex items-center">
@@ -120,9 +139,12 @@
                     {{ currentPart?.duration || '0 min' }}
                   </span>
                   <span class="flex items-center">
-                    <i 
+                    <i
                       class="mr-1"
-                      [class.pi-play-circle]="currentPart?.type === 'video_youtube' || currentPart?.type === 'video_server'"
+                      [class.pi-play-circle]="
+                        currentPart?.type === 'video_youtube' ||
+                        currentPart?.type === 'video_server'
+                      "
                       [class.pi-file-text]="currentPart?.type === 'text'"
                       [class.pi-book]="currentPart?.type === 'gibrid'"
                     ></i>
@@ -130,19 +152,19 @@
                   </span>
                 </div>
               </div>
-              
+
               <!-- Navigation Buttons -->
               <div class="flex space-x-2">
-                <p-button 
-                  icon="pi pi-chevron-left" 
+                <p-button
+                  icon="pi pi-chevron-left"
                   [outlined]="true"
                   [disabled]="!hasPreviousPart()"
                   (onClick)="goToPreviousPart()"
                   pTooltip="Oldingi dars"
                 >
                 </p-button>
-                <p-button 
-                  icon="pi pi-chevron-right" 
+                <p-button
+                  icon="pi pi-chevron-right"
                   [disabled]="!hasNextPart()"
                   (onClick)="goToNextPart()"
                   pTooltip="Keyingi dars"
@@ -156,15 +178,19 @@
           <div class="p-6">
             <!-- Welcome Message -->
             <div *ngIf="!currentPart" class="text-center py-16">
-              <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div
+                class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
                 <i class="pi pi-book text-blue-600 text-4xl"></i>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ courseData?.name }} kursiga xush kelibsiz!</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                {{ courseData?.name }} kursiga xush kelibsiz!
+              </h3>
               <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
                 {{ courseData?.description }}
               </p>
-              <p-button 
-                label="Birinchi darsni boshlash" 
+              <p-button
+                label="Birinchi darsni boshlash"
                 icon="pi pi-play"
                 (onClick)="startFirstLesson()"
               >
@@ -174,16 +200,19 @@
             <!-- Video Content -->
             <div *ngIf="currentPart?.type === 'video_youtube'" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <iframe 
+                <iframe
                   *ngIf="getYouTubeEmbedUrl(currentPart.content)"
-                  [src]="getYouTubeEmbedUrl(currentPart.content)" 
+                  [src]="getYouTubeEmbedUrl(currentPart.content)"
                   class="w-full h-full"
-                  frameborder="0" 
+                  frameborder="0"
                   allowfullscreen
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 >
                 </iframe>
-                <div *ngIf="!getYouTubeEmbedUrl(currentPart.content)" class="w-full h-full flex items-center justify-center">
+                <div
+                  *ngIf="!getYouTubeEmbedUrl(currentPart.content)"
+                  class="w-full h-full flex items-center justify-center"
+                >
                   <div class="text-center text-white">
                     <i class="pi pi-video text-4xl mb-4"></i>
                     <p>Video mavjud emas</p>
@@ -195,7 +224,7 @@
             <!-- Server Video Content -->
             <div *ngIf="currentPart?.type === 'video_server'" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <video 
+                <video
                   *ngIf="currentPart.file_video_id"
                   [src]="getServerVideoUrl(currentPart.file_video_id)"
                   class="w-full h-full"
@@ -204,7 +233,10 @@
                 >
                   Brauzeringiz video formatini qo'llab-quvvatlamaydi.
                 </video>
-                <div *ngIf="!currentPart.file_video_id" class="w-full h-full flex items-center justify-center">
+                <div
+                  *ngIf="!currentPart.file_video_id"
+                  class="w-full h-full flex items-center justify-center"
+                >
                   <div class="text-center text-white">
                     <i class="pi pi-video text-4xl mb-4"></i>
                     <p>Video mavjud emas</p>
@@ -214,15 +246,21 @@
             </div>
 
             <!-- Text Content -->
-            <div *ngIf="currentPart?.content && (currentPart?.type === 'text' || currentPart?.type === 'gibrid')" class="prose max-w-none">
-              <div [innerHTML]="currentPart.content" class="text-gray-700 leading-relaxed"></div>
+            <div
+              *ngIf="
+                currentPart?.content &&
+                (currentPart?.type === 'text' || currentPart?.type === 'gibrid')
+              "
+              class="prose max-w-none"
+            >
+              <div [innerHTML]="currentPart?.content" class="text-gray-700 leading-relaxed"></div>
             </div>
 
             <!-- Lesson Completion -->
             <div *ngIf="currentPart" class="mt-8 pt-6 border-t">
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                  <p-checkbox 
+                  <p-checkbox
                     [(ngModel)]="currentPartCompleted"
                     [binary]="true"
                     (onChange)="markPartAsCompleted()"
@@ -230,11 +268,11 @@
                   </p-checkbox>
                   <label class="text-sm text-gray-700">Darsni yakunlangan deb belgilash</label>
                 </div>
-                
-                <p-button 
+
+                <p-button
                   *ngIf="hasNextPart()"
-                  label="Keyingi dars" 
-                  icon="pi pi-chevron-right" 
+                  label="Keyingi dars"
+                  icon="pi pi-chevron-right"
                   iconPos="right"
                   (onClick)="goToNextPart()"
                 >

@@ -5,7 +5,6 @@ import {
   effect,
   inject,
   OnInit,
-  Router,
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -23,6 +22,8 @@ import { SpLevelService } from '../../../shared/services/sp-level.service';
 import { SpCoursesService } from '../../../shared/services/sp-courses.service';
 import { ISpCourses } from '../../../shared/models/sp-courses.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-courses',
@@ -39,6 +40,7 @@ import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pip
     AccordionModule,
     CheckboxModule,
     SelectItemLabelPipe,
+    CommonModule,
   ],
   templateUrl: './courses.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -57,7 +59,7 @@ export class CoursesComponent implements OnInit {
 
   showCourseOnboardDialog = false;
   showVideoDialog = false;
-  selectedCourse: ISpCourses | null = null;
+  selectedCourse!: ISpCourses;
   selectedFilter = 'all';
   filteredCourses: ISpCourses[] = [];
 
@@ -99,14 +101,14 @@ export class CoursesComponent implements OnInit {
         this._cdr.markForCheck();
       },
       error: (error) => {
-        console.error('Kurs ma\'lumotlarini yuklashda xatolik:', error);
-      }
+        console.error("Kurs ma'lumotlarini yuklashda xatolik:", error);
+      },
     });
   }
 
   closeCourseOnboard() {
     this.showCourseOnboardDialog = false;
-    this.selectedCourse = null;
+    this.selectedCourse;
     this._cdr.markForCheck();
   }
 
