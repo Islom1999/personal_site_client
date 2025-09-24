@@ -87,17 +87,4 @@ export class CoursesComponent implements OnInit {
     }
     this._cdr.markForCheck();
   }
-
-  // getLessonIcon(type: string): string {
-  //   switch (type) {
-  //     case 'video':
-  //       return 'pi pi-play-circle';
-  //     case 'text':
-  //       return 'pi pi-file-text';
-  //     case 'quiz':
-  //       return 'pi pi-question-circle';
-  //     default:
-  //       return 'pi pi-file';
-  //   }
-  // }
 }

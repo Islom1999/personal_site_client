@@ -145,11 +145,6 @@
                 {{ course.price }}
               </span>
             </div>
-            <!-- <div *ngIf="course.enrolled" class="absolute bottom-4 right-4">
-                <span class="px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-md">
-                  <i class="pi pi-check mr-1"></i>Ro'yxatdan o'tgan
-                </span>
-              </div> -->
           </div>
 
           <div class="p-6">
@@ -192,43 +187,29 @@
                 <p-rating [(ngModel)]="course.rating" [readonly]="true" class="text-sm"> </p-rating>
                 <span class="text-sm text-gray-600">({{ course.rating }})</span>
               </div>
-              <!-- <span class="text-sm text-gray-500">{{ course.students }} talaba</span> -->
             </div>
 
-            <!-- Progress Bar (if enrolled) -->
-            <!-- <div *ngIf="course.progress !== undefined" class="mb-4">
-                <div class="flex items-center justify-between text-sm mb-2">
-                  <span class="text-gray-600">Jarayon</span>
-                  <span class="text-blue-600 font-medium">{{ course.progress }}%</span>
-                </div>
-                <p-progressBar [value]="course.progress" class="h-2"> </p-progressBar>
-              </div> -->
-
             <!-- Action Buttons -->
-            <!-- <div class="flex space-x-2">
-                <p-button
-                  [label]="course.enrolled ? 'Davom etish' : 'Kursni boshlash'"
-                  [icon]="course.enrolled ? 'pi pi-play' : 'pi pi-shopping-cart'"
-                  class="flex-1 btn-primary"
-                  (onClick)="course.enrolled ? continueCourse(course) : enrollCourse(course)"
-                >
-                </p-button>
-                <p-button
-                  icon="pi pi-eye"
-                  [text]="true"
-                  [rounded]="true"
-                  class="text-blue-600 hover:bg-blue-50"
-                  (onClick)="viewCourse(course)"
-                  pTooltip="Kursni ko'rish"
-                >
-                </p-button>
-              </div> -->
+            <div class="flex space-x-2">
+              <p-button
+                [label]="'Kursni boshlash'"
+                [icon]="'pi pi-play'"
+                class="flex-1 btn-primary"
+              >
+              </p-button>
+              <p-button
+                icon="pi pi-eye"
+                [text]="true"
+                [rounded]="true"
+                class="text-blue-600 hover:bg-blue-50"
+                pTooltip="Kursni ko'rish"
+              >
+              </p-button>
+            </div>
           </div>
         </div>
         }
       </div>
     </div>
-
-    <!-- dialog -->
   </div>
 </div>
