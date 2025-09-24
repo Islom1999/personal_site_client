@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
+import { AuthService } from '../../pages/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,8 @@ export class HeaderComponent implements OnInit {
   mobileMenuOpen = false;
   isLoggedIn = false;
   currentUser: any = null;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     // Check if user is logged in (demo data)
@@ -35,10 +38,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.isLoggedIn = false;
-    this.currentUser = null;
-    // Redirect to home page
-    window.location.href = '/';
+    this.authService.logout();
   }
 }

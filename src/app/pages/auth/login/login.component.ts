@@ -8,6 +8,7 @@ import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -36,8 +37,9 @@ export class LoginComponent {
   loading = false;
   submitted = false;
   errorMessage = '';
+  googleLoading = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   login() {
     this.submitted = true;
@@ -74,7 +76,83 @@ export class LoginComponent {
   }
 
   loginWithGoogle() {
-    // Demo Google login
-    alert('Google login demo - haqiqiy loyihada Google OAuth ishlatiladi');
+    this.googleLoading = true;
+    this.errorMessage = '';
+
+    // Google OAuth2 login
+    this.initializeGoogleAuth().then(() => {
+      this.signInWithGoogle();
+    }).catch((error) => {
+      console.error('Google Auth initialization failed:', error);
+      this.errorMessage = 'Google Auth yuklanmadi. Qaytadan urinib ko\'ring.';
+      this.googleLoading = false;
+    });
+  }
+
+  private async initializeGoogleAuth(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (typeof google !== 'undefined' && google.accounts) {
+        resolve();
+        return;
+      }
+
+      // Load Google Identity Services script
+      const script = document.createElement('script');
+      script.src = 'https://accounts.google.com/gsi/client';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        google.accounts.id.initialize({
+          client_id: '1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com', // Replace with your actual client ID
+          callback: this.handleGoogleResponse.bind(this)
+        });
+        resolve();
+      };
+      script.onerror = () => reject(new Error('Failed to load Google Identity Services'));
+      document.head.appendChild(script);
+    });
+  }
+
+  private signInWithGoogle(): void {
+    google.accounts.id.prompt((notification: any) => {
+      if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+        // Fallback to popup
+        google.accounts.id.renderButton(
+          document.getElementById('google-signin-button') || document.body,
+          {
+            theme: 'outline',
+            size: 'large',
+            width: '100%'
+          }
+        );
+      }
+    });
+  }
+
+  private handleGoogleResponse(response: any): void {
+    if (response.credential) {
+      // Send token to backend
+      this.authService.signInGoogle({ google_token: response.credential }).subscribe({
+        next: (result) => {
+          // Save tokens
+          localStorage.setItem('accessToken', result.data.access_token);
+          localStorage.setItem('refreshToken', result.data.refresh_token);
+          
+          // Save user data
+          localStorage.setItem('currentUser', JSON.stringify(result.data.user));
+          
+          this.googleLoading = false;
+          this.router.navigate(['/profile']);
+        },
+        error: (error) => {
+          console.error('Google login failed:', error);
+          this.errorMessage = 'Google orqali kirish muvaffaqiyatsiz. Qaytadan urinib ko\'ring.';
+          this.googleLoading = false;
+        }
+      });
+    } else {
+      this.errorMessage = 'Google token olinmadi';
+      this.googleLoading = false;
+    }
   }
 }
