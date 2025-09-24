@@ -111,7 +111,7 @@ export class CoursesComponent implements OnInit {
   startCourse() {
     if (this.selectedCourse) {
       // Navigate to course read page
-      window.open(`/courses/${this.selectedCourse.id}`, '_blank');
+      this._router.navigate(['/courses', this.selectedCourse.id]);
     }
     this.closeCourseOnboard();
   }
