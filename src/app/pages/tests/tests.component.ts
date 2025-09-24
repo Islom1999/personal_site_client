@@ -21,6 +21,7 @@ import { SpCategoryService } from '../../../shared/services/sp-category.service'
 import { SpLevelService } from '../../../shared/services/sp-level.service';
 import { ISpTests } from '../../../shared/models/sp-tests.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tests',
@@ -43,6 +44,7 @@ import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pip
 })
 export class TestsComponent implements OnInit {
   _cdr = inject(ChangeDetectorRef);
+  _router = inject(Router);
 
   _spCategoryService = inject(SpCategoryService);
   _spLevelService = inject(SpLevelService);
@@ -54,6 +56,8 @@ export class TestsComponent implements OnInit {
 
   selectedCategory = 'all';
   selectedLevel = 'all';
+  showTestInfoDialog = false;
+  selectedTest: ISpTests | null = null;
 
   testCategoriesStyle = [
     {
@@ -101,6 +105,23 @@ export class TestsComponent implements OnInit {
       this.filteredTests = [...this.tests()];
     } else {
       this.filteredTests = this.tests().filter((test) => test.sp_level_id === level_id);
+    }
+  }
+
+  showTestInfo(test: ISpTests) {
+    this.selectedTest = test;
+    this.showTestInfoDialog = true;
+  }
+
+  closeTestInfo() {
+    this.showTestInfoDialog = false;
+    this.selectedTest = null;
+  }
+
+  startTest() {
+    if (this.selectedTest) {
+      this.closeTestInfo();
+      this._router.navigate(['/tests', this.selectedTest.id]);
     }
   }
 }
