@@ -134,12 +134,18 @@ export class LoginComponent {
       // Send token to backend
       this.authService.signInGoogle({ google_token: response.credential }).subscribe({
         next: (result) => {
-          // Save tokens
-          localStorage.setItem('accessToken', result.data.access_token);
-          localStorage.setItem('refreshToken', result.data.refresh_token);
+          // Save tokens to localStorage
+          if (result.data.access_token) {
+            localStorage.setItem('accessToken', result.data.access_token);
+          }
+          if (result.data.refresh_token) {
+            localStorage.setItem('refreshToken', result.data.refresh_token);
+          }
           
-          // Save user data
-          localStorage.setItem('currentUser', JSON.stringify(result.data.user));
+          // Save user data to localStorage
+          if (result.data.user) {
+            localStorage.setItem('currentUser', JSON.stringify(result.data.user));
+          }
           
           this.googleLoading = false;
           this.router.navigate(['/profile']);
