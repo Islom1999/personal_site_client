@@ -91,7 +91,7 @@ export class LoginComponent {
 
   private async initializeGoogleAuth(): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (typeof google !== 'undefined' && google.accounts) {
+      if (typeof window.google !== 'undefined' && window.google.accounts) {
         resolve();
         return;
       }
@@ -102,7 +102,7 @@ export class LoginComponent {
       script.async = true;
       script.defer = true;
       script.onload = () => {
-        google.accounts.id.initialize({
+        window.google.accounts.id.initialize({
           client_id: '1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com', // Replace with your actual client ID
           callback: this.handleGoogleResponse.bind(this)
         });
@@ -114,10 +114,10 @@ export class LoginComponent {
   }
 
   private signInWithGoogle(): void {
-    google.accounts.id.prompt((notification: any) => {
+    window.google.accounts.id.prompt((notification: any) => {
       if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
         // Fallback to popup
-        google.accounts.id.renderButton(
+        window.google.accounts.id.renderButton(
           document.getElementById('google-signin-button') || document.body,
           {
             theme: 'outline',
