@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DialogModule } from 'primeng/dialog';
-import { SpTestsService } from '../../../shared/services/sp-tests.service';
-import { ISpTests } from '../../../shared/models/sp-tests.model';
+import { SpTestsService } from '../../../../shared/services/sp-tests.service';
+import { ISpTests } from '../../../../shared/models/sp-tests.model';
 
 interface TestQuestion {
   id: string;

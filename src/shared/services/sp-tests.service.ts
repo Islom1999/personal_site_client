@@ -14,4 +14,8 @@ export class SpTestsService extends BaseService<ISpTests> {
   submitTestResult(testResult: any): Observable<any> {
     return this.http.post(`${this.fullUrl}/submit`, testResult);
   }
+
+  getTestQuestions(testId: string): Observable<any> {
+    return this.http.get(`${this.fullUrl}/${testId}/questions`);
+  }
 }

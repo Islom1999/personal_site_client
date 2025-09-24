@@ -79,31 +79,31 @@
             class="border rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50"
             [class.border-blue-500]="selectedAnswers[currentQuestion.id] === option.id"
             [class.bg-blue-50]="selectedAnswers[currentQuestion.id] === option.id"
-            (click)="selectAnswer(currentQuestion.id, option.id)"
+            (click)="selectAnswer(currentQuestion!.id, option.id)"
           >
             <div class="flex items-center space-x-3">
               <div 
                 class="w-6 h-6 rounded-full border-2 flex items-center justify-center"
-                [class.border-blue-500]="selectedAnswers[currentQuestion.id] === option.id"
-                [class.bg-blue-500]="selectedAnswers[currentQuestion.id] === option.id"
-                [class.border-gray-300]="selectedAnswers[currentQuestion.id] !== option.id"
+                [class.border-blue-500]="selectedAnswers[currentQuestion!.id] === option.id"
+                [class.bg-blue-500]="selectedAnswers[currentQuestion!.id] === option.id"
+                [class.border-gray-300]="selectedAnswers[currentQuestion!.id] !== option.id"
               >
                 <div 
-                  *ngIf="selectedAnswers[currentQuestion.id] === option.id"
+                  *ngIf="selectedAnswers[currentQuestion!.id] === option.id"
                   class="w-2 h-2 bg-white rounded-full"
                 ></div>
               </div>
               <span 
                 class="font-medium"
-                [class.text-blue-600]="selectedAnswers[currentQuestion.id] === option.id"
-                [class.text-gray-900]="selectedAnswers[currentQuestion.id] !== option.id"
+                [class.text-blue-600]="selectedAnswers[currentQuestion!.id] === option.id"
+                [class.text-gray-900]="selectedAnswers[currentQuestion!.id] !== option.id"
               >
                 {{ ['A', 'B', 'C', 'D'][i] }}.
               </span>
               <span 
                 class="flex-1"
-                [class.text-blue-600]="selectedAnswers[currentQuestion.id] === option.id"
-                [class.text-gray-700]="selectedAnswers[currentQuestion.id] !== option.id"
+                [class.text-blue-600]="selectedAnswers[currentQuestion!.id] === option.id"
+                [class.text-gray-700]="selectedAnswers[currentQuestion!.id] !== option.id"
               >
                 {{ option.option_text }}
               </span>
@@ -149,10 +149,10 @@
           class="w-10 h-10 rounded-lg text-sm font-medium transition-all duration-200"
           [class.bg-blue-500]="i === currentQuestionIndex"
           [class.text-white]="i === currentQuestionIndex"
-          [class.bg-green-100]="i !== currentQuestionIndex && selectedAnswers[question.id]"
-          [class.text-green-600]="i !== currentQuestionIndex && selectedAnswers[question.id]"
-          [class.bg-gray-100]="i !== currentQuestionIndex && !selectedAnswers[question.id]"
-          [class.text-gray-600]="i !== currentQuestionIndex && !selectedAnswers[question.id]"
+          [class.bg-green-100]="i !== currentQuestionIndex && selectedAnswers[question.id!]"
+          [class.text-green-600]="i !== currentQuestionIndex && selectedAnswers[question.id!]"
+          [class.bg-gray-100]="i !== currentQuestionIndex && !selectedAnswers[question.id!]"
+          [class.text-gray-600]="i !== currentQuestionIndex && !selectedAnswers[question.id!]"
           (click)="goToQuestion(i)"
         >
           {{ i + 1 }}

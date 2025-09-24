@@ -202,19 +202,19 @@
       <!-- Test Details -->
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-blue-600 mb-1">{{ selectedTest.questions_count || 20 }}</div>
+          <div class="text-2xl font-bold text-blue-600 mb-1">{{ selectedTest!.questions_count || 20 }}</div>
           <div class="text-sm text-gray-600">Savollar soni</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-green-600 mb-1">{{ selectedTest.duration }}</div>
+          <div class="text-2xl font-bold text-green-600 mb-1">{{ selectedTest!.duration }}</div>
           <div class="text-sm text-gray-600">Daqiqa</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-purple-600 mb-1">{{ selectedTest.sp_level_id | selectItemLabel : levels() }}</div>
+          <div class="text-2xl font-bold text-purple-600 mb-1">{{ selectedTest!.sp_level_id | selectItemLabel : levels() }}</div>
           <div class="text-sm text-gray-600">Daraja</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-orange-600 mb-1">{{ selectedTest.sp_category_id | selectItemLabel : categories() }}</div>
+          <div class="text-2xl font-bold text-orange-600 mb-1">{{ selectedTest!.sp_category_id | selectItemLabel : categories() }}</div>
           <div class="text-sm text-gray-600">Kategoriya</div>
         </div>
       </div>
