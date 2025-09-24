@@ -53,7 +53,7 @@ export class CoursesComponent implements OnInit {
   levels = toSignal(this._spLevelService.getAll(), { initialValue: [] });
   courses = toSignal(this._spCoursesService.getAll(), { initialValue: [] });
 
-  showCourseDialog = false;
+  showCourseOnboardDialog = false;
   showVideoDialog = false;
   selectedCourse: ISpCourses | null = null;
   selectedFilter = 'all';
@@ -86,5 +86,33 @@ export class CoursesComponent implements OnInit {
       );
     }
     this._cdr.markForCheck();
+  }
+
+  showCourseOnboard(course: ISpCourses) {
+    // Get full course details with modules
+    this._spCoursesService.getById(course.id).subscribe({
+      next: (fullCourse) => {
+        this.selectedCourse = fullCourse;
+        this.showCourseOnboardDialog = true;
+        this._cdr.markForCheck();
+      },
+      error: (error) => {
+        console.error('Kurs ma\'lumotlarini yuklashda xatolik:', error);
+      }
+    });
+  }
+
+  closeCourseOnboard() {
+    this.showCourseOnboardDialog = false;
+    this.selectedCourse = null;
+    this._cdr.markForCheck();
+  }
+
+  startCourse() {
+    if (this.selectedCourse) {
+      // Navigate to course read page
+      window.open(`/courses/${this.selectedCourse.id}`, '_blank');
+    }
+    this.closeCourseOnboard();
   }
 }
