@@ -5,19 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DialogModule } from 'primeng/dialog';
 import { SpTestsService } from '../../../../shared/services/sp-tests.service';
-import { ISpTests } from '../../../../shared/models/sp-tests.model';
-
-interface TestQuestion {
-  id: string;
-  question_text: string;
-  image_url?: string;
-  options: TestOption[];
-}
-
-interface TestOption {
-  id: string;
-  option_text: string;
-}
+import { ISpTests, ISpTestsQuession, ISpQuessionOption } from '../../../../shared/models/sp-tests.model';
 
 interface TestAnswer {
   sp_tests_quession_id: string;
@@ -49,7 +37,7 @@ export class TestWorkComponent implements OnInit, OnDestroy {
 
   testId: string = '';
   testData: ISpTests | null = null;
-  questions: TestQuestion[] = [];
+  questions: ISpTestsQuession[] = [];
   currentQuestionIndex = 0;
   selectedAnswers: { [questionId: string]: string } = {};
   
@@ -79,69 +67,13 @@ export class TestWorkComponent implements OnInit, OnDestroy {
         this.testData = test;
         this.timeRemaining = (test.duration || 30) * 60; // Convert minutes to seconds
         this.startTimer();
-        this.loadQuestions();
+        this.questions = test.sp_tests_quessions || [];
       },
       error: (error) => {
         console.error('Test yuklanmadi:', error);
         this._router.navigate(['/tests']);
       }
     });
-  }
-
-  loadQuestions() {
-    // Demo questions - real implementation would load from API
-    this.questions = [
-      {
-        id: '1',
-        question_text: '2x + 5 = 13 tenglamaning yechimi qanday?',
-        options: [
-          { id: '1a', option_text: 'x = 4' },
-          { id: '1b', option_text: 'x = 3' },
-          { id: '1c', option_text: 'x = 5' },
-          { id: '1d', option_text: 'x = 6' }
-        ]
-      },
-      {
-        id: '2',
-        question_text: 'Kvadrat tenglamaning diskriminanti qanday hisoblanadi?',
-        options: [
-          { id: '2a', option_text: 'D = b² - 4ac' },
-          { id: '2b', option_text: 'D = b² + 4ac' },
-          { id: '2c', option_text: 'D = a² - 4bc' },
-          { id: '2d', option_text: 'D = c² - 4ab' }
-        ]
-      },
-      {
-        id: '3',
-        question_text: 'Sin(90°) ning qiymati nechaga teng?',
-        options: [
-          { id: '3a', option_text: '0' },
-          { id: '3b', option_text: '1' },
-          { id: '3c', option_text: '√2/2' },
-          { id: '3d', option_text: '√3/2' }
-        ]
-      },
-      {
-        id: '4',
-        question_text: 'Uchburchakning ichki burchaklari yig\'indisi necha gradus?',
-        options: [
-          { id: '4a', option_text: '90°' },
-          { id: '4b', option_text: '180°' },
-          { id: '4c', option_text: '270°' },
-          { id: '4d', option_text: '360°' }
-        ]
-      },
-      {
-        id: '5',
-        question_text: 'Pitagor teoremasining formulasi qanday?',
-        options: [
-          { id: '5a', option_text: 'a + b = c' },
-          { id: '5b', option_text: 'a² + b² = c²' },
-          { id: '5c', option_text: 'a² - b² = c²' },
-          { id: '5d', option_text: 'a × b = c²' }
-        ]
-      }
-    ];
   }
 
   startTimer() {
@@ -165,7 +97,7 @@ export class TestWorkComponent implements OnInit, OnDestroy {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
 
-  get currentQuestion(): TestQuestion | null {
+  get currentQuestion(): ISpTestsQuession | null {
     return this.questions[this.currentQuestionIndex] || null;
   }
 
@@ -235,14 +167,18 @@ export class TestWorkComponent implements OnInit, OnDestroy {
   }
 
   private submitToBackend(submission: TestSubmission) {
-    // Real implementation would call API
-    console.log('Test submission:', submission);
-    
-    // Demo: Show results and redirect
-    const score = Math.floor(Math.random() * 40) + 60; // Random score between 60-100
-    alert(`Test yakunlandi!\nSizning natijangiz: ${score}%\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}`);
-    
-    // Redirect to tests page or results page
-    this._router.navigate(['/tests']);
+    // Submit test results to backend
+    this._testsService.submitTestResult(submission).subscribe({
+      next: (result) => {
+        console.log('Test natijasi yuborildi:', result);
+        alert(`Test yakunlandi!\nSizning natijangiz: ${result.score || 'N/A'}%\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}`);
+        this._router.navigate(['/tests']);
+      },
+      error: (error) => {
+        console.error('Test natijasini yuborishda xatolik:', error);
+        alert(`Test yakunlandi!\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}\nNatija saqlanmadi.`);
+        this._router.navigate(['/tests']);
+      }
+    });
   }
 }
