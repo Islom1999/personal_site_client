@@ -22,6 +22,7 @@ import { SpLevelService } from '../../../shared/services/sp-level.service';
 import { ISpTests } from '../../../shared/models/sp-tests.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tests',
@@ -50,9 +51,24 @@ export class TestsComponent implements OnInit {
   _spLevelService = inject(SpLevelService);
   _spTestsService = inject(SpTestsService);
 
-  categories = toSignal(this._spCategoryService.getAll(), { initialValue: [] });
-  levels = toSignal(this._spLevelService.getAll(), { initialValue: [] });
-  tests = toSignal(this._spTestsService.getAll(), { initialValue: [] });
+  categories = toSignal(
+    this._spCategoryService.getAll().pipe(
+      map(data => data.filter(item => item != null))
+    ), 
+    { initialValue: [] }
+  );
+  levels = toSignal(
+    this._spLevelService.getAll().pipe(
+      map(data => data.filter(item => item != null))
+    ), 
+    { initialValue: [] }
+  );
+  tests = toSignal(
+    this._spTestsService.getAll().pipe(
+      map(data => data.filter(item => item != null))
+    ), 
+    { initialValue: [] }
+  );
 
   selectedCategory = 'all';
   selectedLevel = 'all';
