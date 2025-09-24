@@ -5,6 +5,7 @@ import {
   effect,
   inject,
   OnInit,
+  Router,
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -48,6 +49,7 @@ export class CoursesComponent implements OnInit {
   _spCategoryService = inject(SpCategoryService);
   _spLevelService = inject(SpLevelService);
   _spCoursesService = inject(SpCoursesService);
+  _router = inject(Router);
 
   categories = toSignal(this._spCategoryService.getAll(), { initialValue: [] });
   levels = toSignal(this._spLevelService.getAll(), { initialValue: [] });
