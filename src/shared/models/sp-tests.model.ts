@@ -17,4 +17,19 @@ export interface ISpTests extends IBaseModel {
   code: string;
   sp_category_id: string;
   sp_level_id: string;
+  sp_tests_quessions: ISpTestsQuession[]
 }
+
+export interface ISpTestsQuession extends IBaseModel {
+  question: string
+  explanation: string
+  sp_tests_id: string
+  sp_quession_options: ISpQuessionOption[]
+}
+
+export interface ISpQuessionOption extends IBaseModel {
+  text: string
+  is_result: boolean
+  sp_tests_quession_id: string
+}
+
