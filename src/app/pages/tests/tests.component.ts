@@ -137,7 +137,7 @@ export class TestsComponent implements OnInit {
   startTest() {
     if (this.selectedTest) {
       this.closeTestInfo();
-      this._router.navigate(['/tests', this.selectedTest.id]);
+      this._router.navigate(['/tests', this.selectedTest?.id]);
     }
   }
 }
