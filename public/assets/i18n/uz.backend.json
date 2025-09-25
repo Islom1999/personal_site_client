@@ -1,0 +1,1866 @@
+[
+  {
+    "key": "common.fullName",
+    "name_uz": "Mamataliyev O'tkir Ashurovich",
+    "name_ru": "Маматалиев Ўткир Ашурович",
+    "name_kr": "Маматалиев Ўткир Ашурович",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.role",
+    "name_uz": "O'qituvchi",
+    "name_ru": "Учитель",
+    "name_kr": "Ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.home",
+    "name_uz": "Bosh sahifa",
+    "name_ru": "Главная",
+    "name_kr": "Бош саҳифа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.materials",
+    "name_uz": "O'quv ishlanmalari",
+    "name_ru": "Учебные разработки",
+    "name_kr": "Ўқув ишланмалари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.courses",
+    "name_uz": "Kurslar",
+    "name_ru": "Курсы",
+    "name_kr": "Курслар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.tests",
+    "name_uz": "Testlar",
+    "name_ru": "Тесты",
+    "name_kr": "Тестлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.contact",
+    "name_uz": "Aloqa",
+    "name_ru": "Контакты",
+    "name_kr": "Алоқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.viewCourses",
+    "name_uz": "Kurslarni ko'rish",
+    "name_ru": "Просмотреть курсы",
+    "name_kr": "Курсларни кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.contact",
+    "name_uz": "Bog'lanish",
+    "name_ru": "Связаться",
+    "name_kr": "Боғланиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.view",
+    "name_uz": "Ko'rish",
+    "name_ru": "Просмотреть",
+    "name_kr": "Кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.start",
+    "name_uz": "Boshlash",
+    "name_ru": "Начать",
+    "name_kr": "Бошлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.try",
+    "name_uz": "Sinash",
+    "name_ru": "Попробовать",
+    "name_kr": "Синаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.call",
+    "name_uz": "Qo'ng'iroq qilish",
+    "name_ru": "Позвонить",
+    "name_kr": "Қўнг'ироқ қилиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.send",
+    "name_uz": "Xabar yuborish",
+    "name_ru": "Отправить сообщение",
+    "name_kr": "Хабар юбориш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.apply",
+    "name_uz": "Yozilish",
+    "name_ru": "Записаться",
+    "name_kr": "Ёзилиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.consult",
+    "name_uz": "Maslahat olish",
+    "name_ru": "Получить консультацию",
+    "name_kr": "Маслаҳат олиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.details",
+    "name_uz": "Batafsil",
+    "name_ru": "Подробнее",
+    "name_kr": "Батафсил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.startTest",
+    "name_uz": "Testni boshlash",
+    "name_ru": "Начать тест",
+    "name_kr": "Тестни бошлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.cancel",
+    "name_uz": "Bekor qilish",
+    "name_ru": "Отмена",
+    "name_kr": "Бекор қилиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.startCourse",
+    "name_uz": "Kursni boshlash",
+    "name_ru": "Начать курс",
+    "name_kr": "Курсни бошлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.viewCourse",
+    "name_uz": "Kursni ko'rish",
+    "name_ru": "Посмотреть курс",
+    "name_kr": "Курсни кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.filters.all",
+    "name_uz": "Barchasi",
+    "name_ru": "Все",
+    "name_kr": "Барчаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.labels.test",
+    "name_uz": "test",
+    "name_ru": "тест",
+    "name_kr": "тест",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.levels.all",
+    "name_uz": "Barcha darajalar",
+    "name_ru": "Все уровни",
+    "name_kr": "Барча даражалар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.description",
+    "name_uz": "Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional o'qituvchi. Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar taqdim etamiz.",
+    "name_ru": "Профессиональный преподаватель с многолетним опытом обучения и преподавания математики. Предоставляем качественные учебные материалы и курсы для студентов и учащихся.",
+    "name_kr": "Математика фанини ўрганиш ва ўргатишда кўп йиллик тажрибага ега профессионал ўқитувчи. Талабалар ва ўқувчилар учун сифатли та'лим материаллари ва курслар тақдим етамиз.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.quickLinks.title",
+    "name_uz": "Tezkor havolalar",
+    "name_ru": "Быстрые ссылки",
+    "name_kr": "Тезкор ҳаволалар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.contact.title",
+    "name_uz": "Aloqa",
+    "name_ru": "Контакты",
+    "name_kr": "Алоқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.contact.phone",
+    "name_uz": "+998 90 123 45 67",
+    "name_ru": "+998 90 123 45 67",
+    "name_kr": "+998 90 123 45 67",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.contact.email",
+    "name_uz": "info@matematik.uz",
+    "name_ru": "info@matematik.uz",
+    "name_kr": "инфо@математик.уз",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.contact.address",
+    "name_uz": "Toshkent, O'zbekiston",
+    "name_ru": "Ташкент, Узбекистан",
+    "name_kr": "Тошкент, Ўзбекистон",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "footer.copyright",
+    "name_uz": "(C) {{year}} Prof. Matematik. Barcha huquqlar himoyalangan.",
+    "name_ru": "(C) {{year}} Prof. Matematik. Все права защищены.",
+    "name_kr": "(Ц) {{еар}} Проф. Математик. Барча ҳуқуқлар ҳимояланган.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.badge",
+    "name_uz": "Ta'lim sohasi mutaxassisi",
+    "name_ru": "Специалист в сфере образования",
+    "name_kr": "Та'лим соҳаси мутахассиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.position",
+    "name_uz": "Termiz davlat muhandislik va agrotexnologiyalar universiteti akademik litseyi o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "Заместитель директора по учебной части академического лицея Термезского государственного университета инженерии и агротехнологий",
+    "name_kr": "Термиз давлат муҳандислик ва агротехнологиялар университети академик литсейи ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.description",
+    "name_uz": "2005-yildan buyon akademik litsey matematika fanini o'qitib, o'quv jarayonini tashkil etish va boshqarish bilan shug'ullanadigan tajribali mutaxassis. 2024-yildan Termiz davlat muhandislik va agrotexnologiyalar universiteti akademik litseyida o'quv ishlari bo'yicha direktor o'rinbosari lavozimida faoliyat yuritmoqda.",
+    "name_ru": "С 2005 года преподаёт математику в академическом лицее, организует и управляет учебным процессом. С 2024 года работает заместителем директора по учебной части академического лицея Термезского государственного университета инженерии и агротехнологий.",
+    "name_kr": "2005-йилдан буён академик литсей математика фанини ўқитиб, ўқув жараёнини ташкил етиш ва бошқариш билан шуғулланадиган тажрибали мутахассис. 2024-йилдан Термиз давлат муҳандислик ва агротехнологиялар университети академик литсейида ўқув ишлари бўйича директор ўринбосари лавозимида фаолият юритмоқда.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.experience.value",
+    "name_uz": "19+",
+    "name_ru": "19+",
+    "name_kr": "19+",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.experience.label",
+    "name_uz": "Yil ta'lim tajribasi",
+    "name_ru": "Лет педагогического опыта",
+    "name_kr": "Йил та'лим тажрибаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.deputy.value",
+    "name_uz": "2012",
+    "name_ru": "2012",
+    "name_kr": "2012",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.deputy.label",
+    "name_uz": "Direktor o'rinbosari sifatidagi ilk yil",
+    "name_ru": "Первый год в должности заместителя директора",
+    "name_kr": "Директор ўринбосари сифатидаги илк йил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.education.value",
+    "name_uz": "2",
+    "name_ru": "2",
+    "name_kr": "2",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.education.label",
+    "name_uz": "Oliy ta'lim bosqichi (bakalavr, magistr)",
+    "name_ru": "Ступени высшего образования (бакалавриат, магистратура)",
+    "name_kr": "Олий та'лим босқичи (бакалавр, магистр)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.language.value",
+    "name_uz": "Rus",
+    "name_ru": "Русский",
+    "name_kr": "Рус",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.language.label",
+    "name_uz": "Biladigan chet tili",
+    "name_ru": "Владение иностранным языком",
+    "name_kr": "Биладиган чет тили",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.floating.director",
+    "name_uz": "Direktor o'rinbosari",
+    "name_ru": "Заместитель директора",
+    "name_kr": "Директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.floating.degree",
+    "name_uz": "Magistr (2022)",
+    "name_ru": "Магистр (2022)",
+    "name_kr": "Магистр (2022)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.title",
+    "name_uz": "Ta'lim va Tajriba",
+    "name_ru": "Образование и опыт",
+    "name_kr": "Та'лим ва Тажриба",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.subtitle",
+    "name_uz": "Akademik litseylar va ta'lim muassasalarida yig'ilgan bilim hamda boshqaruv tajribasi.",
+    "name_ru": "Копилка знаний и управленческого опыта, полученных в академических лицеях и учебных учреждениях.",
+    "name_kr": "Академик литсейлар ва та'лим муассасаларида йиғилган билим ҳамда бошқарув тажрибаси.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.title",
+    "name_uz": "Ta'lim ma'lumotlari",
+    "name_ru": "Образование",
+    "name_kr": "Та'лим ма'лумотлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.magistr.title",
+    "name_uz": "Magistr - Matematika",
+    "name_ru": "Магистр – Математика",
+    "name_kr": "Магистр - Математика",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.magistr.subtitle",
+    "name_uz": "Termiz davlat universiteti, 2022",
+    "name_ru": "Термезский государственный университет, 2022",
+    "name_kr": "Термиз давлат университети, 2022",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.bachelor.title",
+    "name_uz": "Bakalavr - Matematika",
+    "name_ru": "Бакалавр – Математика",
+    "name_kr": "Бакалавр - Математика",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.bachelor.subtitle",
+    "name_uz": "Termiz davlat universiteti, 2005",
+    "name_ru": "Термезский государственный университет, 2005",
+    "name_kr": "Термиз давлат университети, 2005",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.language.title",
+    "name_uz": "Chet tili",
+    "name_ru": "Иностранный язык",
+    "name_kr": "Чет тили",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.language.subtitle",
+    "name_uz": "Rus tili",
+    "name_ru": "Русский язык",
+    "name_kr": "Рус тили",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.title",
+    "name_uz": "Asosiy ma'lumotlar",
+    "name_ru": "Основные сведения",
+    "name_kr": "Асосий ма'лумотлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.birth",
+    "name_uz": "31-oktabr 1981, Surxondaryo viloyati Boysun tumani",
+    "name_ru": "31 октября 1981 года, Бойсунский район Сурхандарьинской области",
+    "name_kr": "31-октабр 1981, Сурхондарё вилояти Бойсун тумани",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.nationality",
+    "name_uz": "Millati: o'zbek",
+    "name_ru": "Национальность: узбек",
+    "name_kr": "Миллати: ўзбек",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.party",
+    "name_uz": "Partiyaviyligi: yo'q",
+    "name_ru": "Партийность: нет",
+    "name_kr": "Партиявийлиги: ё'қ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.awards",
+    "name_uz": "Davlat mukofotlari: yo'q",
+    "name_ru": "Государственные награды: нет",
+    "name_kr": "Давлат мукофотлари: ё'қ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.membership",
+    "name_uz": "Saylanadigan organlarga a'zolik: yo'q",
+    "name_ru": "Членство в выборных органах: нет",
+    "name_kr": "Сайланадиган органларга а'золик: ё'қ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.title",
+    "name_uz": "Rahbarlik va boshqaruv",
+    "name_ru": "Руководство и управление",
+    "name_kr": "Раҳбарлик ва бошқарув",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.current",
+    "name_uz": "2024 - h.v. Termiz DMATU akademik litseyi, o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "С 2024 г. по настоящее время: академический лицей Термезского государственного университета инженерии и агротехнологий, заместитель директора по учебной части",
+    "name_kr": "2024 - ҳ.в. Термиз ДМАТУ академик литсейи, ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tmti",
+    "name_uz": "2022 - 2024 Termiz muhandislik-texnologiya instituti akademik litseyi, direktor o'rinbosari",
+    "name_ru": "2022 – 2024 гг. Академический лицей Термезского инженерно-технологического института, заместитель директора",
+    "name_kr": "2022 - 2024 Термиз муҳандислик-технология институти академик литсейи, директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tdtu",
+    "name_uz": "2017 - 2022 TDTU Termiz filiali akademik litseyi, direktor o'rinbosari",
+    "name_ru": "2017 – 2022 гг. Академический лицей Терmezского филиала ТГТУ, заместитель директора",
+    "name_kr": "2017 - 2022 ТДТУ Термиз филиали академик литсейи, директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tdu",
+    "name_uz": "2012 - 2014 Termiz DU akademik litseyi, o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "2012 – 2014 гг. Академический лицей при Термезском государственном университете, заместитель директора по учебной части",
+    "name_kr": "2012 - 2014 Термиз ДУ академик литсейи, ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.title",
+    "name_uz": "Mehnat faoliyati",
+    "name_ru": "Трудовая деятельность",
+    "name_kr": "Меҳнат фаолияти",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.year",
+    "name_uz": "2024",
+    "name_ru": "2024",
+    "name_kr": "2024",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.title",
+    "name_uz": "Direktor o'rinbosari",
+    "name_ru": "Заместитель директора",
+    "name_kr": "Директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.place",
+    "name_uz": "Termiz DMATU akademik litseyi",
+    "name_ru": "Академический лицей Термезского ГУ инженерии и агротехнологий",
+    "name_kr": "Термиз ДМАТУ академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.description",
+    "name_uz": "2024-yil 4-sentyabrdan buyon o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "С 4 сентября 2024 года – заместитель директора по учебной части",
+    "name_kr": "2024-йил 4-сентябрдан буён ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.year",
+    "name_uz": "2022",
+    "name_ru": "2022",
+    "name_kr": "2022",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.title",
+    "name_uz": "Direktor o'rinbosari",
+    "name_ru": "Заместитель директора",
+    "name_kr": "Директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.place",
+    "name_uz": "Termiz muhandislik-texnologiya instituti akademik litseyi",
+    "name_ru": "Академический лицей Термезского инженерно-технологического института",
+    "name_kr": "Термиз муҳандислик-технология институти академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.description",
+    "name_uz": "2022-2024 yillarda o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "В 2022–2024 годах – заместитель директора по учебной части",
+    "name_kr": "2022-2024 йилларда ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.year",
+    "name_uz": "2017",
+    "name_ru": "2017",
+    "name_kr": "2017",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.title",
+    "name_uz": "Direktor o'rinbosari",
+    "name_ru": "Заместитель директора",
+    "name_kr": "Директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.place",
+    "name_uz": "TDTU Termiz filiali akademik litseyi",
+    "name_ru": "Академический лицей Терmezского филиала ТГТУ",
+    "name_kr": "ТДТУ Термиз филиали академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.description",
+    "name_uz": "2017-2022 yillarda o'quv ishlari bo'yicha direktor o'rinbosari",
+    "name_ru": "В 2017–2022 годах – заместитель директора по учебной части",
+    "name_kr": "2017-2022 йилларда ўқув ишлари бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.year",
+    "name_uz": "2015",
+    "name_ru": "2015",
+    "name_kr": "2015",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.title",
+    "name_uz": "Matematika o'qituvchisi",
+    "name_ru": "Преподаватель математики",
+    "name_kr": "Математика ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.place",
+    "name_uz": "Termiz DU akademik litseyi",
+    "name_ru": "Академический лицей Термезского государственного университета",
+    "name_kr": "Термиз ДУ академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.description",
+    "name_uz": "2014-2017 yillarda matematika fanidan dars bergan, 2015-yilda ma'naviy-ma'rifiy ishlar bo'yicha direktor o'rinbosari",
+    "name_ru": "В 2014–2017 годах преподавал математику, в 2015 году – заместитель директора по духовно-просветительской работе",
+    "name_kr": "2014-2017 йилларда математика фанидан дарс берган, 2015-йилда ма'навий-ма'рифий ишлар бўйича директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.year",
+    "name_uz": "2012",
+    "name_ru": "2012",
+    "name_kr": "2012",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.title",
+    "name_uz": "Direktor o'rinbosari",
+    "name_ru": "Заместитель директора",
+    "name_kr": "Директор ўринбосари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.place",
+    "name_uz": "Termiz DU akademik litseyi",
+    "name_ru": "Академический лицей Термезского государственного университета",
+    "name_kr": "Термиз ДУ академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.description",
+    "name_uz": "2012-2014 yillarda o'quv ishlari bo'yicha direktor o'rinbosari, 2011-2012 yillarda aniq fanlar kafedrasi mudiri",
+    "name_ru": "В 2012–2014 годах – заместитель директора по учебной части, в 2011–2012 годах – заведующий кафедрой точных наук",
+    "name_kr": "2012-2014 йилларда ўқув ишлари бўйича директор ўринбосари, 2011-2012 йилларда аниқ фанлар кафедраси мудири",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.year",
+    "name_uz": "2005",
+    "name_ru": "2005",
+    "name_kr": "2005",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.title",
+    "name_uz": "Matematika o'qituvchisi",
+    "name_ru": "Преподаватель математики",
+    "name_kr": "Математика ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.place",
+    "name_uz": "Termiz DU qoshidagi akademik litsey",
+    "name_ru": "Академический лицей при Термезском государственном университете",
+    "name_kr": "Термиз ДУ қошидаги академик литсей",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.description",
+    "name_uz": "2005-2011 yillarda matematika fanidan dars bergan",
+    "name_ru": "Преподавал математику в 2005–2011 годах",
+    "name_kr": "2005-2011 йилларда математика фанидан дарс берган",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.title",
+    "name_uz": "Faoliyat yo'nalishlari",
+    "name_ru": "Направления деятельности",
+    "name_kr": "Фаолият ё'налишлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.subtitle",
+    "name_uz": "Matematika o'qitish, ta'lim jarayonini boshqarish va o'quvchilarni qo'llab-quvvatlash bo'yicha asosiy faoliyat yo'nalishlari.",
+    "name_ru": "Основные направления деятельности по преподаванию математики, управлению учебным процессом и поддержке учащихся.",
+    "name_kr": "Математика ўқитиш, та'лим жараёнини бошқариш ва ўқувчиларни қўллаб-қувватлаш бўйича асосий фаолият ё'налишлари.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.title",
+    "name_uz": "Matematika darslari",
+    "name_ru": "Уроки математики",
+    "name_kr": "Математика дарслари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.description",
+    "name_uz": "Akademik litsey o'quvchilari uchun chuqurlashtirilgan matematika kurslari",
+    "name_ru": "Углублённые курсы по математике для учащихся академического лицея",
+    "name_kr": "Академик литсей ўқувчилари учун чуқурлаштирилган математика курслари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.limit",
+    "name_uz": "Analiz",
+    "name_ru": "Анализ",
+    "name_kr": "Анализ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.derivative",
+    "name_uz": "Algebra",
+    "name_ru": "Алгебра",
+    "name_kr": "Алгебра",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.integral",
+    "name_uz": "Geometriya",
+    "name_ru": "Геометрия",
+    "name_kr": "Геометрия",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.title",
+    "name_uz": "O'quv reja va dasturlar",
+    "name_ru": "Учебные планы и программы",
+    "name_kr": "Ўқув режа ва дастурлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.description",
+    "name_uz": "Fanlar bo'yicha o'quv rejalari va dars ishlanmalarini shakllantirish",
+    "name_ru": "Формирование учебных программ и планов по предметам",
+    "name_kr": "Фанлар бўйича ўқув режалари ва дарс ишланмаларини шакллантириш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.plan",
+    "name_uz": "O'quv reja",
+    "name_ru": "Учебный план",
+    "name_kr": "Ўқув режа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.methodology",
+    "name_uz": "Metodika",
+    "name_ru": "Методика",
+    "name_kr": "Методика",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.assessment",
+    "name_uz": "Nazorat",
+    "name_ru": "Контроль",
+    "name_kr": "Назорат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.title",
+    "name_uz": "Metodik qo'llab-quvvatlash",
+    "name_ru": "Методическая поддержка",
+    "name_kr": "Методик қўллаб-қувватлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.description",
+    "name_uz": "O'qituvchilar va mentorlar uchun metodik seminarlar, tajriba almashish",
+    "name_ru": "Методические семинары и обмен опытом для преподавателей и наставников",
+    "name_kr": "Ўқитувчилар ва менторлар учун методик семинарлар, тажриба алмашиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.seminar",
+    "name_uz": "Seminar",
+    "name_ru": "Семинар",
+    "name_kr": "Семинар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.mentorship",
+    "name_uz": "Mentorlik",
+    "name_ru": "Наставничество",
+    "name_kr": "Менторлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.methodology",
+    "name_uz": "Metodika",
+    "name_ru": "Методика",
+    "name_kr": "Методика",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.title",
+    "name_uz": "Imtihonlarga tayyorlash",
+    "name_ru": "Подготовка к экзаменам",
+    "name_kr": "Имтиҳонларга тайёрлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.description",
+    "name_uz": "Davlat attestatsiyasi va oliy ta'limga kirish imtihonlariga tayyorlash",
+    "name_ru": "Подготовка к государственной аттестации и вступительным экзаменам в вузы",
+    "name_kr": "Давлат аттестатсияси ва олий та'лимга кириш имтиҳонларига тайёрлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.dtm",
+    "name_uz": "DTM",
+    "name_ru": "ГЦВ (DTM)",
+    "name_kr": "ДТМ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.assessment",
+    "name_uz": "Nazorat",
+    "name_ru": "Контроль",
+    "name_kr": "Назорат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.strategy",
+    "name_uz": "Strategiya",
+    "name_ru": "Стратегия",
+    "name_kr": "Стратегия",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.title",
+    "name_uz": "Ma'naviy-ma'rifiy ishlar",
+    "name_ru": "Духовно-просветительская работа",
+    "name_kr": "Ма'навий-ма'рифий ишлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.description",
+    "name_uz": "O'quvchilar bilan tarbiyaviy ishlarni tashkil etish va hamkorlik",
+    "name_ru": "Организация воспитательной работы и сотрудничество с учащимися",
+    "name_kr": "Ўқувчилар билан тарбиявий ишларни ташкил етиш ва ҳамкорлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.education",
+    "name_uz": "Tarbiyaviy",
+    "name_ru": "Воспитательный",
+    "name_kr": "Тарбиявий",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.collaboration",
+    "name_uz": "Hamkorlik",
+    "name_ru": "Сотрудничество",
+    "name_kr": "Ҳамкорлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.project",
+    "name_uz": "Loyiha",
+    "name_ru": "Проект",
+    "name_kr": "Лойиҳа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.title",
+    "name_uz": "Maslahat va mentorlik",
+    "name_ru": "Консультации и наставничество",
+    "name_kr": "Маслаҳат ва менторлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.description",
+    "name_uz": "O'quvchilar va ustozlarga individual maslahatlar, rivojlanish rejalarini tuzish",
+    "name_ru": "Индивидуальные консультации для учащихся и наставников, составление планов развития",
+    "name_kr": "Ўқувчилар ва устозларга индивидуал маслаҳатлар, ривожланиш режаларини тузиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.consulting",
+    "name_uz": "Maslahat",
+    "name_ru": "Консультация",
+    "name_kr": "Маслаҳат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.development",
+    "name_uz": "Rivojlanish",
+    "name_ru": "Развитие",
+    "name_kr": "Ривожланиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.monitoring",
+    "name_uz": "Monitoring",
+    "name_ru": "Мониторинг",
+    "name_kr": "Мониторинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.title",
+    "name_uz": "Ta'lim xizmatlari",
+    "name_ru": "Образовательные услуги",
+    "name_kr": "Та'лим хизматлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.subtitle",
+    "name_uz": "Akademik litsey o'quvchilari va o'qituvchilari uchun amaliy yordam hamda qo'llab-quvvatlash xizmatlari.",
+    "name_ru": "Практическая помощь и поддержка для учащихся и преподавателей академического лицея.",
+    "name_kr": "Академик литсей ўқувчилари ва ўқитувчилари учун амалий ёрдам ҳамда қўллаб-қувватлаш хизматлари.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.academic.title",
+    "name_uz": "Akademik darslar",
+    "name_ru": "Академические занятия",
+    "name_kr": "Академик дарслар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.academic.description",
+    "name_uz": "Matematika fanidan chuqurlashtirilgan darslar va qo'llanmalar",
+    "name_ru": "Углублённые занятия и учебные пособия по математике",
+    "name_kr": "Математика фанидан чуқурлаштирилган дарслар ва қўлланмалар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.management.title",
+    "name_uz": "Boshqaruv ko'magi",
+    "name_ru": "Административная поддержка",
+    "name_kr": "Бошқарув кўмаги",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.management.description",
+    "name_uz": "O'quv jarayonini rejalashtirish, nazorat va monitoring jarayonlari",
+    "name_ru": "Планирование, контроль и мониторинг учебного процесса",
+    "name_kr": "Ўқув жараёнини режалаштириш, назорат ва мониторинг жараёнлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.seminars.title",
+    "name_uz": "Metodik seminarlar",
+    "name_ru": "Методические семинары",
+    "name_kr": "Методик семинарлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.seminars.description",
+    "name_uz": "O'qituvchilar uchun metodik seminarlar va tajriba almashish",
+    "name_ru": "Методические семинары и обмен опытом для преподавателей",
+    "name_kr": "Ўқитувчилар учун методик семинарлар ва тажриба алмашиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.consulting.title",
+    "name_uz": "Maslahat va mentorlik",
+    "name_ru": "Консультации и наставничество",
+    "name_kr": "Маслаҳат ва менторлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.consulting.description",
+    "name_uz": "O'quvchilar va ota-onalar uchun individual maslahatlar",
+    "name_ru": "Индивидуальные консультации для учащихся и родителей",
+    "name_kr": "Ўқувчилар ва ота-оналар учун индивидуал маслаҳатлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.title",
+    "name_uz": "Natijalar va faktlar",
+    "name_ru": "Результаты и факты",
+    "name_kr": "Натижалар ва фактлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.subtitle",
+    "name_uz": "Mehnat faoliyati davomida to'plangan tajriba va asosiy ko'rsatkichlar.",
+    "name_ru": "Достижения и ключевые показатели, накопленные за годы работы.",
+    "name_kr": "Меҳнат фаолияти давомида тўпланган тажриба ва асосий кўрсаткичлар.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.value",
+    "name_uz": "2005",
+    "name_ru": "2005",
+    "name_kr": "2005",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.label",
+    "name_uz": "Kasbiy faoliyat boshlanishi",
+    "name_ru": "Начало профессиональной деятельности",
+    "name_kr": "Касбий фаолият бошланиши",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.detail",
+    "name_uz": "Termiz DU akademik litseyi",
+    "name_ru": "Академический лицей Термезского государственного университета",
+    "name_kr": "Термиз ДУ академик литсейи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.value",
+    "name_uz": "4",
+    "name_ru": "4",
+    "name_kr": "4",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.label",
+    "name_uz": "Akademik litsey va institut",
+    "name_ru": "Академический лицей и институт",
+    "name_kr": "Академик литсей ва институт",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.detail",
+    "name_uz": "Termiz DU, TDTU filiali, TMITI, DMATU",
+    "name_ru": "Термезский ГУ, филиал ТГТУ, ТМИТИ, ДМАТУ",
+    "name_kr": "Термиз ДУ, ТДТУ филиали, ТМИТИ, ДМАТУ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.value",
+    "name_uz": "2",
+    "name_ru": "2",
+    "name_kr": "2",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.label",
+    "name_uz": "Oliy ta'lim bosqichi",
+    "name_ru": "Ступень высшего образования",
+    "name_kr": "Олий та'лим босқичи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.detail",
+    "name_uz": "Bakalavr va magistr",
+    "name_ru": "Бакалавр и магистратура",
+    "name_kr": "Бакалавр ва магистр",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.value",
+    "name_uz": "19+",
+    "name_ru": "19+",
+    "name_kr": "19+",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.label",
+    "name_uz": "Yil ta'lim tajribasi",
+    "name_ru": "Лет педагогического опыта",
+    "name_kr": "Йил та'лим тажрибаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.detail",
+    "name_uz": "2005-yildan hozirga qadar",
+    "name_ru": "С 2005 года по настоящее время",
+    "name_kr": "2005-йилдан ҳозирга қадар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.deputy.value",
+    "name_uz": "2012",
+    "name_ru": "2012",
+    "name_kr": "2012",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.deputy.label",
+    "name_uz": "Direktor o'rinbosari sifatidagi ilk yil",
+    "name_ru": "Первый год в должности заместителя директора",
+    "name_kr": "Директор ўринбосари сифатидаги илк йил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.tdtu.value",
+    "name_uz": "2017",
+    "name_ru": "2017",
+    "name_kr": "2017",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.tdtu.label",
+    "name_uz": "TDTU Termiz filiali akademik litseyiga o'tish",
+    "name_ru": "Переход в академический лицей Терmezского филиала ТГТУ",
+    "name_kr": "ТДТУ Термиз филиали академик литсейига ўтиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.current.value",
+    "name_uz": "2024",
+    "name_ru": "2024",
+    "name_kr": "2024",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.current.label",
+    "name_uz": "Termiz DMATU akademik litseyida yangi bosqich",
+    "name_ru": "Новый этап в академическом лицее Термезского ГУ инженерии и агротехнологий",
+    "name_kr": "Термиз ДМАТУ академик литсейида янги босқич",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.title",
+    "name_uz": "Biz bilan bog'laning",
+    "name_ru": "Свяжитесь с нами",
+    "name_kr": "Биз билан боғланинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.subtitle",
+    "name_uz": "Savollaringiz bormi? Shaxsiy darslar yoki kurslar haqida ma'lumot olishni xohlaysizmi? Biz bilan bog'laning va professional yordam oling",
+    "name_ru": "Есть вопросы? Хотите получить информацию о персональных занятиях или курсах? Свяжитесь с нами и получите профессиональную помощь.",
+    "name_kr": "Саволларингиз борми? Шахсий дарслар ёки курслар ҳақида ма'лумот олишни хоҳлайсизми? Биз билан боғланинг ва профессионал ёрдам олинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.title",
+    "name_uz": "Xabar yuborish",
+    "name_ru": "Отправить сообщение",
+    "name_kr": "Хабар юбориш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.firstName.label",
+    "name_uz": "Ism *",
+    "name_ru": "Имя *",
+    "name_kr": "Исм *",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.firstName.placeholder",
+    "name_uz": "Ismingizni kiriting",
+    "name_ru": "Введите ваше имя",
+    "name_kr": "Исмингизни киритинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.lastName.label",
+    "name_uz": "Familiya *",
+    "name_ru": "Фамилия *",
+    "name_kr": "Фамилия *",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.lastName.placeholder",
+    "name_uz": "Familiyangizni kiriting",
+    "name_ru": "Введите вашу фамилию",
+    "name_kr": "Фамилиянгизни киритинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.email.label",
+    "name_uz": "Email *",
+    "name_ru": "Электронная почта *",
+    "name_kr": "Емаил *",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.email.placeholder",
+    "name_uz": "email@example.com",
+    "name_ru": "email@example.com",
+    "name_kr": "емаил@ехампле.цом",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.phone.label",
+    "name_uz": "Telefon raqami",
+    "name_ru": "Номер телефона",
+    "name_kr": "Телефон рақами",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.phone.placeholder",
+    "name_uz": "+998 90 123 45 67",
+    "name_ru": "+998 90 123 45 67",
+    "name_kr": "+998 90 123 45 67",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.subject.label",
+    "name_uz": "Mavzu *",
+    "name_ru": "Тема *",
+    "name_kr": "Мавзу *",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.subject.placeholder",
+    "name_uz": "Xabar mavzusi",
+    "name_ru": "Тема сообщения",
+    "name_kr": "Хабар мавзуси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.message.label",
+    "name_uz": "Xabar *",
+    "name_ru": "Сообщение *",
+    "name_kr": "Хабар *",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.form.message.placeholder",
+    "name_uz": "Xabaringizni yozing...",
+    "name_ru": "Напишите ваше сообщение...",
+    "name_kr": "Хабарингизни ёзинг...",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.title",
+    "name_uz": "Aloqa ma'lumotlari",
+    "name_ru": "Контактная информация",
+    "name_kr": "Алоқа ма'лумотлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.phone.title",
+    "name_uz": "Telefon",
+    "name_ru": "Телефон",
+    "name_kr": "Телефон",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.phone.primary",
+    "name_uz": "+998 90 123 45 67",
+    "name_ru": "+998 90 123 45 67",
+    "name_kr": "+998 90 123 45 67",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.phone.secondary",
+    "name_uz": "+998 71 234 56 78",
+    "name_ru": "+998 71 234 56 78",
+    "name_kr": "+998 71 234 56 78",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.email.title",
+    "name_uz": "Email",
+    "name_ru": "Электронная почта",
+    "name_kr": "Емаил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.email.primary",
+    "name_uz": "info@matematik.uz",
+    "name_ru": "info@matematik.uz",
+    "name_kr": "инфо@математик.уз",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.email.secondary",
+    "name_uz": "prof.matematik@gmail.com",
+    "name_ru": "prof.matematik@gmail.com",
+    "name_kr": "проф.математик@гмаил.цом",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.address.title",
+    "name_uz": "Manzil",
+    "name_ru": "Адрес",
+    "name_kr": "Манзил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.address.city",
+    "name_uz": "Toshkent shahri",
+    "name_ru": "Город Ташкент",
+    "name_kr": "Тошкент шаҳри",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.address.district",
+    "name_uz": "Chilonzor tumani",
+    "name_ru": "Чиланзарский район",
+    "name_kr": "Чилонзор тумани",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.hours.title",
+    "name_uz": "Ish vaqti",
+    "name_ru": "Время работы",
+    "name_kr": "Иш вақти",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.hours.weekdays",
+    "name_uz": "Dushanba - Juma: 9:00 - 18:00",
+    "name_ru": "Понедельник – Пятница: 9:00 – 18:00",
+    "name_kr": "Душанба - Жума: 9:00 - 18:00",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.info.hours.saturday",
+    "name_uz": "Shanba: 10:00 - 16:00",
+    "name_ru": "Суббота: 10:00 – 16:00",
+    "name_kr": "Шанба: 10:00 - 16:00",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.quick.title",
+    "name_uz": "Tezkor aloqa",
+    "name_ru": "Быстрая связь",
+    "name_kr": "Тезкор алоқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.quick.description",
+    "name_uz": "Shaxsiy darslar yoki kurslar haqida tezkor ma'lumot olish uchun to'g'ridan-to'g'ri qo'ng'iroq qiling",
+    "name_ru": "Чтобы оперативно получить информацию о персональных занятиях или курсах, позвоните напрямую",
+    "name_kr": "Шахсий дарслар ёки курслар ҳақида тезкор ма'лумот олиш учун тўғридан-тўғри қўнг'ироқ қилинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "contact.alert.success",
+    "name_uz": "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+    "name_ru": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.",
+    "name_kr": "Хабарингиз муваффақиятли юборилди! Тез орада сиз билан боғланамиз.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.title",
+    "name_uz": "O'quv Ishlanmalari",
+    "name_ru": "Учебные материалы",
+    "name_kr": "Ўқув Ишланмалари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.subtitle",
+    "name_uz": "Matematika fanining barcha bo'limlari bo'yicha to'liq darslik materiallari, qo'llanmalar va amaliy mashqlar to'plami",
+    "name_ru": "Полный набор учебных материалов, пособий и практических заданий по всем разделам математики",
+    "name_kr": "Математика фанининг барча бўлимлари бўйича тўлиқ дарслик материаллари, қўлланмалар ва амалий машқлар тўплами",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.search.label",
+    "name_uz": "Qidirish",
+    "name_ru": "Поиск",
+    "name_kr": "Қидириш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.search.placeholder",
+    "name_uz": "Material nomi...",
+    "name_ru": "Название материала...",
+    "name_kr": "Материал номи...",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.category.label",
+    "name_uz": "Kategoriya",
+    "name_ru": "Категория",
+    "name_kr": "Категория",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.category.placeholder",
+    "name_uz": "Kategoriyani tanlang",
+    "name_ru": "Выберите категорию",
+    "name_kr": "Категорияни танланг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.level.label",
+    "name_uz": "Daraja",
+    "name_ru": "Уровень",
+    "name_kr": "Даража",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.filters.level.placeholder",
+    "name_uz": "Darajani tanlang",
+    "name_ru": "Выберите уровень",
+    "name_kr": "Даражани танланг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.card.downloads",
+    "name_uz": "{{count}} yuklab olindi",
+    "name_ru": "{{count}} загрузок",
+    "name_kr": "{{цоунт}} юклаб олинди",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.actions.view",
+    "name_uz": "Ko'rish",
+    "name_ru": "Просмотреть",
+    "name_kr": "Кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.actions.download",
+    "name_uz": "Yuklab olish",
+    "name_ru": "Скачать",
+    "name_kr": "Юклаб олиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.empty.title",
+    "name_uz": "Hech narsa topilmadi",
+    "name_ru": "Ничего не найдено",
+    "name_kr": "Ҳеч нарса топилмади",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "materials.empty.description",
+    "name_uz": "Qidiruv shartlaringizni o'zgartirib ko'ring",
+    "name_ru": "Измените параметры поиска",
+    "name_kr": "Қидирув шартларингизни ўзгартириб кўринг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.title",
+    "name_uz": "Matematik Testlar",
+    "name_ru": "Математические тесты",
+    "name_kr": "Математик Тестлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.subtitle",
+    "name_uz": "Bilimingizni sinab ko'ring va matematik ko'nikmalaringizni rivojlantiring. Har xil darajadagi testlar orqali o'z darajangizni aniqlang",
+    "name_ru": "Проверьте свои знания и развивайте математические навыки. Определите свой уровень с помощью тестов разных категорий.",
+    "name_kr": "Билимингизни синаб кўринг ва математик кўникмаларингизни ривожлантиринг. Ҳар хил даражадаги тестлар орқали ўз даражангизни аниқланг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.categories.title",
+    "name_uz": "Test Kategoriyalari",
+    "name_ru": "Категории тестов",
+    "name_kr": "Тест Категориялари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.available.title",
+    "name_uz": "Mavjud Testlar",
+    "name_ru": "Доступные тесты",
+    "name_kr": "Мавжуд Тестлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.card.questions",
+    "name_uz": "{{count}} savol",
+    "name_ru": "{{count}} вопросов",
+    "name_kr": "{{цоунт}} савол",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.card.duration",
+    "name_uz": "{{minutes}} daqiqa",
+    "name_ru": "{{minutes}} минут",
+    "name_kr": "{{минутес}} дақиқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.actions.results",
+    "name_uz": "Natijalarni ko'rish",
+    "name_ru": "Просмотреть результаты",
+    "name_kr": "Натижаларни кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.title",
+    "name_uz": "Test Ma'lumotlari",
+    "name_ru": "Информация о тесте",
+    "name_kr": "Тест Ма'лумотлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.stats.questions",
+    "name_uz": "Savollar soni",
+    "name_ru": "Количество вопросов",
+    "name_kr": "Саволлар сони",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.stats.duration",
+    "name_uz": "Daqiqa",
+    "name_ru": "Минута",
+    "name_kr": "Дақиқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.stats.level",
+    "name_uz": "Daraja",
+    "name_ru": "Уровень",
+    "name_kr": "Даража",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.stats.category",
+    "name_uz": "Kategoriya",
+    "name_ru": "Категория",
+    "name_kr": "Категория",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.rules.title",
+    "name_uz": "Muhim qoidalar:",
+    "name_ru": "Важно:",
+    "name_kr": "Муҳим қоидалар:",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.rules.time",
+    "name_uz": "Test vaqti tugagach avtomatik yakunlanadi",
+    "name_ru": "После окончания времени тест завершается автоматически",
+    "name_kr": "Тест вақти тугагач автоматик якунланади",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.rules.answer",
+    "name_uz": "Har bir savolga faqat bitta javob tanlash mumkin",
+    "name_ru": "Для каждого вопроса можно выбрать только один ответ",
+    "name_kr": "Ҳар бир саволга фақат битта жавоб танлаш мумкин",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.rules.pause",
+    "name_uz": "Testni boshlangandan keyin to'xtatib bo'lmaydi",
+    "name_ru": "После начала тест нельзя остановить",
+    "name_kr": "Тестни бошлангандан кейин тўхтатиб бўлмайди",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "tests.modal.rules.complete",
+    "name_uz": "Barcha savollarni javoblashga harakat qiling",
+    "name_ru": "Постарайтесь ответить на все вопросы",
+    "name_kr": "Барча саволларни жавоблашга ҳаракат қилинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.title",
+    "name_uz": "Video Kurslar",
+    "name_ru": "Видео курсы",
+    "name_kr": "Видео Курслар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.subtitle",
+    "name_uz": "Matematik fanlarni chuqur o'rganish uchun professional video kurslar. Har bir mavzu bo'yicha step-by-step ta'lim olish imkoniyati",
+    "name_ru": "Профессиональные видеокурсы для углублённого изучения математических дисциплин. Пошаговое обучение по каждой теме.",
+    "name_kr": "Математик фанларни чуқур ўрганиш учун профессионал видео курслар. Ҳар бир мавзу бўйича степ-бй-степ та'лим олиш имконияти",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.badge",
+    "name_uz": "Eng mashhur kurs",
+    "name_ru": "Самый популярный курс",
+    "name_kr": "Енг машҳур курс",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.title",
+    "name_uz": "Matematik Analiz: Noldan Professionallik Darajasigacha",
+    "name_ru": "Математический анализ: от нуля до профессионального уровня",
+    "name_kr": "Математик Анализ: Нолдан Профессионаллик Даражасигача",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.description",
+    "name_uz": "Matematik analizning barcha asosiy mavzularini o'rganing. Limitlar, hosilalar, integrallar va ularning amaliy qo'llanilishi.",
+    "name_ru": "Изучите все ключевые темы математического анализа: пределы, производные, интегралы и их практическое применение.",
+    "name_kr": "Математик анализнинг барча асосий мавзуларини ўрганинг. Лимитлар, ҳосилалар, интеграллар ва уларнинг амалий қўлланилиши.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.duration",
+    "name_uz": "24 soat",
+    "name_ru": "24 часа",
+    "name_kr": "24 соат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.lessons",
+    "name_uz": "48 dars",
+    "name_ru": "48 уроков",
+    "name_kr": "48 дарс",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.featured.students",
+    "name_uz": "2,340 talaba",
+    "name_ru": "2 340 студентов",
+    "name_kr": "2,340 талаба",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.categories.title",
+    "name_uz": "Kurs Kategoriyalari",
+    "name_ru": "Категории курсов",
+    "name_kr": "Курс Категориялари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.list.title",
+    "name_uz": "Barcha Kurslar",
+    "name_ru": "Все курсы",
+    "name_kr": "Барча Курслар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.card.duration",
+    "name_uz": "Davomiyligi: {{duration}} soat",
+    "name_ru": "Продолжительность: {{duration}} часов",
+    "name_kr": "Давомийлиги: {{дуратион}} соат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.card.students",
+    "name_uz": "Talabalar: {{count}}",
+    "name_ru": "Студенты: {{count}}",
+    "name_kr": "Талабалар: {{цоунт}}",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.card.priceFree",
+    "name_uz": "Bepul",
+    "name_ru": "Бесплатно",
+    "name_kr": "Бепул",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.card.currency",
+    "name_uz": "so'm",
+    "name_ru": "сум",
+    "name_kr": "сўм",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.actions.view",
+    "name_uz": "Kursni ko'rish",
+    "name_ru": "Посмотреть курс",
+    "name_kr": "Курсни кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.title",
+    "name_uz": "Kurs Ma'lumotlari",
+    "name_ru": "Информация о курсе",
+    "name_kr": "Курс Ма'лумотлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.stats.modules",
+    "name_uz": "Modullar",
+    "name_ru": "Модули",
+    "name_kr": "Модуллар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.stats.duration",
+    "name_uz": "Davomiyligi",
+    "name_ru": "Продолжительность",
+    "name_kr": "Давомийлиги",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.stats.level",
+    "name_uz": "Daraja",
+    "name_ru": "Уровень",
+    "name_kr": "Даража",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.stats.price",
+    "name_uz": "Narx",
+    "name_ru": "Цена",
+    "name_kr": "Нарх",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "courses.modal.modules.title",
+    "name_uz": "Kurs modullari:",
+    "name_ru": "Модули курса:",
+    "name_kr": "Курс модуллари:",
+    "translation_type": "admin",
+    "is_use": true
+  }
+]
