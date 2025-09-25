@@ -1,4 +1,4 @@
-<footer class="bg-gray-900 text-white">
+﻿<footer class="bg-gray-900 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <!-- Logo va ma'lumot -->
@@ -10,14 +10,12 @@
             <span class="text-white font-bold text-lg">M</span>
           </div>
           <div>
-            <h3 class="text-lg font-bold">Mamataliyev O‘tkir Ashurovich</h3>
-            <p class="text-gray-400 text-sm">O'qituvchi</p>
+            <h3 class="text-lg font-bold">{{ 'common.fullName' | translate }}</h3>
+            <p class="text-gray-400 text-sm">{{ 'common.role' | translate }}</p>
           </div>
         </div>
         <p class="text-gray-400 mb-4 max-w-md">
-          Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional
-          o'qituvchi. Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar taqdim
-          etamiz.
+          {{ 'footer.description' | translate }}
         </p>
         <div class="flex space-x-4">
           <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
@@ -34,26 +32,26 @@
 
       <!-- Tezkor havolalar -->
       <div>
-        <h4 class="text-lg font-semibold mb-4">Tezkor havolalar</h4>
+        <h4 class="text-lg font-semibold mb-4">{{ 'footer.quickLinks.title' | translate }}</h4>
         <ul class="space-y-2">
           <li>
             <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
-              >O'quv ishlanmalari</a
+              >{{ 'common.nav.materials' | translate }}</a
             >
           </li>
           <li>
             <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
-              >Kurslar</a
+              >{{ 'common.nav.courses' | translate }}</a
             >
           </li>
           <li>
             <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
-              >Testlar</a
+              >{{ 'common.nav.tests' | translate }}</a
             >
           </li>
           <li>
             <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"
-              >Aloqa</a
+              >{{ 'common.nav.contact' | translate }}</a
             >
           </li>
         </ul>
@@ -61,19 +59,19 @@
 
       <!-- Aloqa ma'lumotlari -->
       <div>
-        <h4 class="text-lg font-semibold mb-4">Aloqa</h4>
+        <h4 class="text-lg font-semibold mb-4">{{ 'footer.contact.title' | translate }}</h4>
         <ul class="space-y-2">
           <li class="flex items-center space-x-2">
             <i class="pi pi-phone text-blue-400"></i>
-            <span class="text-gray-400">+998 90 123 45 67</span>
+            <span class="text-gray-400">{{ 'footer.contact.phone' | translate }}</span>
           </li>
           <li class="flex items-center space-x-2">
             <i class="pi pi-envelope text-blue-400"></i>
-            <span class="text-gray-400">info@matematik.uz</span>
+            <span class="text-gray-400">{{ 'footer.contact.email' | translate }}</span>
           </li>
           <li class="flex items-center space-x-2">
             <i class="pi pi-map-marker text-blue-400"></i>
-            <span class="text-gray-400">Toshkent, O'zbekiston</span>
+            <span class="text-gray-400">{{ 'footer.contact.address' | translate }}</span>
           </li>
         </ul>
       </div>
@@ -81,7 +79,7 @@
 
     <div class="border-t border-gray-800 mt-8 pt-8 text-center">
       <p class="text-gray-400">
-        © {{ currentYear }} Prof. Matematik. Barcha huquqlar himoyalangan.
+        {{ 'footer.copyright' | translate:{year: currentYear} }}
       </p>
     </div>
   </div>

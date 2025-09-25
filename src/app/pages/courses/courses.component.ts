@@ -1,3 +1,4 @@
+﻿import { TooltipModule } from 'primeng/tooltip';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -25,6 +26,7 @@ import { ISpCourses } from '../../../shared/models/sp-courses.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-courses',
@@ -40,8 +42,10 @@ import { CommonModule } from '@angular/common';
     TabsModule,
     AccordionModule,
     CheckboxModule,
+    TooltipModule,
     SelectItemLabelPipe,
     CommonModule,
+    TranslateModule,
   ],
   templateUrl: './courses.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -62,7 +66,6 @@ export class CoursesComponent implements OnInit {
   showVideoDialog = false;
   selectedCourse!: ISpCourses;
   selectedFilter = 'all';
-  // filteredCourses: ISpCourses[] = [];
   filteredCourses = signal<any[]>([]);
 
   constructor() {
@@ -97,7 +100,6 @@ export class CoursesComponent implements OnInit {
   }
 
   showCourseOnboard(course: ISpCourses) {
-    // Get full course details with modules
     this._spCoursesService.getById(course.id).subscribe({
       next: (fullCourse) => {
         this.selectedCourse = fullCourse;
@@ -118,9 +120,11 @@ export class CoursesComponent implements OnInit {
 
   startCourse() {
     if (this.selectedCourse) {
-      // Navigate to course read page
       this._router.navigate(['/courses', this.selectedCourse.id]);
     }
     this.closeCourseOnboard();
   }
 }
+
+
+

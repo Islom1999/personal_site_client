@@ -1,4 +1,4 @@
-<!-- Hero Section -->
+﻿<!-- Hero Section -->
 <section class="relative py-16 lg:py-24 overflow-hidden">
   <div
     class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10"
@@ -11,53 +11,65 @@
           <span
             class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4"
           >
-            Ta'lim sohasi mutaxassisi
+            {{ 'home.hero.badge' | translate }}
           </span>
         </div>
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-          Mamataliyev O'tkir Ashurovich
+          {{ 'common.fullName' | translate }}
         </h1>
         <h2 class="text-xl lg:text-2xl text-blue-600 font-semibold mb-6">
-          Termiz davlat muhandislik va agrotexnologiyalar universiteti akademik litseyi o'quv
-          ishlari bo'yicha direktor o'rinbosari
+          {{ 'home.hero.position' | translate }}
         </h2>
         <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-          2005-yildan buyon akademik litsey matematika fanini o'qitib, o'quv jarayonini tashkil
-          etish va boshqarish bilan shug'ullanadigan tajribali mutaxassis. 2024-yildan Termiz davlat
-          muhandislik va agrotexnologiyalar universiteti akademik litseyida o'quv ishlari bo'yicha
-          direktor o'rinbosari lavozimida faoliyat yuritmoqda.
+          {{ 'home.hero.description' | translate }}
         </p>
 
         <!-- Asosiy ma'lumotlar -->
         <div class="grid grid-cols-2 gap-4 mb-8">
           <div class="text-center p-4 bg-white/80 rounded-xl shadow-sm">
-            <div class="text-2xl font-bold text-blue-600 mb-1">19+</div>
-            <div class="text-sm text-gray-600">Yil ta'lim tajribasi</div>
+            <div class="text-2xl font-bold text-blue-600 mb-1">
+              {{ 'home.hero.stats.experience.value' | translate }}
+            </div>
+            <div class="text-sm text-gray-600">
+              {{ 'home.hero.stats.experience.label' | translate }}
+            </div>
           </div>
           <div class="text-center p-4 bg-white/80 rounded-xl shadow-sm">
-            <div class="text-2xl font-bold text-green-600 mb-1">2012</div>
-            <div class="text-sm text-gray-600">Direktor o'rinbosari sifatidagi ilk yil</div>
+            <div class="text-2xl font-bold text-green-600 mb-1">
+              {{ 'home.hero.stats.deputy.value' | translate }}
+            </div>
+            <div class="text-sm text-gray-600">
+              {{ 'home.hero.stats.deputy.label' | translate }}
+            </div>
           </div>
           <div class="text-center p-4 bg-white/80 rounded-xl shadow-sm">
-            <div class="text-2xl font-bold text-purple-600 mb-1">2</div>
-            <div class="text-sm text-gray-600">Oliy ta'lim bosqichi (bakalavr, magistr)</div>
+            <div class="text-2xl font-bold text-purple-600 mb-1">
+              {{ 'home.hero.stats.education.value' | translate }}
+            </div>
+            <div class="text-sm text-gray-600">
+              {{ 'home.hero.stats.education.label' | translate }}
+            </div>
           </div>
           <div class="text-center p-4 bg-white/80 rounded-xl shadow-sm">
-            <div class="text-2xl font-bold text-orange-600 mb-1">Rus</div>
-            <div class="text-sm text-gray-600">Biladigan chet tili</div>
+            <div class="text-2xl font-bold text-orange-600 mb-1">
+              {{ 'home.hero.stats.language.value' | translate }}
+            </div>
+            <div class="text-sm text-gray-600">
+              {{ 'home.hero.stats.language.label' | translate }}
+            </div>
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <p-button
-            label="Kurslarni ko'rish"
+            [label]="'common.buttons.viewCourses' | translate"
             icon="pi pi-book"
             routerLink="/courses"
             class="btn-primary"
           >
           </p-button>
           <p-button
-            label="Bog'lanish"
+            [label]="'common.buttons.contact' | translate"
             icon="pi pi-phone"
             [outlined]="true"
             routerLink="/contact"
@@ -77,7 +89,7 @@
             >
               <img
                 src="/person.png"
-                alt="Mamataliyev O'tkir Ashurovich"
+                [attr.alt]="('common.fullName' | translate)"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -86,12 +98,12 @@
             <div
               class="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-3 py-2 rounded-full text-sm font-bold shadow-lg"
             >
-              Direktor o'rinbosari
+              {{ 'home.hero.floating.director' | translate }}
             </div>
             <div
               class="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-2 rounded-full text-sm font-bold shadow-lg"
             >
-              Magistr (2022)
+              {{ 'home.hero.floating.degree' | translate }}
             </div>
           </div>
         </div>
@@ -104,9 +116,11 @@
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Ta'lim va Tajriba</h2>
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {{ 'home.education.title' | translate }}
+      </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Akademik litseylar va ta'lim muassasalarida yig'ilgan bilim hamda boshqaruv tajribasi.
+        {{ 'home.education.subtitle' | translate }}
       </p>
     </div>
 
@@ -116,19 +130,33 @@
         <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
           <i class="pi pi-graduation-cap text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Ta'lim ma'lumotlari</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.education.cards.education.title' | translate }}
+        </h3>
         <div class="space-y-4">
           <div>
-            <h4 class="font-semibold text-gray-900">Magistr - Matematika</h4>
-            <p class="text-gray-600 text-sm">Termiz davlat universiteti, 2022</p>
+            <h4 class="font-semibold text-gray-900">
+              {{ 'home.education.cards.education.items.magistr.title' | translate }}
+            </h4>
+            <p class="text-gray-600 text-sm">
+              {{ 'home.education.cards.education.items.magistr.subtitle' | translate }}
+            </p>
           </div>
           <div>
-            <h4 class="font-semibold text-gray-900">Bakalavr - Matematika</h4>
-            <p class="text-gray-600 text-sm">Termiz davlat universiteti, 2005</p>
+            <h4 class="font-semibold text-gray-900">
+              {{ 'home.education.cards.education.items.bachelor.title' | translate }}
+            </h4>
+            <p class="text-gray-600 text-sm">
+              {{ 'home.education.cards.education.items.bachelor.subtitle' | translate }}
+            </p>
           </div>
           <div>
-            <h4 class="font-semibold text-gray-900">Chet tili</h4>
-            <p class="text-gray-600 text-sm">Rus tili</p>
+            <h4 class="font-semibold text-gray-900">
+              {{ 'home.education.cards.education.items.language.title' | translate }}
+            </h4>
+            <p class="text-gray-600 text-sm">
+              {{ 'home.education.cards.education.items.language.subtitle' | translate }}
+            </p>
           </div>
         </div>
       </div>
@@ -138,29 +166,39 @@
         <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
           <i class="pi pi-id-card text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Asosiy ma'lumotlar</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.education.cards.personal.title' | translate }}
+        </h3>
         <div class="space-y-3">
           <div class="flex items-start space-x-2">
             <i class="pi pi-map-marker text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm"
-              >31-oktabr 1981, Surxondaryo viloyati Boysun tumani</span
-            >
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.personal.items.birth' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-users text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">Millati: o'zbek</span>
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.personal.items.nationality' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-flag text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">Partiyaviyligi: yo'q</span>
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.personal.items.party' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-star text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">Davlat mukofotlari: yo'q</span>
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.personal.items.awards' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-briefcase text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">Saylanadigan organlarga a'zolik: yo'q</span>
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.personal.items.membership' | translate }}
+            </span>
           </div>
         </div>
       </div>
@@ -170,34 +208,33 @@
         <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6">
           <i class="pi pi-sitemap text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Rahbarlik va boshqaruv</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.education.cards.management.title' | translate }}
+        </h3>
         <div class="space-y-3">
           <div class="flex items-start space-x-2">
             <i class="pi pi-check-circle text-purple-600 mt-1"></i>
-            <span class="text-gray-700 text-sm"
-              >2024 - h.v. Termiz DMATU akademik litseyi, o'quv ishlari bo'yicha direktor
-              o'rinbosari</span
-            >
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.management.items.current' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-check-circle text-purple-600 mt-1"></i>
-            <span class="text-gray-700 text-sm"
-              >2022 - 2024 Termiz muhandislik-texnologiya instituti akademik litseyi, direktor
-              o'rinbosari</span
-            >
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.management.items.tmti' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-check-circle text-purple-600 mt-1"></i>
-            <span class="text-gray-700 text-sm"
-              >2017 - 2022 TDTU Termiz filiali akademik litseyi, direktor o'rinbosari</span
-            >
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.management.items.tdtu' | translate }}
+            </span>
           </div>
           <div class="flex items-start space-x-2">
             <i class="pi pi-check-circle text-purple-600 mt-1"></i>
-            <span class="text-gray-700 text-sm"
-              >2012 - 2014 Termiz DU akademik litseyi, o'quv ishlari bo'yicha direktor
-              o'rinbosari</span
-            >
+            <span class="text-gray-700 text-sm">
+              {{ 'home.education.cards.management.items.tdu' | translate }}
+            </span>
           </div>
         </div>
       </div>
@@ -205,20 +242,28 @@
 
     <!-- Ish tajribasi timeline -->
     <div class="bg-gray-50 rounded-3xl p-8">
-      <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Mehnat faoliyati</h3>
+      <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+        {{ 'home.timeline.title' | translate }}
+      </h3>
       <div class="max-w-4xl mx-auto">
         <div class="space-y-8">
           <div class="flex items-start space-x-6">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2024</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.current.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Direktor o'rinbosari</h4>
-              <p class="text-blue-600 font-medium">Termiz DMATU akademik litseyi</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.current.title' | translate }}
+              </h4>
+              <p class="text-blue-600 font-medium">
+                {{ 'home.timeline.items.current.place' | translate }}
+              </p>
               <p class="text-gray-600 mt-2">
-                2024-yil 4-sentyabrdan buyon o'quv ishlari bo'yicha direktor o'rinbosari
+                {{ 'home.timeline.items.current.description' | translate }}
               </p>
             </div>
           </div>
@@ -227,15 +272,19 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2022</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.tmti.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Direktor o'rinbosari</h4>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.tmti.title' | translate }}
+              </h4>
               <p class="text-green-600 font-medium">
-                Termiz muhandislik-texnologiya instituti akademik litseyi
+                {{ 'home.timeline.items.tmti.place' | translate }}
               </p>
               <p class="text-gray-600 mt-2">
-                2022-2024 yillarda o'quv ishlari bo'yicha direktor o'rinbosari
+                {{ 'home.timeline.items.tmti.description' | translate }}
               </p>
             </div>
           </div>
@@ -244,13 +293,19 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2017</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.tdtu.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Direktor o'rinbosari</h4>
-              <p class="text-purple-600 font-medium">TDTU Termiz filiali akademik litseyi</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.tdtu.title' | translate }}
+              </h4>
+              <p class="text-purple-600 font-medium">
+                {{ 'home.timeline.items.tdtu.place' | translate }}
+              </p>
               <p class="text-gray-600 mt-2">
-                2017-2022 yillarda o'quv ishlari bo'yicha direktor o'rinbosari
+                {{ 'home.timeline.items.tdtu.description' | translate }}
               </p>
             </div>
           </div>
@@ -259,14 +314,19 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2015</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.teacher2015.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Matematika o'qituvchisi</h4>
-              <p class="text-orange-600 font-medium">Termiz DU akademik litseyi</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.teacher2015.title' | translate }}
+              </h4>
+              <p class="text-orange-600 font-medium">
+                {{ 'home.timeline.items.teacher2015.place' | translate }}
+              </p>
               <p class="text-gray-600 mt-2">
-                2014-2017 yillarda matematika fanidan dars bergan, 2015-yilda ma'naviy-ma'rifiy
-                ishlar bo'yicha direktor o'rinbosari
+                {{ 'home.timeline.items.teacher2015.description' | translate }}
               </p>
             </div>
           </div>
@@ -275,14 +335,19 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2012</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.deputy2012.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Direktor o'rinbosari</h4>
-              <p class="text-teal-600 font-medium">Termiz DU akademik litseyi</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.deputy2012.title' | translate }}
+              </h4>
+              <p class="text-teal-600 font-medium">
+                {{ 'home.timeline.items.deputy2012.place' | translate }}
+              </p>
               <p class="text-gray-600 mt-2">
-                2012-2014 yillarda o'quv ishlari bo'yicha direktor o'rinbosari, 2011-2012 yillarda
-                aniq fanlar kafedrasi mudiri
+                {{ 'home.timeline.items.deputy2012.description' | translate }}
               </p>
             </div>
           </div>
@@ -291,12 +356,20 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center"
             >
-              <span class="text-white font-bold text-sm">2005</span>
+              <span class="text-white font-bold text-sm">
+                {{ 'home.timeline.items.teacher2005.year' | translate }}
+              </span>
             </div>
             <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-900">Matematika o'qituvchisi</h4>
-              <p class="text-pink-600 font-medium">Termiz DU qoshidagi akademik litsey</p>
-              <p class="text-gray-600 mt-2">2005-2011 yillarda matematika fanidan dars bergan</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                {{ 'home.timeline.items.teacher2005.title' | translate }}
+              </h4>
+              <p class="text-pink-600 font-medium">
+                {{ 'home.timeline.items.teacher2005.place' | translate }}
+              </p>
+              <p class="text-gray-600 mt-2">
+                {{ 'home.timeline.items.teacher2005.description' | translate }}
+              </p>
             </div>
           </div>
         </div>
@@ -309,10 +382,11 @@
 <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Faoliyat yo'nalishlari</h2>
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {{ 'home.focus.title' | translate }}
+      </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Matematika o'qitish, ta'lim jarayonini boshqarish va o'quvchilarni qo'llab-quvvatlash
-        bo'yicha asosiy faoliyat yo'nalishlari.
+        {{ 'home.focus.subtitle' | translate }}
       </p>
     </div>
 
@@ -325,14 +399,16 @@
         >
           <i class="pi pi-calculator text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Matematika darslari</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.analysis.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          Akademik litsey o'quvchilari uchun chuqurlashtirilgan matematika kurslari
+          {{ 'home.focus.cards.analysis.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="Analiz" class="text-xs"></p-tag>
-          <p-tag value="Algebra" class="text-xs"></p-tag>
-          <p-tag value="Geometriya" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.analysis.tags.limit' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.analysis.tags.derivative' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.analysis.tags.integral' | translate" class="text-xs"></p-tag>
         </div>
       </div>
 
@@ -344,14 +420,16 @@
         >
           <i class="pi pi-table text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">O'quv reja va dasturlar</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.curriculum.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          Fanlar bo'yicha o'quv rejalari va dars ishlanmalarini shakllantirish
+          {{ 'home.focus.cards.curriculum.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="O'quv reja" class="text-xs"></p-tag>
-          <p-tag value="Metodika" class="text-xs"></p-tag>
-          <p-tag value="Nazorat" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.curriculum.tags.plan' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.curriculum.tags.methodology' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.curriculum.tags.assessment' | translate" class="text-xs"></p-tag>
         </div>
       </div>
 
@@ -363,14 +441,16 @@
         >
           <i class="pi pi-users text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Metodik qo'llab-quvvatlash</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.support.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          O'qituvchilar va mentorlar uchun metodik seminarlar, tajriba almashish
+          {{ 'home.focus.cards.support.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="Seminar" class="text-xs"></p-tag>
-          <p-tag value="Mentorlik" class="text-xs"></p-tag>
-          <p-tag value="Metodika" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.support.tags.seminar' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.support.tags.mentorship' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.support.tags.methodology' | translate" class="text-xs"></p-tag>
         </div>
       </div>
 
@@ -382,14 +462,16 @@
         >
           <i class="pi pi-chart-line text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Imtihonlarga tayyorlash</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.exams.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          Davlat attestatsiyasi va oliy ta'limga kirish imtihonlariga tayyorlash
+          {{ 'home.focus.cards.exams.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="DTM" class="text-xs"></p-tag>
-          <p-tag value="Nazorat" class="text-xs"></p-tag>
-          <p-tag value="Strategiya" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.exams.tags.dtm' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.exams.tags.assessment' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.exams.tags.strategy' | translate" class="text-xs"></p-tag>
         </div>
       </div>
 
@@ -401,14 +483,16 @@
         >
           <i class="pi pi-megaphone text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Ma'naviy-ma'rifiy ishlar</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.values.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          O'quvchilar bilan tarbiyaviy ishlarni tashkil etish va hamkorlik
+          {{ 'home.focus.cards.values.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="Tarbiyaviy" class="text-xs"></p-tag>
-          <p-tag value="Hamkorlik" class="text-xs"></p-tag>
-          <p-tag value="Loyiha" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.values.tags.education' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.values.tags.collaboration' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.values.tags.project' | translate" class="text-xs"></p-tag>
         </div>
       </div>
 
@@ -420,14 +504,16 @@
         >
           <i class="pi pi-compass text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Maslahat va mentorlik</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.focus.cards.mentoring.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-4">
-          O'quvchilar va ustozlarga individual maslahatlar, rivojlanish rejalarini tuzish
+          {{ 'home.focus.cards.mentoring.description' | translate }}
         </p>
         <div class="flex flex-wrap gap-2">
-          <p-tag value="Maslahat" class="text-xs"></p-tag>
-          <p-tag value="Rivojlanish" class="text-xs"></p-tag>
-          <p-tag value="Monitoring" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.mentoring.tags.consulting' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.mentoring.tags.development' | translate" class="text-xs"></p-tag>
+          <p-tag [value]="'home.focus.cards.mentoring.tags.monitoring' | translate" class="text-xs"></p-tag>
         </div>
       </div>
     </div>
@@ -438,28 +524,29 @@
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Ta'lim xizmatlari</h2>
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {{ 'home.services.title' | translate }}
+      </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Akademik litsey o'quvchilari va o'qituvchilari uchun amaliy yordam hamda qo'llab-quvvatlash
-        xizmatlari.
+        {{ 'home.services.subtitle' | translate }}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div
-        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group"
-      >
+      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
           class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
         >
           <i class="pi pi-book text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Akademik darslar</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.services.cards.academic.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-6">
-          Matematika fanidan chuqurlashtirilgan darslar va qo'llanmalar
+          {{ 'home.services.cards.academic.description' | translate }}
         </p>
         <p-button
-          label="Ko'rish"
+          [label]="'common.buttons.view' | translate"
           [text]="true"
           routerLink="/materials"
           class="text-blue-600 hover:bg-blue-50"
@@ -467,20 +554,20 @@
         </p-button>
       </div>
 
-      <div
-        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group"
-      >
+      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
           class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
         >
           <i class="pi pi-briefcase text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Boshqaruv ko'magi</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.services.cards.management.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-6">
-          O'quv jarayonini rejalashtirish, nazorat va monitoring jarayonlari
+          {{ 'home.services.cards.management.description' | translate }}
         </p>
         <p-button
-          label="Bog'lanish"
+          [label]="'common.buttons.contact' | translate"
           [text]="true"
           routerLink="/contact"
           class="text-green-600 hover:bg-green-50"
@@ -488,20 +575,20 @@
         </p-button>
       </div>
 
-      <div
-        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group"
-      >
+      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
           class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
         >
           <i class="pi pi-lightbulb text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Metodik seminarlar</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.services.cards.seminars.title' | translate }}
+        </h3>
         <p class="text-gray-600 mb-6">
-          O'qituvchilar uchun metodik seminarlar va tajriba almashish
+          {{ 'home.services.cards.seminars.description' | translate }}
         </p>
         <p-button
-          label="Yozilish"
+          [label]="'common.buttons.apply' | translate"
           [text]="true"
           routerLink="/contact"
           class="text-purple-600 hover:bg-purple-50"
@@ -509,18 +596,20 @@
         </p-button>
       </div>
 
-      <div
-        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group"
-      >
+      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
           class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
         >
           <i class="pi pi-comment text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Maslahat va mentorlik</h3>
-        <p class="text-gray-600 mb-6">O'quvchilar va ota-onalar uchun individual maslahatlar</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          {{ 'home.services.cards.consulting.title' | translate }}
+        </h3>
+        <p class="text-gray-600 mb-6">
+          {{ 'home.services.cards.consulting.description' | translate }}
+        </p>
         <p-button
-          label="Maslahat olish"
+          [label]="'common.buttons.consult' | translate"
           [text]="true"
           routerLink="/contact"
           class="text-orange-600 hover:bg-orange-50"
@@ -535,9 +624,11 @@
 <section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-white mb-4">Natijalar va faktlar</h2>
+      <h2 class="text-3xl font-bold text-white mb-4">
+        {{ 'home.results.title' | translate }}
+      </h2>
       <p class="text-blue-100 text-xl max-w-3xl mx-auto">
-        Mehnat faoliyati davomida to'plangan tajriba va asosiy ko'rsatkichlar.
+        {{ 'home.results.subtitle' | translate }}
       </p>
     </div>
 
@@ -548,9 +639,15 @@
         >
           <i class="pi pi-calendar text-white text-2xl"></i>
         </div>
-        <div class="text-4xl lg:text-5xl font-bold mb-2">2005</div>
-        <div class="text-blue-100 text-lg">Kasbiy faoliyat boshlanishi</div>
-        <div class="text-blue-200 text-sm mt-1">Termiz DU akademik litseyi</div>
+        <div class="text-4xl lg:text-5xl font-bold mb-2">
+          {{ 'home.results.cards.start.value' | translate }}
+        </div>
+        <div class="text-blue-100 text-lg">
+          {{ 'home.results.cards.start.label' | translate }}
+        </div>
+        <div class="text-blue-200 text-sm mt-1">
+          {{ 'home.results.cards.start.detail' | translate }}
+        </div>
       </div>
       <div class="text-white">
         <div
@@ -558,9 +655,15 @@
         >
           <i class="pi pi-briefcase text-white text-2xl"></i>
         </div>
-        <div class="text-4xl lg:text-5xl font-bold mb-2">4</div>
-        <div class="text-blue-100 text-lg">Akademik litsey va institut</div>
-        <div class="text-blue-200 text-sm mt-1">Termiz DU, TDTU filiali, TMITI, DMATU</div>
+        <div class="text-4xl lg:text-5xl font-bold mb-2">
+          {{ 'home.results.cards.institutions.value' | translate }}
+        </div>
+        <div class="text-blue-100 text-lg">
+          {{ 'home.results.cards.institutions.label' | translate }}
+        </div>
+        <div class="text-blue-200 text-sm mt-1">
+          {{ 'home.results.cards.institutions.detail' | translate }}
+        </div>
       </div>
       <div class="text-white">
         <div
@@ -568,9 +671,15 @@
         >
           <i class="pi pi-graduation-cap text-white text-2xl"></i>
         </div>
-        <div class="text-4xl lg:text-5xl font-bold mb-2">2</div>
-        <div class="text-blue-100 text-lg">Oliy ta'lim bosqichi</div>
-        <div class="text-blue-200 text-sm mt-1">Bakalavr va magistr</div>
+        <div class="text-4xl lg:text-5xl font-bold mb-2">
+          {{ 'home.results.cards.degrees.value' | translate }}
+        </div>
+        <div class="text-blue-100 text-lg">
+          {{ 'home.results.cards.degrees.label' | translate }}
+        </div>
+        <div class="text-blue-200 text-sm mt-1">
+          {{ 'home.results.cards.degrees.detail' | translate }}
+        </div>
       </div>
       <div class="text-white">
         <div
@@ -578,25 +687,43 @@
         >
           <i class="pi pi-users text-white text-2xl"></i>
         </div>
-        <div class="text-4xl lg:text-5xl font-bold mb-2">19+</div>
-        <div class="text-blue-100 text-lg">Yil ta'lim tajribasi</div>
-        <div class="text-blue-200 text-sm mt-1">2005-yildan hozirga qadar</div>
+        <div class="text-4xl lg:text-5xl font-bold mb-2">
+          {{ 'home.results.cards.experience.value' | translate }}
+        </div>
+        <div class="text-blue-100 text-lg">
+          {{ 'home.results.cards.experience.label' | translate }}
+        </div>
+        <div class="text-blue-200 text-sm mt-1">
+          {{ 'home.results.cards.experience.detail' | translate }}
+        </div>
       </div>
     </div>
 
     <!-- Qo'shimcha faktlar -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-center">
       <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-        <div class="text-2xl font-bold text-white mb-2">2012</div>
-        <div class="text-blue-100">Direktor o'rinbosari sifatidagi ilk yil</div>
+        <div class="text-2xl font-bold text-white mb-2">
+          {{ 'home.results.highlights.deputy.value' | translate }}
+        </div>
+        <div class="text-blue-100">
+          {{ 'home.results.highlights.deputy.label' | translate }}
+        </div>
       </div>
       <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-        <div class="text-2xl font-bold text-white mb-2">2017</div>
-        <div class="text-blue-100">TDTU Termiz filiali akademik litseyiga o'tish</div>
+        <div class="text-2xl font-bold text-white mb-2">
+          {{ 'home.results.highlights.tdtu.value' | translate }}
+        </div>
+        <div class="text-blue-100">
+          {{ 'home.results.highlights.tdtu.label' | translate }}
+        </div>
       </div>
       <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-        <div class="text-2xl font-bold text-white mb-2">2024</div>
-        <div class="text-blue-100">Termiz DMATU akademik litseyida yangi bosqich</div>
+        <div class="text-2xl font-bold text-white mb-2">
+          {{ 'home.results.highlights.current.value' | translate }}
+        </div>
+        <div class="text-blue-100">
+          {{ 'home.results.highlights.current.label' | translate }}
+        </div>
       </div>
     </div>
   </div>

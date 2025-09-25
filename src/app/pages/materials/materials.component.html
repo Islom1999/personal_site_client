@@ -1,11 +1,12 @@
-<div class="min-h-screen bg-gray-50 py-8">
+﻿<div class="min-h-screen bg-gray-50 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">O'quv Ishlanmalari</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {{ 'materials.title' | translate }}
+      </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Matematika fanining barcha bo'limlari bo'yicha to'liq darslik materiallari, qo'llanmalar va
-        amaliy mashqlar to'plami
+        {{ 'materials.subtitle' | translate }}
       </p>
     </div>
 
@@ -13,35 +14,41 @@
     <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="flex flex-col">
-          <label class="text-sm font-medium text-gray-700 mb-2">Qidirish</label>
+          <label class="text-sm font-medium text-gray-700 mb-2">
+            {{ 'materials.filters.search.label' | translate }}
+          </label>
           <span class="p-input-icon-left w-full">
             <!-- <i class="pi pi-search"></i> -->
             <input
               type="text"
               pInputText
-              placeholder="Material nomi..."
+              [placeholder]="'materials.filters.search.placeholder' | translate"
               [(ngModel)]="searchTerm"
               class="w-full"
             />
           </span>
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium text-gray-700 mb-2">Kategoriya</label>
+          <label class="text-sm font-medium text-gray-700 mb-2">
+            {{ 'materials.filters.category.label' | translate }}
+          </label>
           <p-select
             [options]="categories()"
             [(ngModel)]="selectedCategory"
             optionLabel="name"
             optionValue="id"
-            placeholder="Kategoriyani tanlang"
+            [placeholder]="'materials.filters.category.placeholder' | translate"
             class="w-full"
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium text-gray-700 mb-2">Daraja</label>
+          <label class="text-sm font-medium text-gray-700 mb-2">
+            {{ 'materials.filters.level.label' | translate }}
+          </label>
           <p-select
             [options]="levels()"
             [(ngModel)]="selectedLevel"
-            placeholder="Darajani tanlang"
+            [placeholder]="'materials.filters.level.placeholder' | translate"
             optionLabel="name"
             optionValue="id"
             class="w-full"
@@ -81,7 +88,7 @@
           <div class="flex items-center justify-between text-sm text-gray-500 mb-6">
             <span class="flex items-center">
               <i class="pi pi-download mr-1"></i>
-              {{ material.download_count }} yuklab olindi
+              {{ 'materials.card.downloads' | translate : { count: material.download_count } }}
             </span>
             <span class="flex items-center">
               <i class="pi pi-file mr-1"></i>
@@ -99,7 +106,7 @@
                 [text]="true"
                 [rounded]="true"
                 class="text-blue-600 hover:bg-blue-50"
-                pTooltip="Ko'rish"
+                [pTooltip]="'materials.actions.view' | translate"
                 (click)="openPdf(material)"
               >
               </p-button>
@@ -108,7 +115,7 @@
                 [text]="true"
                 [rounded]="true"
                 class="text-green-600 hover:bg-green-50"
-                pTooltip="Yuklab olish"
+                [pTooltip]="'materials.actions.download' | translate"
                 (click)="openPdf(material)"
               >
               </p-button>
@@ -125,8 +132,12 @@
       <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="pi pi-search text-gray-400 text-3xl"></i>
       </div>
-      <h3 class="text-xl font-semibold text-gray-900 mb-2">Hech narsa topilmadi</h3>
-      <p class="text-gray-600">Qidiruv shartlaringizni o'zgartirib ko'ring</p>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">
+        {{ 'materials.empty.title' | translate }}
+      </h3>
+      <p class="text-gray-600">
+        {{ 'materials.empty.description' | translate }}
+      </p>
     </div>
     }
   </div>

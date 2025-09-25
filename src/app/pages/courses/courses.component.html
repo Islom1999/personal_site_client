@@ -1,11 +1,12 @@
-<div class="min-h-screen bg-gray-50 py-8">
+﻿<div class="min-h-screen bg-gray-50 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Video Kurslar</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {{ 'courses.title' | translate }}
+      </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Matematik fanlarni chuqur o'rganish uchun professional video kurslar. Har bir mavzu bo'yicha
-        step-by-step ta'lim olish imkoniyati
+        {{ 'courses.subtitle' | translate }}
       </p>
     </div>
 
@@ -14,31 +15,30 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div>
           <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
-            🔥 Eng mashhur kurs
+            {{ 'courses.featured.badge' | translate }}
           </span>
           <h2 class="text-3xl font-bold mb-4">
-            Matematik Analiz: Noldan Professionallik Darajasigacha
+            {{ 'courses.featured.title' | translate }}
           </h2>
           <p class="text-blue-100 mb-6 text-lg">
-            Matematik analizning barcha asosiy mavzularini o'rganing. Limitlar, hosilalar,
-            integrallar va ularning amaliy qo'llanilishi.
+            {{ 'courses.featured.description' | translate }}
           </p>
           <div class="flex items-center space-x-6 mb-6">
             <div class="flex items-center">
               <i class="pi pi-clock mr-2"></i>
-              <span>24 soat</span>
+              <span>{{ 'courses.featured.duration' | translate }}</span>
             </div>
             <div class="flex items-center">
               <i class="pi pi-play-circle mr-2"></i>
-              <span>48 dars</span>
+              <span>{{ 'courses.featured.lessons' | translate }}</span>
             </div>
             <div class="flex items-center">
               <i class="pi pi-users mr-2"></i>
-              <span>2,340 talaba</span>
+              <span>{{ 'courses.featured.students' | translate }}</span>
             </div>
           </div>
           <p-button
-            label="Kursni boshlash"
+            [label]="'common.buttons.startCourse' | translate"
             icon="pi pi-play"
             class="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
           >
@@ -60,7 +60,9 @@
 
     <!-- Course Categories -->
     <div class="mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Kurs Kategoriyalari</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">
+        {{ 'courses.categories.title' | translate }}
+      </h2>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         <div
           class="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
@@ -71,7 +73,9 @@
           >
             <i [class]="'pi pi-search'" class="text-white text-xl"></i>
           </div>
-          <h3 class="font-semibold text-gray-900 text-sm">{{ 'Barchasi' }}</h3>
+          <h3 class="font-semibold text-gray-900 text-sm">
+            {{ 'common.filters.all' | translate }}
+          </h3>
         </div>
         @for(category of categories(); track category.id){
         <div
@@ -92,10 +96,12 @@
     <!-- Courses Grid -->
     <div class="mb-8">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Barcha Kurslar</h2>
+        <h2 class="text-2xl font-bold text-gray-900">
+          {{ 'courses.list.title' | translate }}
+        </h2>
         <div class="flex space-x-2">
           <p-button
-            [label]="'Barchasi'"
+            [label]="'common.filters.all' | translate"
             [text]="true"
             [class]="
               selectedFilter === 'all'
@@ -126,62 +132,52 @@
         <div
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
         >
-          <!-- Course Image -->
-          <div
-            class="relative h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center cursor-pointer"
-          >
+          <div class="relative">
+            <img
+              *ngIf="course.cover_image"
+              [src]="course.cover_image"
+              class="w-full h-48 object-cover"
+              [attr.alt]="course.name"
+            />
             <div
-              class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              *ngIf="!course.cover_image"
+              class="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center"
             >
-              <i class="pi pi-play text-white text-2xl ml-1"></i>
+              <i class="pi pi-book text-blue-500 text-4xl"></i>
             </div>
-            <div class="absolute top-4 left-4">
-              <span class="px-2 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-md">
-                {{ course.sp_level_id | selectItemLabel : levels() }}
-              </span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="px-2 py-1 bg-green-500 text-white text-xs font-medium rounded-md">
-                {{ course.price }}
-              </span>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/80 rounded-full text-xs font-medium text-gray-800">
+              {{ course.sp_category_id | selectItemLabel : categories() }}
             </div>
           </div>
 
           <div class="p-6">
-            <!-- Course Title -->
-            <h3
-              class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 cursor-pointer"
-            >
-              {{ course.name }}
-            </h3>
-
-            <!-- Course Description -->
-            <p class="text-gray-600 mb-4 line-clamp-2">
-              {{ course.description }}
-            </p>
-
-            <!-- Course Tags -->
-            <div class="flex flex-wrap gap-1 mb-4">
-              @for(tag of course.tags; track $index){
-              <p-tag [value]="tag" class="text-xs"> </p-tag>
-              }
+            <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+              <span class="flex items-center">
+                <i class="pi pi-clock mr-2"></i>
+                {{ 'courses.card.duration' | translate:{ duration: course.duration } }}
+              </span>
+              <span class="flex items-center">
+                <i class="pi pi-users mr-2"></i>
+                {{ 'courses.card.students' | translate:{ count: course.students_count ?? 0 } }}
+              </span>
             </div>
 
-            <!-- Course Stats -->
-            <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
-              <div class="flex items-center space-x-4">
-                <span class="flex items-center">
-                  <i class="pi pi-clock mr-1"></i>
-                  {{ course.duration }}
-                </span>
-                <span class="flex items-center">
-                  <i class="pi pi-play-circle mr-1"></i>
-                  <!-- {{ course.lessons }} dars -->
-                </span>
-              </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ course.name }}</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">{{ course.description }}</p>
+
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
+                {{ course.sp_level_id | selectItemLabel : levels() }}
+              </span>
+              <span class="text-sm font-semibold text-gray-900">
+                {{
+                  course.price === 0
+                    ? ('courses.card.priceFree' | translate)
+                    : (course.price + ' ' + ('courses.card.currency' | translate))
+                }}
+              </span>
             </div>
 
-            <!-- Rating and Students -->
             <div class="flex items-center justify-between mb-6">
               <div class="flex items-center space-x-2">
                 <p-rating [(ngModel)]="course.rating" [readonly]="true" class="text-sm"> </p-rating>
@@ -189,10 +185,9 @@
               </div>
             </div>
 
-            <!-- Action Buttons -->
             <div class="flex space-x-2">
               <p-button
-                [label]="'Batafsil'"
+                [label]="'common.buttons.details' | translate"
                 [icon]="'pi pi-play'"
                 class="flex-1 btn-primary"
                 (onClick)="showCourseOnboard(course)"
@@ -203,7 +198,7 @@
                 [text]="true"
                 [rounded]="true"
                 class="text-blue-600 hover:bg-blue-50"
-                pTooltip="Kursni ko'rish"
+                [pTooltip]="'courses.actions.view' | translate"
               >
               </p-button>
             </div>
@@ -220,7 +215,7 @@
     [modal]="true"
     [closable]="true"
     [style]="{ width: '700px' }"
-    header="Kurs Ma'lumotlari"
+    [header]="'courses.modal.title' | translate"
   >
     <div *ngIf="selectedCourse" class="space-y-6">
       <!-- Course Header -->
@@ -240,23 +235,35 @@
           <div class="text-2xl font-bold text-blue-600 mb-1">
             {{ selectedCourse.sp_courses_modules?.length || 0 }}
           </div>
-          <div class="text-sm text-gray-600">Modullar</div>
+          <div class="text-sm text-gray-600">
+            {{ 'courses.modal.stats.modules' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-green-600 mb-1">{{ selectedCourse.duration }}</div>
-          <div class="text-sm text-gray-600">Davomiyligi</div>
+          <div class="text-sm text-gray-600">
+            {{ 'courses.modal.stats.duration' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-purple-600 mb-1">
             {{ selectedCourse.sp_level_id | selectItemLabel : levels() }}
           </div>
-          <div class="text-sm text-gray-600">Daraja</div>
+          <div class="text-sm text-gray-600">
+            {{ 'courses.modal.stats.level' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-orange-600 mb-1">
-            {{ selectedCourse.price === 0 ? 'Bepul' : selectedCourse.price + " so'm" }}
+            {{
+              selectedCourse.price === 0
+                ? ('courses.card.priceFree' | translate)
+                : (selectedCourse.price + ' ' + ('courses.card.currency' | translate))
+            }}
           </div>
-          <div class="text-sm text-gray-600">Narx</div>
+          <div class="text-sm text-gray-600">
+            {{ 'courses.modal.stats.price' | translate }}
+          </div>
         </div>
       </div>
 
@@ -264,7 +271,7 @@
       <div class="bg-gray-50 rounded-xl p-4">
         <h3 class="font-semibold text-gray-900 mb-3">
           <i class="pi pi-list mr-2"></i>
-          Kurs modullari:
+          {{ 'courses.modal.modules.title' | translate }}
         </h3>
         <div class="space-y-2 max-h-40 overflow-y-auto">
           <div
@@ -292,14 +299,14 @@
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
         <p-button
-          label="Kursni boshlash"
+          [label]="'common.buttons.startCourse' | translate"
           icon="pi pi-play"
           class="flex-1 btn-primary"
           (onClick)="startCourse()"
         >
         </p-button>
         <p-button
-          label="Bekor qilish"
+          [label]="'common.buttons.cancel' | translate"
           icon="pi pi-times"
           [outlined]="true"
           (onClick)="closeCourseOnboard()"

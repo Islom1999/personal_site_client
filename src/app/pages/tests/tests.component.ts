@@ -1,3 +1,4 @@
+﻿import { TooltipModule } from 'primeng/tooltip';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -25,6 +26,7 @@ import { ISpTests } from '../../../shared/models/sp-tests.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tests',
@@ -40,7 +42,9 @@ import { map } from 'rxjs/operators';
     FormsModule,
     ChartModule,
     TabsModule,
+    TooltipModule,
     SelectItemLabelPipe,
+    TranslateModule,
   ],
   templateUrl: './tests.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -73,27 +77,33 @@ export class TestsComponent implements OnInit {
 
   testCategoriesStyle = [
     {
-      difficulty: 'Barcha darajalar',
+      difficultyKey: 'common.levels.all',
       bgColor: 'bg-blue-100',
       textColor: 'text-blue-600',
       badgeColor: 'bg-blue-100 text-blue-800',
     },
     {
-      difficulty: 'Barcha darajalar',
+      difficultyKey: 'common.levels.all',
       bgColor: 'bg-green-100',
       textColor: 'text-green-600',
       badgeColor: 'bg-green-100 text-green-800',
     },
     {
-      difficulty: 'Barcha darajalar',
+      difficultyKey: 'common.levels.all',
       bgColor: 'bg-purple-100',
       textColor: 'text-purple-600',
       badgeColor: 'bg-purple-100 text-purple-800',
     },
   ];
+
   getTestCategoryStyle(index: number) {
     const indexNumber = index % this.testCategoriesStyle.length;
     return this.testCategoriesStyle[indexNumber];
+  }
+
+  getCategoryStyleById(categoryId: string) {
+    const index = this.categories().findIndex((item) => item?.id === categoryId);
+    return this.getTestCategoryStyle(index >= 0 ? index : 0);
   }
 
   filteredTests = signal<any[]>([]);
@@ -147,3 +157,6 @@ export class TestsComponent implements OnInit {
     }
   }
 }
+
+
+

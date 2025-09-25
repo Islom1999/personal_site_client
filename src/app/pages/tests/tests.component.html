@@ -1,17 +1,20 @@
-<div class="min-h-screen bg-gray-50 py-8">
+﻿<div class="min-h-screen bg-gray-50 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Matematik Testlar</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {{ 'tests.title' | translate }}
+      </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Bilimingizni sinab ko'ring va matematik ko'nikmalaringizni rivojlantiring. Har xil
-        darajadagi testlar orqali o'z darajangizni aniqlang
+        {{ 'tests.subtitle' | translate }}
       </p>
     </div>
 
     <!-- Test Categories -->
     <div class="mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Test Kategoriyalari</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">
+        {{ 'tests.categories.title' | translate }}
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
           class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
@@ -24,21 +27,25 @@
                 getTestCategoryStyle(10).bgColor
               "
             >
-              <i [class]="'pi pi-list' + ' text-xl ' + getTestCategoryStyle(10).textColor"></i>
+              <i [class]="'pi pi-list text-xl ' + getTestCategoryStyle(10).textColor"></i>
             </div>
             <span
               [class]="
                 'px-3 py-1 text-xs font-medium rounded-full ' + getTestCategoryStyle(10).badgeColor
               "
             >
-              test
+              {{ 'common.labels.test' | translate }}
             </span>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">{{ 'Barchasi' }}</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {{ 'common.filters.all' | translate }}
+          </h3>
           <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-500">{{ getTestCategoryStyle(10).difficulty }}</span>
+            <span class="text-sm text-gray-500">
+              {{ getTestCategoryStyle(10).difficultyKey | translate }}
+            </span>
             <p-button
-              label="Boshlash"
+              [label]="'common.buttons.start' | translate"
               [text]="true"
               [class]="'hover:bg-gray-50 ' + getTestCategoryStyle(10).textColor"
             >
@@ -65,14 +72,16 @@
                 getTestCategoryStyle($index).badgeColor
               "
             >
-              test
+              {{ 'common.labels.test' | translate }}
             </span>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-2">{{ category.name }}</h3>
           <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-500">{{ getTestCategoryStyle($index).difficulty }}</span>
+            <span class="text-sm text-gray-500">
+              {{ getTestCategoryStyle($index).difficultyKey | translate }}
+            </span>
             <p-button
-              label="Boshlash"
+              [label]="'common.buttons.start' | translate"
               [text]="true"
               [class]="'hover:bg-gray-50 ' + getTestCategoryStyle($index).textColor"
             >
@@ -86,11 +95,13 @@
     <!-- Available Tests -->
     <div class="mb-8">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Mavjud Testlar</h2>
+        <h2 class="text-2xl font-bold text-gray-900">
+          {{ 'tests.available.title' | translate }}
+        </h2>
 
         <div class="flex space-x-2">
           <p-button
-            [label]="'Barchasi'"
+            [label]="'common.filters.all' | translate"
             [text]="true"
             [class]="
               selectedCategory === 'all'
@@ -126,11 +137,16 @@
             <div class="flex items-center justify-between mb-4">
               <div
                 [class]="
-                  'w-12 h-12 rounded-xl flex items-center justify-center ' +
-                  'bg-gradient-to-br from-green-500 to-green-600'
+                  'w-12 h-12 rounded-xl flex items-center justify-center ' + getCategoryStyleById(test.sp_category_id).bgColor
                 "
               >
-                <i [class]="test.icon" class="text-white text-xl"></i>
+                <i
+                  [class]="
+                    test.icon +
+                    ' text-xl ' +
+                    getCategoryStyleById(test.sp_category_id).textColor
+                  "
+                ></i>
               </div>
               <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
                 {{ test.sp_level_id | selectItemLabel : levels() }}
@@ -147,18 +163,18 @@
             <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
               <div class="flex items-center text-gray-500">
                 <i class="pi pi-question-circle mr-2"></i>
-                {{ 'test.questions' }} savol
+                {{ 'tests.card.questions' | translate:{ count: test.questions_count ?? 0 } }}
               </div>
               <div class="flex items-center text-gray-500">
                 <i class="pi pi-clock mr-2"></i>
-                {{ test.duration }} daqiqa
+                {{ 'tests.card.duration' | translate:{ minutes: test.duration } }}
               </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex space-x-2">
               <p-button
-                [label]="'Testni boshlash'"
+                [label]="'common.buttons.startTest' | translate"
                 icon="pi pi-play"
                 class="flex-1 btn-primary"
                 (onClick)="showTestInfo(test)"
@@ -169,7 +185,7 @@
                 [text]="true"
                 [rounded]="true"
                 class="text-blue-600 hover:bg-blue-50"
-                pTooltip="Natijalarni ko'rish"
+                [pTooltip]="'tests.actions.results' | translate"
               >
               </p-button>
             </div>
@@ -185,7 +201,7 @@
     [modal]="true"
     [closable]="true"
     [style]="{ width: '600px' }"
-    header="Test Ma'lumotlari"
+    [header]="'tests.modal.title' | translate"
   >
     <div *ngIf="selectedTest" class="space-y-6">
       <!-- Test Header -->
@@ -205,23 +221,31 @@
           <div class="text-2xl font-bold text-blue-600 mb-1">
             {{ selectedTest!.questions_count || 20 }}
           </div>
-          <div class="text-sm text-gray-600">Savollar soni</div>
+          <div class="text-sm text-gray-600">
+            {{ 'tests.modal.stats.questions' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-green-600 mb-1">{{ selectedTest!.duration }}</div>
-          <div class="text-sm text-gray-600">Daqiqa</div>
+          <div class="text-sm text-gray-600">
+            {{ 'tests.modal.stats.duration' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-purple-600 mb-1">
             {{ selectedTest!.sp_level_id | selectItemLabel : levels() }}
           </div>
-          <div class="text-sm text-gray-600">Daraja</div>
+          <div class="text-sm text-gray-600">
+            {{ 'tests.modal.stats.level' | translate }}
+          </div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-orange-600 mb-1">
             {{ selectedTest!.sp_category_id | selectItemLabel : categories() }}
           </div>
-          <div class="text-sm text-gray-600">Kategoriya</div>
+          <div class="text-sm text-gray-600">
+            {{ 'tests.modal.stats.category' | translate }}
+          </div>
         </div>
       </div>
 
@@ -229,27 +253,27 @@
       <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
         <h3 class="font-semibold text-yellow-800 mb-2">
           <i class="pi pi-exclamation-triangle mr-2"></i>
-          Muhim qoidalar:
+          {{ 'tests.modal.rules.title' | translate }}
         </h3>
         <ul class="text-sm text-yellow-700 space-y-1">
-          <li>• Test vaqti tugagach avtomatik yakunlanadi</li>
-          <li>• Har bir savolga faqat bitta javob tanlash mumkin</li>
-          <li>• Testni boshlangandan keyin to'xtatib bo'lmaydi</li>
-          <li>• Barcha savollarni javoblashga harakat qiling</li>
+          <li>{{ 'tests.modal.rules.time' | translate }}</li>
+          <li>{{ 'tests.modal.rules.answer' | translate }}</li>
+          <li>{{ 'tests.modal.rules.pause' | translate }}</li>
+          <li>{{ 'tests.modal.rules.complete' | translate }}</li>
         </ul>
       </div>
 
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
         <p-button
-          label="Testni boshlash"
+          [label]="'common.buttons.startTest' | translate"
           icon="pi pi-play"
           class="flex-1 btn-primary"
           (onClick)="startTest()"
         >
         </p-button>
         <p-button
-          label="Bekor qilish"
+          [label]="'common.buttons.cancel' | translate"
           icon="pi pi-times"
           [outlined]="true"
           (onClick)="closeTestInfo()"
@@ -259,3 +283,5 @@
     </div>
   </p-dialog>
 </div>
+
+

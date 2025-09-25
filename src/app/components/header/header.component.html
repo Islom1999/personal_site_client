@@ -1,4 +1,4 @@
-<header
+﻿<header
   class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
 >
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,8 +11,8 @@
           <span class="text-white font-bold text-xl">M</span>
         </div>
         <div>
-          <h1 class="text-xl font-bold text-gray-900">Mamataliyev O‘tkir Ashurovich</h1>
-          <p class="text-sm text-gray-600">O'qituvchi</p>
+          <h1 class="text-xl font-bold text-gray-900">{{ 'common.fullName' | translate }}</h1>
+          <p class="text-sm text-gray-600">{{ 'common.role' | translate }}</p>
         </div>
       </div>
 
@@ -24,35 +24,35 @@
           [routerLinkActiveOptions]="{ exact: true }"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
         >
-          Bosh sahifa
+          {{ 'common.nav.home' | translate }}
         </a>
         <a
           routerLink="/materials"
           routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
         >
-          O'quv ishlanmalari
+          {{ 'common.nav.materials' | translate }}
         </a>
         <a
           routerLink="/courses"
           routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
         >
-          Kurslar
+          {{ 'common.nav.courses' | translate }}
         </a>
         <a
           routerLink="/tests"
           routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
         >
-          Testlar
+          {{ 'common.nav.tests' | translate }}
         </a>
         <a
           routerLink="/contact"
           routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
         >
-          Aloqa
+          {{ 'common.nav.contact' | translate }}
         </a>
 
         <!-- Auth Section -->
@@ -110,7 +110,7 @@
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           (click)="closeMobileMenu()"
         >
-          Bosh sahifa
+          {{ 'common.nav.home' | translate }}
         </a>
         <a
           routerLink="/materials"
@@ -118,7 +118,7 @@
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           (click)="closeMobileMenu()"
         >
-          O'quv ishlanmalari
+          {{ 'common.nav.materials' | translate }}
         </a>
         <a
           routerLink="/courses"
@@ -126,7 +126,7 @@
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           (click)="closeMobileMenu()"
         >
-          Kurslar
+          {{ 'common.nav.courses' | translate }}
         </a>
         <a
           routerLink="/tests"
@@ -134,7 +134,7 @@
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           (click)="closeMobileMenu()"
         >
-          Testlar
+          {{ 'common.nav.tests' | translate }}
         </a>
         <a
           routerLink="/contact"
@@ -142,7 +142,7 @@
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           (click)="closeMobileMenu()"
         >
-          Aloqa
+          {{ 'common.nav.contact' | translate }}
         </a>
 
         <!-- <div *ngIf="!isLoggedIn" class="px-3 py-2 space-y-2">

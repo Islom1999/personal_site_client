@@ -1,3 +1,4 @@
+﻿import { TooltipModule } from 'primeng/tooltip';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -11,6 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ISpMaterials } from '../../../shared/models/sp-materials.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
 import { environment } from '../../../environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-materials',
@@ -21,7 +23,9 @@ import { environment } from '../../../environments/environment';
     InputTextModule,
     SelectModule,
     FormsModule,
+    TooltipModule,
     SelectItemLabelPipe,
+    TranslateModule,
   ],
   templateUrl: './materials.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -60,3 +64,8 @@ export class MaterialsComponent {
     window.open(link, 'pdfWindow', 'width=1000,height=800');
   }
 }
+
+
+
+
+

@@ -1,0 +1,447 @@
+{
+  "common": {
+    "fullName": "Mamataliyev O'tkir Ashurovich",
+    "role": "O'qituvchi",
+    "nav": {
+      "home": "Bosh sahifa",
+      "materials": "O'quv ishlanmalari",
+      "courses": "Kurslar",
+      "tests": "Testlar",
+      "contact": "Aloqa"
+    },
+    "buttons": {
+      "viewCourses": "Kurslarni ko'rish",
+      "contact": "Bog'lanish",
+      "view": "Ko'rish",
+      "start": "Boshlash",
+      "try": "Sinash",
+      "call": "Qo'ng'iroq qilish",
+      "send": "Xabar yuborish",
+      "apply": "Yozilish",
+      "consult": "Maslahat olish",
+      "details": "Batafsil",
+      "startTest": "Testni boshlash",
+      "cancel": "Bekor qilish",
+      "startCourse": "Kursni boshlash",
+      "viewCourse": "Kursni ko'rish"
+    },
+    "filters": {
+      "all": "Barchasi"
+    },
+    "labels": {
+      "test": "test"
+    },
+    "levels": {
+      "all": "Barcha darajalar"
+    }
+  },
+  "footer": {
+    "description": "Matematika fanini o'rganish va o'rgatishda ko'p yillik tajribaga ega professional o'qituvchi. Talabalar va o'quvchilar uchun sifatli ta'lim materiallari va kurslar taqdim etamiz.",
+    "quickLinks": {
+      "title": "Tezkor havolalar"
+    },
+    "contact": {
+      "title": "Aloqa",
+      "phone": "+998 90 123 45 67",
+      "email": "info@matematik.uz",
+      "address": "Toshkent, O'zbekiston"
+    },
+    "copyright": "(C) {{year}} Prof. Matematik. Barcha huquqlar himoyalangan."
+  },
+  "home": {
+    "hero": {
+      "badge": "Ta'lim sohasi mutaxassisi",
+      "position": "Termiz davlat muhandislik va agrotexnologiyalar universiteti akademik litseyi o'quv ishlari bo'yicha direktor o'rinbosari",
+      "description": "2005-yildan buyon akademik litsey matematika fanini o'qitib, o'quv jarayonini tashkil etish va boshqarish bilan shug'ullanadigan tajribali mutaxassis. 2024-yildan Termiz davlat muhandislik va agrotexnologiyalar universiteti akademik litseyida o'quv ishlari bo'yicha direktor o'rinbosari lavozimida faoliyat yuritmoqda.",
+      "stats": {
+        "experience": {
+          "value": "19+",
+          "label": "Yil ta'lim tajribasi"
+        },
+        "deputy": {
+          "value": "2012",
+          "label": "Direktor o'rinbosari sifatidagi ilk yil"
+        },
+        "education": {
+          "value": "2",
+          "label": "Oliy ta'lim bosqichi (bakalavr, magistr)"
+        },
+        "language": {
+          "value": "Rus",
+          "label": "Biladigan chet tili"
+        }
+      },
+      "floating": {
+        "director": "Direktor o'rinbosari",
+        "degree": "Magistr (2022)"
+      }
+    },
+    "education": {
+      "title": "Ta'lim va Tajriba",
+      "subtitle": "Akademik litseylar va ta'lim muassasalarida yig'ilgan bilim hamda boshqaruv tajribasi.",
+      "cards": {
+        "education": {
+          "title": "Ta'lim ma'lumotlari",
+          "items": {
+            "magistr": {
+              "title": "Magistr - Matematika",
+              "subtitle": "Termiz davlat universiteti, 2022"
+            },
+            "bachelor": {
+              "title": "Bakalavr - Matematika",
+              "subtitle": "Termiz davlat universiteti, 2005"
+            },
+            "language": {
+              "title": "Chet tili",
+              "subtitle": "Rus tili"
+            }
+          }
+        },
+        "personal": {
+          "title": "Asosiy ma'lumotlar",
+          "items": {
+            "birth": "31-oktabr 1981, Surxondaryo viloyati Boysun tumani",
+            "nationality": "Millati: o'zbek",
+            "party": "Partiyaviyligi: yo'q",
+            "awards": "Davlat mukofotlari: yo'q",
+            "membership": "Saylanadigan organlarga a'zolik: yo'q"
+          }
+        },
+        "management": {
+          "title": "Rahbarlik va boshqaruv",
+          "items": {
+            "current": "2024 - h.v. Termiz DMATU akademik litseyi, o'quv ishlari bo'yicha direktor o'rinbosari",
+            "tmti": "2022 - 2024 Termiz muhandislik-texnologiya instituti akademik litseyi, direktor o'rinbosari",
+            "tdtu": "2017 - 2022 TDTU Termiz filiali akademik litseyi, direktor o'rinbosari",
+            "tdu": "2012 - 2014 Termiz DU akademik litseyi, o'quv ishlari bo'yicha direktor o'rinbosari"
+          }
+        }
+      }
+    },
+    "timeline": {
+      "title": "Mehnat faoliyati",
+      "items": {
+        "current": {
+          "year": "2024",
+          "title": "Direktor o'rinbosari",
+          "place": "Termiz DMATU akademik litseyi",
+          "description": "2024-yil 4-sentyabrdan buyon o'quv ishlari bo'yicha direktor o'rinbosari"
+        },
+        "tmti": {
+          "year": "2022",
+          "title": "Direktor o'rinbosari",
+          "place": "Termiz muhandislik-texnologiya instituti akademik litseyi",
+          "description": "2022-2024 yillarda o'quv ishlari bo'yicha direktor o'rinbosari"
+        },
+        "tdtu": {
+          "year": "2017",
+          "title": "Direktor o'rinbosari",
+          "place": "TDTU Termiz filiali akademik litseyi",
+          "description": "2017-2022 yillarda o'quv ishlari bo'yicha direktor o'rinbosari"
+        },
+        "teacher2015": {
+          "year": "2015",
+          "title": "Matematika o'qituvchisi",
+          "place": "Termiz DU akademik litseyi",
+          "description": "2014-2017 yillarda matematika fanidan dars bergan, 2015-yilda ma'naviy-ma'rifiy ishlar bo'yicha direktor o'rinbosari"
+        },
+        "deputy2012": {
+          "year": "2012",
+          "title": "Direktor o'rinbosari",
+          "place": "Termiz DU akademik litseyi",
+          "description": "2012-2014 yillarda o'quv ishlari bo'yicha direktor o'rinbosari, 2011-2012 yillarda aniq fanlar kafedrasi mudiri"
+        },
+        "teacher2005": {
+          "year": "2005",
+          "title": "Matematika o'qituvchisi",
+          "place": "Termiz DU qoshidagi akademik litsey",
+          "description": "2005-2011 yillarda matematika fanidan dars bergan"
+        }
+      }
+    },
+    "focus": {
+      "title": "Faoliyat yo'nalishlari",
+      "subtitle": "Matematika o'qitish, ta'lim jarayonini boshqarish va o'quvchilarni qo'llab-quvvatlash bo'yicha asosiy faoliyat yo'nalishlari.",
+      "cards": {
+        "analysis": {
+          "title": "Matematika darslari",
+          "description": "Akademik litsey o'quvchilari uchun chuqurlashtirilgan matematika kurslari",
+          "tags": {
+            "limit": "Analiz",
+            "derivative": "Algebra",
+            "integral": "Geometriya"
+          }
+        },
+        "curriculum": {
+          "title": "O'quv reja va dasturlar",
+          "description": "Fanlar bo'yicha o'quv rejalari va dars ishlanmalarini shakllantirish",
+          "tags": {
+            "plan": "O'quv reja",
+            "methodology": "Metodika",
+            "assessment": "Nazorat"
+          }
+        },
+        "support": {
+          "title": "Metodik qo'llab-quvvatlash",
+          "description": "O'qituvchilar va mentorlar uchun metodik seminarlar, tajriba almashish",
+          "tags": {
+            "seminar": "Seminar",
+            "mentorship": "Mentorlik",
+            "methodology": "Metodika"
+          }
+        },
+        "exams": {
+          "title": "Imtihonlarga tayyorlash",
+          "description": "Davlat attestatsiyasi va oliy ta'limga kirish imtihonlariga tayyorlash",
+          "tags": {
+            "dtm": "DTM",
+            "assessment": "Nazorat",
+            "strategy": "Strategiya"
+          }
+        },
+        "values": {
+          "title": "Ma'naviy-ma'rifiy ishlar",
+          "description": "O'quvchilar bilan tarbiyaviy ishlarni tashkil etish va hamkorlik",
+          "tags": {
+            "education": "Tarbiyaviy",
+            "collaboration": "Hamkorlik",
+            "project": "Loyiha"
+          }
+        },
+        "mentoring": {
+          "title": "Maslahat va mentorlik",
+          "description": "O'quvchilar va ustozlarga individual maslahatlar, rivojlanish rejalarini tuzish",
+          "tags": {
+            "consulting": "Maslahat",
+            "development": "Rivojlanish",
+            "monitoring": "Monitoring"
+          }
+        }
+      }
+    },
+    "services": {
+      "title": "Ta'lim xizmatlari",
+      "subtitle": "Akademik litsey o'quvchilari va o'qituvchilari uchun amaliy yordam hamda qo'llab-quvvatlash xizmatlari.",
+      "cards": {
+        "academic": {
+          "title": "Akademik darslar",
+          "description": "Matematika fanidan chuqurlashtirilgan darslar va qo'llanmalar"
+        },
+        "management": {
+          "title": "Boshqaruv ko'magi",
+          "description": "O'quv jarayonini rejalashtirish, nazorat va monitoring jarayonlari"
+        },
+        "seminars": {
+          "title": "Metodik seminarlar",
+          "description": "O'qituvchilar uchun metodik seminarlar va tajriba almashish"
+        },
+        "consulting": {
+          "title": "Maslahat va mentorlik",
+          "description": "O'quvchilar va ota-onalar uchun individual maslahatlar"
+        }
+      }
+    },
+    "results": {
+      "title": "Natijalar va faktlar",
+      "subtitle": "Mehnat faoliyati davomida to'plangan tajriba va asosiy ko'rsatkichlar.",
+      "cards": {
+        "start": {
+          "value": "2005",
+          "label": "Kasbiy faoliyat boshlanishi",
+          "detail": "Termiz DU akademik litseyi"
+        },
+        "institutions": {
+          "value": "4",
+          "label": "Akademik litsey va institut",
+          "detail": "Termiz DU, TDTU filiali, TMITI, DMATU"
+        },
+        "degrees": {
+          "value": "2",
+          "label": "Oliy ta'lim bosqichi",
+          "detail": "Bakalavr va magistr"
+        },
+        "experience": {
+          "value": "19+",
+          "label": "Yil ta'lim tajribasi",
+          "detail": "2005-yildan hozirga qadar"
+        }
+      },
+      "highlights": {
+        "deputy": {
+          "value": "2012",
+          "label": "Direktor o'rinbosari sifatidagi ilk yil"
+        },
+        "tdtu": {
+          "value": "2017",
+          "label": "TDTU Termiz filiali akademik litseyiga o'tish"
+        },
+        "current": {
+          "value": "2024",
+          "label": "Termiz DMATU akademik litseyida yangi bosqich"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Biz bilan bog'laning",
+    "subtitle": "Savollaringiz bormi? Shaxsiy darslar yoki kurslar haqida ma'lumot olishni xohlaysizmi? Biz bilan bog'laning va professional yordam oling",
+    "form": {
+      "title": "Xabar yuborish",
+      "firstName": {
+        "label": "Ism *",
+        "placeholder": "Ismingizni kiriting"
+      },
+      "lastName": {
+        "label": "Familiya *",
+        "placeholder": "Familiyangizni kiriting"
+      },
+      "email": {
+        "label": "Email *",
+        "placeholder": "email@example.com"
+      },
+      "phone": {
+        "label": "Telefon raqami",
+        "placeholder": "+998 90 123 45 67"
+      },
+      "subject": {
+        "label": "Mavzu *",
+        "placeholder": "Xabar mavzusi"
+      },
+      "message": {
+        "label": "Xabar *",
+        "placeholder": "Xabaringizni yozing..."
+      }
+    },
+    "info": {
+      "title": "Aloqa ma'lumotlari",
+      "phone": {
+        "title": "Telefon",
+        "primary": "+998 90 123 45 67",
+        "secondary": "+998 71 234 56 78"
+      },
+      "email": {
+        "title": "Email",
+        "primary": "info@matematik.uz",
+        "secondary": "prof.matematik@gmail.com"
+      },
+      "address": {
+        "title": "Manzil",
+        "city": "Toshkent shahri",
+        "district": "Chilonzor tumani"
+      },
+      "hours": {
+        "title": "Ish vaqti",
+        "weekdays": "Dushanba - Juma: 9:00 - 18:00",
+        "saturday": "Shanba: 10:00 - 16:00"
+      }
+    },
+    "quick": {
+      "title": "Tezkor aloqa",
+      "description": "Shaxsiy darslar yoki kurslar haqida tezkor ma'lumot olish uchun to'g'ridan-to'g'ri qo'ng'iroq qiling"
+    },
+    "alert": {
+      "success": "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
+    }
+  },
+  "materials": {
+    "title": "O'quv Ishlanmalari",
+    "subtitle": "Matematika fanining barcha bo'limlari bo'yicha to'liq darslik materiallari, qo'llanmalar va amaliy mashqlar to'plami",
+    "filters": {
+      "search": {
+        "label": "Qidirish",
+        "placeholder": "Material nomi..."
+      },
+      "category": {
+        "label": "Kategoriya",
+        "placeholder": "Kategoriyani tanlang"
+      },
+      "level": {
+        "label": "Daraja",
+        "placeholder": "Darajani tanlang"
+      }
+    },
+    "card": {
+      "downloads": "{{count}} yuklab olindi"
+    },
+    "actions": {
+      "view": "Ko'rish",
+      "download": "Yuklab olish"
+    },
+    "empty": {
+      "title": "Hech narsa topilmadi",
+      "description": "Qidiruv shartlaringizni o'zgartirib ko'ring"
+    }
+  },
+  "tests": {
+    "title": "Matematik Testlar",
+    "subtitle": "Bilimingizni sinab ko'ring va matematik ko'nikmalaringizni rivojlantiring. Har xil darajadagi testlar orqali o'z darajangizni aniqlang",
+    "categories": {
+      "title": "Test Kategoriyalari"
+    },
+    "available": {
+      "title": "Mavjud Testlar"
+    },
+    "card": {
+      "questions": "{{count}} savol",
+      "duration": "{{minutes}} daqiqa"
+    },
+    "actions": {
+      "results": "Natijalarni ko'rish"
+    },
+    "modal": {
+      "title": "Test Ma'lumotlari",
+      "stats": {
+        "questions": "Savollar soni",
+        "duration": "Daqiqa",
+        "level": "Daraja",
+        "category": "Kategoriya"
+      },
+      "rules": {
+        "title": "Muhim qoidalar:",
+        "time": "Test vaqti tugagach avtomatik yakunlanadi",
+        "answer": "Har bir savolga faqat bitta javob tanlash mumkin",
+        "pause": "Testni boshlangandan keyin to'xtatib bo'lmaydi",
+        "complete": "Barcha savollarni javoblashga harakat qiling"
+      }
+    }
+  },
+  "courses": {
+    "title": "Video Kurslar",
+    "subtitle": "Matematik fanlarni chuqur o'rganish uchun professional video kurslar. Har bir mavzu bo'yicha step-by-step ta'lim olish imkoniyati",
+    "featured": {
+      "badge": "Eng mashhur kurs",
+      "title": "Matematik Analiz: Noldan Professionallik Darajasigacha",
+      "description": "Matematik analizning barcha asosiy mavzularini o'rganing. Limitlar, hosilalar, integrallar va ularning amaliy qo'llanilishi.",
+      "duration": "24 soat",
+      "lessons": "48 dars",
+      "students": "2,340 talaba"
+    },
+    "categories": {
+      "title": "Kurs Kategoriyalari"
+    },
+    "list": {
+      "title": "Barcha Kurslar"
+    },
+    "card": {
+      "duration": "Davomiyligi: {{duration}} soat",
+      "students": "Talabalar: {{count}}",
+      "priceFree": "Bepul",
+      "currency": "so'm"
+    },
+    "actions": {
+      "view": "Kursni ko'rish"
+    },
+    "modal": {
+      "title": "Kurs Ma'lumotlari",
+      "stats": {
+        "modules": "Modullar",
+        "duration": "Davomiyligi",
+        "level": "Daraja",
+        "price": "Narx"
+      },
+      "modules": {
+        "title": "Kurs modullari:"
+      }
+    }
+  }
+}

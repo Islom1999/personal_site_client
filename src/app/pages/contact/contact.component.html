@@ -1,11 +1,12 @@
-<div class="min-h-screen bg-gray-50 py-8">
+﻿<div class="min-h-screen bg-gray-50 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Biz bilan bog'laning</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {{ 'contact.title' | translate }}
+      </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Savollaringiz bormi? Shaxsiy darslar yoki kurslar haqida ma'lumot olishni xohlaysizmi? Biz
-        bilan bog'laning va professional yordam oling
+        {{ 'contact.subtitle' | translate }}
       </p>
     </div>
 
@@ -13,27 +14,33 @@
       <!-- Contact Form -->
       <div class="lg:col-span-2">
         <div class="bg-white rounded-2xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Xabar yuborish</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            {{ 'contact.form.title' | translate }}
+          </h2>
 
           <form class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="flex flex-col">
-                <label class="text-sm font-medium text-gray-700 mb-2">Ism *</label>
+                <label class="text-sm font-medium text-gray-700 mb-2">
+                  {{ 'contact.form.firstName.label' | translate }}
+                </label>
                 <input
                   type="text"
                   pInputText
-                  placeholder="Ismingizni kiriting"
+                  [placeholder]="'contact.form.firstName.placeholder' | translate"
                   [(ngModel)]="contactForm.firstName"
                   name="firstName"
                   class="w-full"
                 />
               </div>
               <div class="flex flex-col">
-                <label class="text-sm font-medium text-gray-700 mb-2">Familiya *</label>
+                <label class="text-sm font-medium text-gray-700 mb-2">
+                  {{ 'contact.form.lastName.label' | translate }}
+                </label>
                 <input
                   type="text"
                   pInputText
-                  placeholder="Familiyangizni kiriting"
+                  [placeholder]="'contact.form.lastName.placeholder' | translate"
                   [(ngModel)]="contactForm.lastName"
                   name="lastName"
                   class="w-full"
@@ -42,11 +49,13 @@
             </div>
 
             <div class="flex flex-col">
-              <label class="text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <label class="text-sm font-medium text-gray-700 mb-2">
+                {{ 'contact.form.email.label' | translate }}
+              </label>
               <input
                 type="email"
                 pInputText
-                placeholder="email@example.com"
+                [placeholder]="'contact.form.email.placeholder' | translate"
                 [(ngModel)]="contactForm.email"
                 name="email"
                 class="w-full"
@@ -54,11 +63,13 @@
             </div>
 
             <div class="flex flex-col">
-              <label class="text-sm font-medium text-gray-700 mb-2">Telefon raqami</label>
+              <label class="text-sm font-medium text-gray-700 mb-2">
+                {{ 'contact.form.phone.label' | translate }}
+              </label>
               <input
                 type="tel"
                 pInputText
-                placeholder="+998 90 123 45 67"
+                [placeholder]="'contact.form.phone.placeholder' | translate"
                 [(ngModel)]="contactForm.phone"
                 name="phone"
                 class="w-full"
@@ -66,11 +77,13 @@
             </div>
 
             <div class="flex flex-col">
-              <label class="text-sm font-medium text-gray-700 mb-2">Mavzu *</label>
+              <label class="text-sm font-medium text-gray-700 mb-2">
+                {{ 'contact.form.subject.label' | translate }}
+              </label>
               <input
                 type="text"
                 pInputText
-                placeholder="Xabar mavzusi"
+                [placeholder]="'contact.form.subject.placeholder' | translate"
                 [(ngModel)]="contactForm.subject"
                 name="subject"
                 class="w-full"
@@ -78,11 +91,13 @@
             </div>
 
             <div class="flex flex-col">
-              <label class="text-sm font-medium text-gray-700 mb-2">Xabar *</label>
+              <label class="text-sm font-medium text-gray-700 mb-2">
+                {{ 'contact.form.message.label' | translate }}
+              </label>
               <textarea
                 pInputTextarea
                 rows="6"
-                placeholder="Xabaringizni yozing..."
+                [placeholder]="'contact.form.message.placeholder' | translate"
                 [(ngModel)]="contactForm.message"
                 name="message"
                 class="w-full resize-none"
@@ -91,7 +106,7 @@
             </div>
 
             <p-button
-              label="Xabar yuborish"
+              [label]="'common.buttons.send' | translate"
               icon="pi pi-send"
               class="w-full btn-primary"
               (onClick)="sendMessage()"
@@ -105,7 +120,9 @@
       <div class="space-y-8">
         <!-- Contact Details -->
         <div class="bg-white rounded-2xl shadow-lg p-8">
-          <h3 class="text-xl font-bold text-gray-900 mb-6">Aloqa ma'lumotlari</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-6">
+            {{ 'contact.info.title' | translate }}
+          </h3>
 
           <div class="space-y-6">
             <div class="flex items-start space-x-4">
@@ -115,9 +132,15 @@
                 <i class="pi pi-phone text-blue-600 text-xl"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Telefon</h4>
-                <p class="text-gray-600">+998 90 123 45 67</p>
-                <p class="text-gray-600">+998 71 234 56 78</p>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {{ 'contact.info.phone.title' | translate }}
+                </h4>
+                <p class="text-gray-600">
+                  {{ 'contact.info.phone.primary' | translate }}
+                </p>
+                <p class="text-gray-600">
+                  {{ 'contact.info.phone.secondary' | translate }}
+                </p>
               </div>
             </div>
 
@@ -128,9 +151,15 @@
                 <i class="pi pi-envelope text-green-600 text-xl"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
-                <p class="text-gray-600">info@matematik.uz</p>
-                <p class="text-gray-600">prof.matematik@gmail.com</p>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {{ 'contact.info.email.title' | translate }}
+                </h4>
+                <p class="text-gray-600">
+                  {{ 'contact.info.email.primary' | translate }}
+                </p>
+                <p class="text-gray-600">
+                  {{ 'contact.info.email.secondary' | translate }}
+                </p>
               </div>
             </div>
 
@@ -141,9 +170,15 @@
                 <i class="pi pi-map-marker text-purple-600 text-xl"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Manzil</h4>
-                <p class="text-gray-600">Toshkent shahri</p>
-                <p class="text-gray-600">Chilonzor tumani</p>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {{ 'contact.info.address.title' | translate }}
+                </h4>
+                <p class="text-gray-600">
+                  {{ 'contact.info.address.city' | translate }}
+                </p>
+                <p class="text-gray-600">
+                  {{ 'contact.info.address.district' | translate }}
+                </p>
               </div>
             </div>
 
@@ -154,90 +189,30 @@
                 <i class="pi pi-clock text-orange-600 text-xl"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Ish vaqti</h4>
-                <p class="text-gray-600">Dushanba - Juma: 9:00 - 18:00</p>
-                <p class="text-gray-600">Shanba: 10:00 - 16:00</p>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {{ 'contact.info.hours.title' | translate }}
+                </h4>
+                <p class="text-gray-600">
+                  {{ 'contact.info.hours.weekdays' | translate }}
+                </p>
+                <p class="text-gray-600">
+                  {{ 'contact.info.hours.saturday' | translate }}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Social Media -->
-        <!-- <div class="bg-white rounded-2xl shadow-lg p-8">
-          <h3 class="text-xl font-bold text-gray-900 mb-6">Ijtimoiy tarmoqlar</h3>
-
-          <div class="space-y-4">
-            <a
-              href="#"
-              class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-            >
-              <div
-                class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-200"
-              >
-                <i class="pi pi-telegram text-blue-600 text-lg"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Telegram</h4>
-                <p class="text-gray-600 text-sm">@matematik_prof</p>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-            >
-              <div
-                class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors duration-200"
-              >
-                <i class="pi pi-youtube text-red-600 text-lg"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">YouTube</h4>
-                <p class="text-gray-600 text-sm">Matematik Darslar</p>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-            >
-              <div
-                class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-200"
-              >
-                <i class="pi pi-facebook text-blue-600 text-lg"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Facebook</h4>
-                <p class="text-gray-600 text-sm">Prof Matematik</p>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-            >
-              <div
-                class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center group-hover:bg-pink-200 transition-colors duration-200"
-              >
-                <i class="pi pi-instagram text-pink-600 text-lg"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Instagram</h4>
-                <p class="text-gray-600 text-sm">@matematik_prof</p>
-              </div>
-            </a>
-          </div>
-        </div> -->
-
         <!-- Quick Contact -->
         <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
-          <h3 class="text-xl font-bold mb-4">Tezkor aloqa</h3>
+          <h3 class="text-xl font-bold mb-4">
+            {{ 'contact.quick.title' | translate }}
+          </h3>
           <p class="text-blue-100 mb-6">
-            Shaxsiy darslar yoki kurslar haqida tezkor ma'lumot olish uchun to'g'ridan-to'g'ri
-            qo'ng'iroq qiling
+            {{ 'contact.quick.description' | translate }}
           </p>
           <p-button
-            label="Qo'ng'iroq qilish"
+            [label]="'common.buttons.call' | translate"
             icon="pi pi-phone"
             class="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
           >
