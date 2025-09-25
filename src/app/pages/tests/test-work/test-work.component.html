@@ -211,4 +211,140 @@
       </div>
     </div>
   </p-dialog>
+
+  <!-- Test Result Modal -->
+  <p-dialog
+    [(visible)]="showResultDialog"
+    [modal]="true"
+    [closable]="false"
+    [style]="{ width: '600px' }"
+    header="Test Natijasi"
+  >
+    <div *ngIf="testResult" class="space-y-6">
+      <!-- Result Header -->
+      <div class="text-center">
+        <div
+          class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+          [class.bg-green-100]="testResult.score >= 70"
+          [class.bg-yellow-100]="testResult.score >= 50 && testResult.score < 70"
+          [class.bg-red-100]="testResult.score < 50"
+        >
+          <i
+            class="text-4xl"
+            [class.pi-check-circle]="testResult.score >= 70"
+            [class.text-green-600]="testResult.score >= 70"
+            [class.pi-exclamation-triangle]="testResult.score >= 50 && testResult.score < 70"
+            [class.text-yellow-600]="testResult.score >= 50 && testResult.score < 70"
+            [class.pi-times-circle]="testResult.score < 50"
+            [class.text-red-600]="testResult.score < 50"
+          ></i>
+        </div>
+        <h2 class="text-3xl font-bold mb-2" [class]="getScoreColorClass(testResult.score)">
+          {{ testResult.score }}%
+        </h2>
+        <p class="text-gray-600 text-lg">{{ getResultMessage(testResult.score) }}</p>
+      </div>
+
+      <!-- Result Statistics -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-green-50 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-green-600 mb-1">
+            {{ testResult.correct_answers }}
+          </div>
+          <div class="text-sm text-gray-600">To'g'ri javoblar</div>
+        </div>
+        <div class="bg-red-50 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-red-600 mb-1">
+            {{ testResult.total_questions - testResult.correct_answers }}
+          </div>
+          <div class="text-sm text-gray-600">Noto'g'ri javoblar</div>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-blue-600 mb-1">
+            {{ formatTimeSpent(testResult.time_spent) }}
+          </div>
+          <div class="text-sm text-gray-600">Sarflangan vaqt</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="space-y-2">
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Umumiy natija</span>
+          <span class="font-medium">{{ testResult.correct_answers }}/{{ testResult.total_questions }}</span>
+        </div>
+        <p-progressBar 
+          [value]="testResult.score" 
+          [showValue]="false" 
+          class="h-3"
+          [class.p-progressbar-success]="testResult.score >= 70"
+          [class.p-progressbar-warning]="testResult.score >= 50 && testResult.score < 70"
+          [class.p-progressbar-danger]="testResult.score < 50"
+        ></p-progressBar>
+      </div>
+
+      <!-- Grade Badge -->
+      <div class="text-center">
+        <p-tag 
+          [value]="getGrade(testResult.score)" 
+          [severity]="getGradeSeverity(testResult.score)"
+          class="text-lg px-4 py-2"
+        >
+        </p-tag>
+      </div>
+
+      <!-- Detailed Results (if available) -->
+      <div *ngIf="testResult.client_result_answer?.length" class="bg-gray-50 rounded-xl p-4">
+        <h3 class="font-semibold text-gray-900 mb-3">
+          <i class="pi pi-list mr-2"></i>
+          Batafsil natijalar
+        </h3>
+        <div class="space-y-2 max-h-40 overflow-y-auto">
+          <div
+            *ngFor="let answer of testResult.client_result_answer; let i = index"
+            class="flex items-center justify-between p-2 bg-white rounded-lg"
+          >
+            <span class="text-sm text-gray-700">Savol {{ i + 1 }}</span>
+            <div class="flex items-center space-x-2">
+              <i
+                class="text-sm"
+                [class.pi-check]="answer.is_result"
+                [class.text-green-600]="answer.is_result"
+                [class.pi-times]="!answer.is_result"
+                [class.text-red-600]="!answer.is_result"
+              ></i>
+              <span 
+                class="text-xs px-2 py-1 rounded-full"
+                [class.bg-green-100]="answer.is_result"
+                [class.text-green-800]="answer.is_result"
+                [class.bg-red-100]="!answer.is_result"
+                [class.text-red-800]="!answer.is_result"
+              >
+                {{ answer.is_result ? "To'g'ri" : "Noto'g'ri" }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex space-x-3 pt-4">
+        <p-button
+          label="Testni qayta ishlash"
+          icon="pi pi-refresh"
+          [outlined]="true"
+          class="flex-1"
+          (onClick)="retakeTest()"
+        >
+        </p-button>
+        <p-button
+          label="Testlar bo'limiga o'tish"
+          icon="pi pi-arrow-left"
+          class="flex-1 btn-primary"
+          (onClick)="goToTests()"
+        >
+        </p-button>
+      </div>
+    </div>
+  </p-dialog>
 </div>
