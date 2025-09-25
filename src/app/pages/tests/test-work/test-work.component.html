@@ -329,19 +329,20 @@
 
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
+        
+        <p-button
+          label="Testlar bo'limiga o'tish"
+          icon="pi pi-arrow-left"
+          class="flex-1 btn-primary"
+          (onClick)="goToTests()"
+        >
+        </p-button>
         <p-button
           label="Testni qayta ishlash"
           icon="pi pi-refresh"
           [outlined]="true"
           class="flex-1"
           (onClick)="retakeTest()"
-        >
-        </p-button>
-        <p-button
-          label="Testlar bo'limiga o'tish"
-          icon="pi pi-arrow-left"
-          class="flex-1 btn-primary"
-          (onClick)="goToTests()"
         >
         </p-button>
       </div>
