@@ -85,12 +85,7 @@
                 >
                   <div class="flex items-center space-x-2">
                     <i
-                      class="text-sm"
-                      [class.pi-play-circle]="
-                        part.type === 'video_youtube' || part.type === 'video_server'
-                      "
-                      [class.pi-file-text]="part.type === 'text'"
-                      [class.pi-book]="part.type === 'gibrid'"
+                      class="text-sm pi pi-play-circle"
                       [class.text-green-600]="
                         currentModuleIndex === moduleIndex && currentPartIndex === partIndex
                       "
@@ -141,12 +136,8 @@
                   <span class="flex items-center">
                     <i
                       class="mr-1"
-                      [class.pi-play-circle]="
-                        currentPart?.type === 'video_youtube' ||
-                        currentPart?.type === 'video_server'
-                      "
+                      [class.pi-play-circle]="currentPart?.file_video_id"
                       [class.pi-file-text]="currentPart?.type === 'text'"
-                      [class.pi-book]="currentPart?.type === 'gibrid'"
                     ></i>
                     {{ getContentTypeLabel(currentPart?.type) }}
                   </span>
@@ -222,11 +213,11 @@
             </div>
 
             <!-- Server Video Content -->
-            <div *ngIf="currentPart?.type === 'video_server'" class="mb-6">
+            <div *ngIf="currentPart?.file_video_id" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <video
-                  *ngIf="currentPart.file_video_id"
-                  [src]="getServerVideoUrl(currentPart.file_video_id)"
+                  *ngIf="currentPart?.file_video_id"
+                  [src]="getServerVideoUrl(currentPart.file_video_id!)"
                   class="w-full h-full"
                   controls
                   preload="metadata"
@@ -234,7 +225,7 @@
                   Brauzeringiz video formatini qo'llab-quvvatlamaydi.
                 </video>
                 <div
-                  *ngIf="!currentPart.file_video_id"
+                  *ngIf="!currentPart?.file_video_id"
                   class="w-full h-full flex items-center justify-center"
                 >
                   <div class="text-center text-white">
@@ -246,13 +237,7 @@
             </div>
 
             <!-- Text Content -->
-            <div
-              *ngIf="
-                currentPart?.content &&
-                (currentPart?.type === 'text' || currentPart?.type === 'gibrid')
-              "
-              class="prose max-w-none"
-            >
+            <div *ngIf="currentPart?.content" class="prose max-w-none">
               <div [innerHTML]="currentPart?.content" class="text-gray-700 leading-relaxed"></div>
             </div>
 

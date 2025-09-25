@@ -11,7 +11,7 @@
           <span class="text-white font-bold text-xl">M</span>
         </div>
         <div>
-          <h1 class="text-xl font-bold text-gray-900">Prof. Matematik</h1>
+          <h1 class="text-xl font-bold text-gray-900">Mamataliyev O‘tkir Ashurovich</h1>
           <p class="text-sm text-gray-600">O'qituvchi</p>
         </div>
       </div>
@@ -56,20 +56,12 @@
         </a>
 
         <!-- Auth Section -->
-        <div *ngIf="!isLoggedIn" class="flex items-center space-x-3">
-          <p-button
-            label="Kirish"
-            [text]="true"
-            routerLink="/login"
-            class="text-gray-700 hover:text-blue-600"
-          >
-          </p-button>
-          <p-button label="Ro'yxatdan o'tish" routerLink="/register" class="btn-primary">
-          </p-button>
-        </div>
+        <!-- <div *ngIf="!isLoggedIn" class="flex items-center space-x-3">
+          <p-button label="Kirish" routerLink="/login" class="btn-primary"> </p-button>
+        </div> -->
 
         <!-- User Profile -->
-        <div *ngIf="isLoggedIn" class="flex items-center space-x-3">
+        <!-- <div *ngIf="isLoggedIn" class="flex items-center space-x-3">
           <p-avatar
             [image]="currentUser?.avatar"
             [label]="currentUser?.name?.charAt(0)"
@@ -92,7 +84,7 @@
             pTooltip="Chiqish"
           >
           </p-button>
-        </div>
+        </div> -->
       </div>
 
       <!-- Mobile menu button -->
@@ -153,7 +145,7 @@
           Aloqa
         </a>
 
-        <div *ngIf="!isLoggedIn" class="px-3 py-2 space-y-2">
+        <!-- <div *ngIf="!isLoggedIn" class="px-3 py-2 space-y-2">
           <a
             routerLink="/login"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
@@ -168,9 +160,9 @@
           >
             Ro'yxatdan o'tish
           </a>
-        </div>
+        </div> -->
 
-        <div *ngIf="isLoggedIn" class="px-3 py-2 border-t border-gray-200">
+        <!-- <div *ngIf="isLoggedIn" class="px-3 py-2 border-t border-gray-200">
           <a
             routerLink="/profile"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
@@ -184,7 +176,7 @@
           >
             Chiqish
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>

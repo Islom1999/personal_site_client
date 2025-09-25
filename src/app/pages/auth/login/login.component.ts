@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -9,6 +9,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
 import { AuthService } from '../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm = {
     email: '',
     password: '',
@@ -40,6 +41,10 @@ export class LoginComponent {
   googleLoading = false;
 
   constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.loginWithGoogle();
+  }
 
   login() {
     this.submitted = true;
@@ -80,13 +85,15 @@ export class LoginComponent {
     this.errorMessage = '';
 
     // Google OAuth2 login
-    this.initializeGoogleAuth().then(() => {
-      this.signInWithGoogle();
-    }).catch((error) => {
-      console.error('Google Auth initialization failed:', error);
-      this.errorMessage = 'Google Auth yuklanmadi. Qaytadan urinib ko\'ring.';
-      this.googleLoading = false;
-    });
+    this.initializeGoogleAuth()
+      .then(() => {
+        this.signInWithGoogle();
+      })
+      .catch((error) => {
+        console.error('Google Auth initialization failed:', error);
+        this.errorMessage = "Google Auth yuklanmadi. Qaytadan urinib ko'ring.";
+        this.googleLoading = false;
+      });
   }
 
   private async initializeGoogleAuth(): Promise<void> {
@@ -103,8 +110,8 @@ export class LoginComponent {
       script.defer = true;
       script.onload = () => {
         window.google.accounts.id.initialize({
-          client_id: '1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com', // Replace with your actual client ID
-          callback: this.handleGoogleResponse.bind(this)
+          client_id: '300407407088-jb0laf59g4o58faclgktp83akj6f4f72.apps.googleusercontent.com', // Replace with your actual client ID
+          callback: this.handleGoogleResponse.bind(this),
         });
         resolve();
       };
@@ -122,7 +129,7 @@ export class LoginComponent {
           {
             theme: 'outline',
             size: 'large',
-            width: '100%'
+            width: '100%',
           }
         );
       }
@@ -141,20 +148,20 @@ export class LoginComponent {
           if (result.data.refresh_token) {
             localStorage.setItem('refreshToken', result.data.refresh_token);
           }
-          
+
           // Save user data to localStorage
           if (result.data.user) {
             localStorage.setItem('currentUser', JSON.stringify(result.data.user));
           }
-          
+
           this.googleLoading = false;
           this.router.navigate(['/profile']);
         },
         error: (error) => {
           console.error('Google login failed:', error);
-          this.errorMessage = 'Google orqali kirish muvaffaqiyatsiz. Qaytadan urinib ko\'ring.';
+          this.errorMessage = "Google orqali kirish muvaffaqiyatsiz. Qaytadan urinib ko'ring.";
           this.googleLoading = false;
-        }
+        },
       });
     } else {
       this.errorMessage = 'Google token olinmadi';

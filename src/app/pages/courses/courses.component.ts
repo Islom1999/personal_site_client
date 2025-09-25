@@ -5,6 +5,7 @@ import {
   effect,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -61,11 +62,12 @@ export class CoursesComponent implements OnInit {
   showVideoDialog = false;
   selectedCourse!: ISpCourses;
   selectedFilter = 'all';
-  filteredCourses: ISpCourses[] = [];
+  // filteredCourses: ISpCourses[] = [];
+  filteredCourses = signal<any[]>([]);
 
   constructor() {
     effect(() => {
-      this.filteredCourses = [...this.courses()];
+      this.filteredCourses.set([...this.courses()]);
     });
   }
 
@@ -74,20 +76,22 @@ export class CoursesComponent implements OnInit {
   filterCourses(level_id: string) {
     this.selectedFilter = level_id;
     if (level_id == 'all') {
-      this.filteredCourses = [...this.courses()];
+      this.filteredCourses.set([...this.courses()]);
     } else {
-      this.filteredCourses = this.courses().filter((course) => course.sp_level_id == level_id);
+      this.filteredCourses.set([
+        ...this.courses().filter((course) => course.sp_level_id == level_id),
+      ]);
     }
     this._cdr.markForCheck();
   }
 
   filterByCategory(category_id: string) {
     if (category_id == 'all') {
-      this.filteredCourses = [...this.courses()];
+      this.filteredCourses.set([...this.courses()]);
     } else {
-      this.filteredCourses = this.courses().filter(
-        (course) => course.sp_category_id == category_id
-      );
+      this.filteredCourses.set([
+        ...this.courses().filter((course) => course.sp_category_id == category_id),
+      ]);
     }
     this._cdr.markForCheck();
   }

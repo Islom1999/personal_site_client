@@ -122,7 +122,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for(course of filteredCourses; track course.id){
+        @for(course of filteredCourses(); track course.id){
         <div
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
         >
@@ -215,9 +215,9 @@
   </div>
 
   <!-- Course Onboard Modal -->
-  <p-dialog 
-    [(visible)]="showCourseOnboardDialog" 
-    [modal]="true" 
+  <p-dialog
+    [(visible)]="showCourseOnboardDialog"
+    [modal]="true"
     [closable]="true"
     [style]="{ width: '700px' }"
     header="Kurs Ma'lumotlari"
@@ -225,7 +225,7 @@
     <div *ngIf="selectedCourse" class="space-y-6">
       <!-- Course Header -->
       <div class="text-center">
-        <div 
+        <div
           class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
         >
           <i class="pi pi-book text-white text-3xl"></i>
@@ -237,7 +237,9 @@
       <!-- Course Details -->
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-blue-600 mb-1">{{ selectedCourse.sp_courses_modules?.length || 0 }}</div>
+          <div class="text-2xl font-bold text-blue-600 mb-1">
+            {{ selectedCourse.sp_courses_modules?.length || 0 }}
+          </div>
           <div class="text-sm text-gray-600">Modullar</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
@@ -245,11 +247,15 @@
           <div class="text-sm text-gray-600">Davomiyligi</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-purple-600 mb-1">{{ selectedCourse.sp_level_id | selectItemLabel : levels() }}</div>
+          <div class="text-2xl font-bold text-purple-600 mb-1">
+            {{ selectedCourse.sp_level_id | selectItemLabel : levels() }}
+          </div>
           <div class="text-sm text-gray-600">Daraja</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-orange-600 mb-1">{{ selectedCourse.price === 0 ? 'Bepul' : selectedCourse.price + ' so\'m' }}</div>
+          <div class="text-2xl font-bold text-orange-600 mb-1">
+            {{ selectedCourse.price === 0 ? 'Bepul' : selectedCourse.price + " so'm" }}
+          </div>
           <div class="text-sm text-gray-600">Narx</div>
         </div>
       </div>
@@ -261,11 +267,18 @@
           Kurs modullari:
         </h3>
         <div class="space-y-2 max-h-40 overflow-y-auto">
-          <div *ngFor="let module of selectedCourse.sp_courses_modules; let i = index" class="flex items-center space-x-3">
-            <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">
+          <div
+            *ngFor="let module of selectedCourse.sp_courses_modules; let i = index"
+            class="flex items-center space-x-3"
+          >
+            <div
+              class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold"
+            >
               {{ i + 1 }}
             </div>
-            <span class="text-sm text-gray-700">{{ module.name_uz || module.name_ru || module.name_kr }}</span>
+            <span class="text-sm text-gray-700">{{
+              module.name_uz || module.name_ru || module.name_kr
+            }}</span>
             <span class="text-xs text-gray-500 ml-auto">{{ module.duration }}</span>
           </div>
         </div>
@@ -278,16 +291,16 @@
 
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
-        <p-button 
-          label="Kursni boshlash" 
-          icon="pi pi-play" 
+        <p-button
+          label="Kursni boshlash"
+          icon="pi pi-play"
           class="flex-1 btn-primary"
           (onClick)="startCourse()"
         >
         </p-button>
-        <p-button 
-          label="Bekor qilish" 
-          icon="pi pi-times" 
+        <p-button
+          label="Bekor qilish"
+          icon="pi pi-times"
           [outlined]="true"
           (onClick)="closeCourseOnboard()"
         >

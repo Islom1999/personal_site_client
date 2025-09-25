@@ -23,7 +23,7 @@ import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'app-course-read',
   standalone: true,
-  imports: [RouterLink, FormsModule, ButtonModule, ProgressBarModule, CheckboxModule],
+  imports: [RouterLink, FormsModule, ButtonModule, ProgressBarModule, CheckboxModule, CommonModule],
   templateUrl: './course-read.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -77,6 +77,7 @@ export class CourseReadComponent implements OnInit {
       if (savedCompletion) {
         this.completedParts = new Set(JSON.parse(savedCompletion));
       }
+      this._cdr.markForCheck();
     }
   }
 

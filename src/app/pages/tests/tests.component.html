@@ -118,7 +118,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          *ngFor="let test of filteredTests"
+          *ngFor="let test of filteredTests()"
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
         >
           <div class="p-6">
@@ -157,9 +157,9 @@
 
             <!-- Action Buttons -->
             <div class="flex space-x-2">
-              <p-button 
-                [label]="'Testni boshlash'" 
-                icon="pi pi-play" 
+              <p-button
+                [label]="'Testni boshlash'"
+                icon="pi pi-play"
                 class="flex-1 btn-primary"
                 (onClick)="showTestInfo(test)"
               >
@@ -180,9 +180,9 @@
   </div>
 
   <!-- Test Info Modal -->
-  <p-dialog 
-    [(visible)]="showTestInfoDialog" 
-    [modal]="true" 
+  <p-dialog
+    [(visible)]="showTestInfoDialog"
+    [modal]="true"
     [closable]="true"
     [style]="{ width: '600px' }"
     header="Test Ma'lumotlari"
@@ -190,7 +190,7 @@
     <div *ngIf="selectedTest" class="space-y-6">
       <!-- Test Header -->
       <div class="text-center">
-        <div 
+        <div
           class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
         >
           <i [class]="selectedTest.icon" class="text-white text-2xl"></i>
@@ -202,7 +202,9 @@
       <!-- Test Details -->
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-blue-600 mb-1">{{ selectedTest!.questions_count || 20 }}</div>
+          <div class="text-2xl font-bold text-blue-600 mb-1">
+            {{ selectedTest!.questions_count || 20 }}
+          </div>
           <div class="text-sm text-gray-600">Savollar soni</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
@@ -210,11 +212,15 @@
           <div class="text-sm text-gray-600">Daqiqa</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-purple-600 mb-1">{{ selectedTest!.sp_level_id | selectItemLabel : levels() }}</div>
+          <div class="text-2xl font-bold text-purple-600 mb-1">
+            {{ selectedTest!.sp_level_id | selectItemLabel : levels() }}
+          </div>
           <div class="text-sm text-gray-600">Daraja</div>
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
-          <div class="text-2xl font-bold text-orange-600 mb-1">{{ selectedTest!.sp_category_id | selectItemLabel : categories() }}</div>
+          <div class="text-2xl font-bold text-orange-600 mb-1">
+            {{ selectedTest!.sp_category_id | selectItemLabel : categories() }}
+          </div>
           <div class="text-sm text-gray-600">Kategoriya</div>
         </div>
       </div>
@@ -235,16 +241,16 @@
 
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
-        <p-button 
-          label="Testni boshlash" 
-          icon="pi pi-play" 
+        <p-button
+          label="Testni boshlash"
+          icon="pi pi-play"
           class="flex-1 btn-primary"
           (onClick)="startTest()"
         >
         </p-button>
-        <p-button 
-          label="Bekor qilish" 
-          icon="pi pi-times" 
+        <p-button
+          label="Bekor qilish"
+          icon="pi pi-times"
           [outlined]="true"
           (onClick)="closeTestInfo()"
         >

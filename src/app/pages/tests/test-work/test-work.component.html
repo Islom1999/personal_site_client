@@ -5,14 +5,16 @@
       <div class="flex items-center justify-between">
         <!-- Test Info -->
         <div class="flex items-center space-x-4">
-          <div 
+          <div
             class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center"
           >
             <i [class]="testData?.icon || 'pi pi-question-circle'" class="text-white text-xl"></i>
           </div>
           <div>
             <h1 class="text-xl font-bold text-gray-900">{{ testData?.name }}</h1>
-            <p class="text-sm text-gray-600">{{ currentQuestionIndex + 1 }}/{{ questions.length }} savol</p>
+            <p class="text-sm text-gray-600">
+              {{ currentQuestionIndex + 1 }}/{{ questions.length }} savol
+            </p>
           </div>
         </div>
 
@@ -22,13 +24,13 @@
             <div class="flex items-center space-x-2">
               <i class="pi pi-clock text-red-600"></i>
               <span class="font-mono text-lg font-bold text-red-600">
-                {{ formatTime(timeRemaining) }}
+                {{ formatTime(timeRemaining()) }}
               </span>
             </div>
           </div>
-          <p-button 
-            label="Testni yakunlash" 
-            icon="pi pi-check" 
+          <p-button
+            label="Testni yakunlash"
+            icon="pi pi-check"
             severity="success"
             (onClick)="finishTest()"
           >
@@ -38,11 +40,7 @@
 
       <!-- Progress Bar -->
       <div class="mt-4">
-        <p-progressBar 
-          [value]="progress" 
-          [showValue]="false"
-          class="h-2"
-        ></p-progressBar>
+        <p-progressBar [value]="progress" [showValue]="false" class="h-2"></p-progressBar>
       </div>
     </div>
   </div>
@@ -53,28 +51,26 @@
       <!-- Question -->
       <div class="mb-8">
         <div class="flex items-start space-x-4 mb-6">
-          <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">
+          <div
+            class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm"
+          >
             {{ currentQuestionIndex + 1 }}
           </div>
           <div class="flex-1">
             <h2 class="text-xl font-semibold text-gray-900 mb-4">
               {{ currentQuestion.question }}
             </h2>
-            
+
             <!-- Question Image if exists -->
             <div *ngIf="false" class="mb-6">
-              <img 
-                src="" 
-                alt="Savol rasmi"
-                class="max-w-full h-auto rounded-lg shadow-sm"
-              >
+              <img src="" alt="Savol rasmi" class="max-w-full h-auto rounded-lg shadow-sm" />
             </div>
           </div>
         </div>
 
         <!-- Answer Options -->
         <div class="space-y-3">
-          <div 
+          <div
             *ngFor="let option of currentQuestion.sp_quession_options; let i = index"
             class="border rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50"
             [class.border-blue-500]="selectedAnswers[currentQuestion.id] === option.id"
@@ -82,25 +78,25 @@
             (click)="selectAnswer(currentQuestion!.id, option.id)"
           >
             <div class="flex items-center space-x-3">
-              <div 
+              <div
                 class="w-6 h-6 rounded-full border-2 flex items-center justify-center"
                 [class.border-blue-500]="selectedAnswers[currentQuestion!.id] === option.id"
                 [class.bg-blue-500]="selectedAnswers[currentQuestion!.id] === option.id"
                 [class.border-gray-300]="selectedAnswers[currentQuestion!.id] !== option.id"
               >
-                <div 
+                <div
                   *ngIf="selectedAnswers[currentQuestion!.id] === option.id"
                   class="w-2 h-2 bg-white rounded-full"
                 ></div>
               </div>
-              <span 
+              <span
                 class="font-medium"
                 [class.text-blue-600]="selectedAnswers[currentQuestion!.id] === option.id"
                 [class.text-gray-900]="selectedAnswers[currentQuestion!.id] !== option.id"
               >
                 {{ ['A', 'B', 'C', 'D'][i] }}.
               </span>
-              <span 
+              <span
                 class="flex-1"
                 [class.text-blue-600]="selectedAnswers[currentQuestion!.id] === option.id"
                 [class.text-gray-700]="selectedAnswers[currentQuestion!.id] !== option.id"
@@ -114,9 +110,9 @@
 
       <!-- Navigation -->
       <div class="flex items-center justify-between pt-6 border-t">
-        <p-button 
-          label="Oldingi" 
-          icon="pi pi-chevron-left" 
+        <p-button
+          label="Oldingi"
+          icon="pi pi-chevron-left"
           [outlined]="true"
           [disabled]="currentQuestionIndex === 0"
           (onClick)="previousQuestion()"
@@ -129,9 +125,11 @@
           </span>
         </div>
 
-        <p-button 
-          [label]="currentQuestionIndex === questions.length - 1 ? 'Yakunlash' : 'Keyingi'" 
-          [icon]="currentQuestionIndex === questions.length - 1 ? 'pi pi-check' : 'pi pi-chevron-right'" 
+        <p-button
+          [label]="currentQuestionIndex === questions.length - 1 ? 'Yakunlash' : 'Keyingi'"
+          [icon]="
+            currentQuestionIndex === questions.length - 1 ? 'pi pi-check' : 'pi pi-chevron-right'
+          "
           [iconPos]="currentQuestionIndex === questions.length - 1 ? 'left' : 'right'"
           [severity]="currentQuestionIndex === questions.length - 1 ? 'success' : 'primary'"
           (onClick)="nextQuestion()"
@@ -162,9 +160,9 @@
   </div>
 
   <!-- Finish Confirmation Dialog -->
-  <p-dialog 
-    [(visible)]="showFinishDialog" 
-    [modal]="true" 
+  <p-dialog
+    [(visible)]="showFinishDialog"
+    [modal]="true"
     [closable]="false"
     [style]="{ width: '500px' }"
     header="Testni yakunlash"
@@ -185,24 +183,26 @@
             <div class="text-sm text-gray-600">Javoblangan</div>
           </div>
           <div>
-            <div class="text-2xl font-bold text-red-600">{{ questions.length - answeredCount }}</div>
+            <div class="text-2xl font-bold text-red-600">
+              {{ questions.length - answeredCount }}
+            </div>
             <div class="text-sm text-gray-600">Javoblanmagan</div>
           </div>
         </div>
       </div>
 
       <div class="flex space-x-3 pt-4">
-        <p-button 
-          label="Ha, yakunlash" 
-          icon="pi pi-check" 
+        <p-button
+          label="Ha, yakunlash"
+          icon="pi pi-check"
           severity="success"
           class="flex-1"
           (onClick)="confirmFinish()"
         >
         </p-button>
-        <p-button 
-          label="Bekor qilish" 
-          icon="pi pi-times" 
+        <p-button
+          label="Bekor qilish"
+          icon="pi pi-times"
           [outlined]="true"
           class="flex-1"
           (onClick)="cancelFinish()"

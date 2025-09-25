@@ -1,11 +1,23 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DialogModule } from 'primeng/dialog';
 import { SpTestsService } from '../../../../shared/services/sp-tests.service';
-import { ISpTests, ISpTestsQuession, ISpQuessionOption } from '../../../../shared/models/sp-tests.model';
+import {
+  ISpTests,
+  ISpTestsQuession,
+  ISpQuessionOption,
+} from '../../../../shared/models/sp-tests.model';
 
 interface TestAnswer {
   sp_tests_quession_id: string;
@@ -21,12 +33,7 @@ interface TestSubmission {
 @Component({
   selector: 'app-test-work',
   standalone: true,
-  imports: [
-    CommonModule,
-    ButtonModule,
-    ProgressBarModule,
-    DialogModule,
-  ],
+  imports: [CommonModule, ButtonModule, ProgressBarModule, DialogModule],
   templateUrl: './test-work.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -34,18 +41,19 @@ export class TestWorkComponent implements OnInit, OnDestroy {
   private _route = inject(ActivatedRoute);
   private _router = inject(Router);
   private _testsService = inject(SpTestsService);
+  private _cdr = inject(ChangeDetectorRef);
 
   testId: string = '';
   testData: ISpTests | null = null;
   questions: ISpTestsQuession[] = [];
   currentQuestionIndex = 0;
   selectedAnswers: { [questionId: string]: string } = {};
-  
+
   // Timer
-  timeRemaining = 0; // in seconds
+  timeRemaining = signal(0); // in seconds
   timerInterval: any;
   startTime = Date.now();
-  
+
   // UI State
   showFinishDialog = false;
 
@@ -65,23 +73,25 @@ export class TestWorkComponent implements OnInit, OnDestroy {
     this._testsService.getById(this.testId).subscribe({
       next: (test) => {
         this.testData = test;
-        this.timeRemaining = (test.duration || 30) * 60; // Convert minutes to seconds
+        this.timeRemaining.set((test.duration || 30) * 60); // Convert minutes to seconds
         this.startTimer();
         this.questions = test.sp_tests_quessions || [];
+        this._cdr.markForCheck();
       },
       error: (error) => {
         console.error('Test yuklanmadi:', error);
         this._router.navigate(['/tests']);
-      }
+      },
     });
   }
 
   startTimer() {
     this.timerInterval = setInterval(() => {
-      this.timeRemaining--;
-      if (this.timeRemaining <= 0) {
+      this.timeRemaining.update((v) => v - 1);
+      if (this.timeRemaining() <= 0) {
         this.timeUp();
       }
+      this._cdr.markForCheck();
     }, 1000);
   }
 
@@ -150,16 +160,18 @@ export class TestWorkComponent implements OnInit, OnDestroy {
     }
 
     const timeSpent = Math.floor((Date.now() - this.startTime) / 1000); // in seconds
-    
-    const answers: TestAnswer[] = Object.entries(this.selectedAnswers).map(([questionId, optionId]) => ({
-      sp_tests_quession_id: questionId,
-      sp_tests_quession_option_id: optionId
-    }));
+
+    const answers: TestAnswer[] = Object.entries(this.selectedAnswers).map(
+      ([questionId, optionId]) => ({
+        sp_tests_quession_id: questionId,
+        sp_tests_quession_option_id: optionId,
+      })
+    );
 
     const submission: TestSubmission = {
       sp_tests_id: this.testId,
       answers: answers,
-      time_spent: timeSpent
+      time_spent: timeSpent,
     };
 
     // Submit to backend
@@ -171,14 +183,20 @@ export class TestWorkComponent implements OnInit, OnDestroy {
     this._testsService.submitTestResult(submission).subscribe({
       next: (result) => {
         console.log('Test natijasi yuborildi:', result);
-        alert(`Test yakunlandi!\nSizning natijangiz: ${result.score || 'N/A'}%\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}`);
+        alert(
+          `Test yakunlandi!\nSizning natijangiz: ${result.score || 'N/A'}%\nJavoblangan savollar: ${
+            this.answeredCount
+          }/${this.questions.length}`
+        );
         this._router.navigate(['/tests']);
       },
       error: (error) => {
         console.error('Test natijasini yuborishda xatolik:', error);
-        alert(`Test yakunlandi!\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}\nNatija saqlanmadi.`);
+        alert(
+          `Test yakunlandi!\nJavoblangan savollar: ${this.answeredCount}/${this.questions.length}\nNatija saqlanmadi.`
+        );
         this._router.navigate(['/tests']);
-      }
+      },
     });
   }
 }

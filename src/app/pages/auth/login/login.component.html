@@ -20,8 +20,7 @@
         <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" class="w-full">
         </p-message>
 
-        <!-- Email -->
-        <div class="flex flex-col">
+        <!-- <div class="flex flex-col">
           <label class="text-sm font-medium text-gray-700 mb-2">Email manzil</label>
           <input
             type="email"
@@ -35,7 +34,6 @@
           />
         </div>
 
-        <!-- Password -->
         <div class="flex flex-col">
           <label class="text-sm font-medium text-gray-700 mb-2">Parol</label>
           <p-password
@@ -51,7 +49,6 @@
           </p-password>
         </div>
 
-        <!-- Remember Me & Forgot Password -->
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <p-checkbox
@@ -66,7 +63,6 @@
           <a href="#" class="text-sm text-blue-600 hover:text-blue-500">Parolni unutdingizmi?</a>
         </div>
 
-        <!-- Login Button -->
         <p-button
           type="submit"
           label="Kirish"
@@ -76,7 +72,6 @@
         >
         </p-button>
 
-        <!-- Divider -->
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300"></div>
@@ -84,11 +79,11 @@
           <div class="relative flex justify-center text-sm">
             <span class="px-2 bg-white text-gray-500">yoki</span>
           </div>
-        </div>
+        </div> -->
 
         <!-- Social Login -->
         <div class="space-y-3">
-          <p-button
+          <!-- <p-button
             label="Google bilan kirish"
             icon="pi pi-google"
             [outlined]="true"
@@ -96,17 +91,8 @@
             [loading]="googleLoading"
             (onClick)="loginWithGoogle()"
           >
-          </p-button>
-        </div>
-
-        <!-- Register Link -->
-        <div class="text-center">
-          <p class="text-sm text-gray-600">
-            Hisobingiz yo'qmi?
-            <a routerLink="/register" class="font-medium text-blue-600 hover:text-blue-500 ml-1">
-              Ro'yxatdan o'ting
-            </a>
-          </p>
+          </p-button> -->
+          <div id="google-signin-button" class="w-full flex justify-center mt-2"></div>
         </div>
       </form>
     </div>

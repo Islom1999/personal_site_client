@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../core/base/base.service';
-import { ISpTests } from '../models/sp-tests.model';
+import { IClientResult, ISpTests } from '../models/sp-tests.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,8 +11,7 @@ export class SpTestsService extends BaseService<ISpTests> {
     super('client/sp-tests');
   }
 
-  submitTestResult(testResult: any): Observable<any> {
-    return this.http.post(`${this.fullUrl}/check`, testResult);
+  submitTestResult(testResult: any): Observable<IClientResult> {
+    return this.http.post<IClientResult>(`${this.fullUrl}/check`, testResult);
   }
-
 }

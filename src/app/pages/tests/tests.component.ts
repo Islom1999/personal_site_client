@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  effect,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
@@ -52,21 +54,15 @@ export class TestsComponent implements OnInit {
   _spTestsService = inject(SpTestsService);
 
   categories = toSignal(
-    this._spCategoryService.getAll().pipe(
-      map(data => data.filter(item => item != null))
-    ), 
+    this._spCategoryService.getAll().pipe(map((data) => data.filter((item) => item != null))),
     { initialValue: [] }
   );
   levels = toSignal(
-    this._spLevelService.getAll().pipe(
-      map(data => data.filter(item => item != null))
-    ), 
+    this._spLevelService.getAll().pipe(map((data) => data.filter((item) => item != null))),
     { initialValue: [] }
   );
   tests = toSignal(
-    this._spTestsService.getAll().pipe(
-      map(data => data.filter(item => item != null))
-    ), 
+    this._spTestsService.getAll().pipe(map((data) => data.filter((item) => item != null))),
     { initialValue: [] }
   );
 
@@ -100,28 +96,37 @@ export class TestsComponent implements OnInit {
     return this.testCategoriesStyle[indexNumber];
   }
 
-  filteredTests: ISpTests[] = [];
+  filteredTests = signal<any[]>([]);
+
+  constructor() {
+    effect(() => {
+      this.filteredTests.set(this.tests());
+    });
+  }
 
   ngOnInit() {
-    this.filteredTests = [...this.tests()];
+    this.filteredTests.set(this.tests());
+    this._cdr.markForCheck();
   }
 
   filterByCategory(category_id: string) {
     this.selectedCategory = category_id;
     if (category_id === 'all') {
-      this.filteredTests = [...this.tests()];
+      this.filteredTests.set(this.tests());
     } else {
-      this.filteredTests = this.tests().filter((test) => test.sp_category_id === category_id);
+      this.filteredTests.set(this.tests().filter((test) => test.sp_category_id === category_id));
     }
+    this._cdr.markForCheck();
   }
 
   filterByLevel(level_id: string) {
     this.selectedLevel = level_id;
     if (level_id === 'all') {
-      this.filteredTests = [...this.tests()];
+      this.filteredTests.set(this.tests());
     } else {
-      this.filteredTests = this.tests().filter((test) => test.sp_level_id === level_id);
+      this.filteredTests.set(this.tests().filter((test) => test.sp_level_id === level_id));
     }
+    this._cdr.markForCheck();
   }
 
   showTestInfo(test: ISpTests) {
@@ -137,7 +142,7 @@ export class TestsComponent implements OnInit {
   startTest() {
     if (this.selectedTest) {
       this._router.navigate(['/tests', this.selectedTest.id]);
-    }else{
+    } else {
       this.closeTestInfo();
     }
   }
