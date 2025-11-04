@@ -63,12 +63,7 @@ export class AuthService {
   logout() {
     localStorage.clear();
 
-<<<<<<< HEAD
     this.http.post(`${this.baseUrl}/client/auth/logout`, {}).subscribe({
-=======
-    // Call backend logout
-    this.http.post(this.baseUrl + '/client/auth/logout', {}).subscribe({
->>>>>>> 28f040871fda30398d16950cf6d69f608e5682e8
       next: () => {
         window.location.href = '/home';
       },
