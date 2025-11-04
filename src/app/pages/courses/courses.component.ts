@@ -78,6 +78,7 @@ export class CoursesComponent implements OnInit {
 
   filterCourses(level_id: string) {
     this.selectedFilter = level_id;
+
     if (level_id == 'all') {
       this.filteredCourses.set([...this.courses()]);
     } else {
@@ -97,6 +98,9 @@ export class CoursesComponent implements OnInit {
       ]);
     }
     this._cdr.markForCheck();
+  }
+  hasCategory(id: string): boolean {
+    return !!this.categories()?.some((cat) => cat.id === id);
   }
 
   showCourseOnboard(course: ISpCourses) {
@@ -125,6 +129,3 @@ export class CoursesComponent implements OnInit {
     this.closeCourseOnboard();
   }
 }
-
-
-

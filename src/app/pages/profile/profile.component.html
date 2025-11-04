@@ -2,54 +2,49 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Profile Header -->
     <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 mb-8 text-white">
-      <div
-        class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8"
-      >
+      <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
         <!-- Avatar -->
-        <div class="relative">
-          <p-avatar
-            [image]="user?.avatar"
-            [label]="user?.name?.charAt(0)"
-            shape="circle"
-            size="xlarge"
-            class="w-32 h-32 border-4 border-white shadow-lg"
-          >
-          </p-avatar>
-          <button
-            class="absolute bottom-2 right-2 w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
-          >
-            <i class="pi pi-camera text-sm"></i>
-          </button>
+        <div class="relative flex flex-col items-center">
+          <div class="relative">
+            <p-avatar [image]="user?.file_image_id ? user?.file_image_id : '/default-avatar.jpeg'" shape="circle"
+              size="xlarge" class="w-32 h-32 border-4 border-white shadow-lg">
+            </p-avatar>
+            <input type="file" #fileInput class="hidden" (change)="uploadImgProfile($event)">
+            <button (click)="fileInput.click()"
+              class="absolute bottom-2 right-2 w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors">
+              <i class="pi pi-camera text-sm"></i>
+            </button>
+          </div>
         </div>
+
 
         <!-- User Info -->
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl font-bold mb-2">{{ user?.name }}</h1>
-          <p class="text-blue-100 text-lg mb-4">{{ user?.email }}</p>
+          <h1 class="text-3xl font-bold mb-2">{{ user?.fullname }}</h1>
 
           <!-- Stats -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+            <!-- <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
               <div class="text-2xl font-bold">{{ userCourses.length }}</div>
               <div class="text-blue-100 text-sm">Kurslar</div>
-            </div>
-            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+            </div> -->
+            <!-- <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
               <div class="text-2xl font-bold">{{ completedCourses }}</div>
               <div class="text-blue-100 text-sm">Yakunlangan</div>
-            </div>
+            </div> -->
             <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-              <div class="text-2xl font-bold">{{ testResults.length }}</div>
-              <div class="text-blue-100 text-sm">Testlar</div>
+              <div class="text-2xl font-bold">{{ testResultsFull.length }}</div>
+              <div class="text-blue-100 text-sm">{{'profile.tests' | translate}}</div>
             </div>
             <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
               <div class="text-2xl font-bold">{{ averageScore }}%</div>
-              <div class="text-blue-100 text-sm">O'rtacha ball</div>
+              <div class="text-blue-100 text-sm">{{'test.averageScore' | translate}}</div>
             </div>
           </div>
         </div>
 
         <!-- Actions -->
-        <div class="flex flex-col space-y-2">
+        <!-- <div class="flex flex-col space-y-2">
           <p-button
             label="Profilni tahrirlash"
             icon="pi pi-pencil"
@@ -65,7 +60,7 @@
             class="text-white hover:bg-white/10"
           >
           </p-button>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -74,27 +69,26 @@
       <p-tablist>
         <p-tab value="courses">
           <i class="pi pi-book mr-2"></i>
-          Mening Kurslarim
+          {{'profile.myCourses' | translate}}
         </p-tab>
         <p-tab value="tests">
           <i class="pi pi-chart-bar mr-2"></i>
-          Test Natijalari
+          {{'common.profile.testResults' | translate }}
         </p-tab>
-        <p-tab value="certificates">
+        <!-- <p-tab value="certificates">
           <i class="pi pi-award mr-2"></i>
           Sertifikatlar
-        </p-tab>
+        </p-tab> -->
         <p-tab value="settings">
           <i class="pi pi-user mr-2"></i>
-          Shaxsiy Ma'lumotlar
+          {{'profile.personalInformation' | translate}}
         </p-tab>
       </p-tablist>
 
       <p-tabpanels>
         <!-- Courses Tab -->
-        <p-tabpanel value="courses">
+        <!-- <p-tabpanel value="courses">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Courses List -->
             <div class="lg:col-span-2">
               <div class="space-y-6">
                 <div *ngFor="let course of userCourses" class="bg-white rounded-2xl p-6 shadow-lg">
@@ -102,120 +96,94 @@
                     <div class="flex-1">
                       <h3 class="text-xl font-bold text-gray-900 mb-2">{{ course.title }}</h3>
                       <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                        <span>{{ course.completedLessons }}/{{ course.totalLessons }} dars</span>
+                        <span>{{ course.completedLessons }}/{{ course.totalLessons }} {{'profile.lesson' |
+                          translate}}</span>
                         <span>Oxirgi kirish: {{ formatDate(course.lastAccessed) }}</span>
                       </div>
                     </div>
                     <div class="flex items-center space-x-2">
-                      <p-tag
-                        *ngIf="course.certificate"
-                        value="Sertifikat"
-                        severity="success"
-                        class="text-xs"
-                      >
+                      <p-tag *ngIf="course.certificate" value="Sertifikat" severity="success" class="text-xs">
                       </p-tag>
                     </div>
                   </div>
 
-                  <!-- Progress -->
                   <div class="mb-4">
                     <div class="flex items-center justify-between text-sm mb-2">
-                      <span class="text-gray-600">Jarayon</span>
+                      <span class="text-gray-600">{{'profile.progress' | translate}}</span>
                       <span class="font-medium text-blue-600">{{ course.progress }}%</span>
                     </div>
-                    <p-progressBar [value]="course.progress" class="h-2"></p-progressBar>
+                    <p-progressBar [value]="course.progress" class="h-4"></p-progressBar>
                   </div>
 
-                  <!-- Actions -->
                   <div class="flex space-x-3">
-                    <p-button
-                      label="Davom etish"
-                      icon="pi pi-play"
-                      class="btn-primary"
-                      (onClick)="continueCourse(course)"
-                    >
+                    <p-button label="Davom etish" icon="pi pi-play" class="btn-primary"
+                      (onClick)="continueCourse(course)">
                     </p-button>
-                    <p-button
-                      *ngIf="course.certificate"
-                      label="Sertifikat"
-                      icon="pi pi-download"
-                      [outlined]="true"
-                      class="text-green-600 border-green-600 hover:bg-green-50"
-                    >
+                    <p-button *ngIf="course.certificate" label="Sertifikat" icon="pi pi-download" [outlined]="true"
+                      class="text-green-600 border-green-600 hover:bg-green-50">
                     </p-button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Progress Chart -->
             <div class="space-y-6">
               <div class="bg-white rounded-2xl p-6 shadow-lg">
                 <h4 class="text-lg font-semibold text-gray-900 mb-4">O'qish Statistikasi</h4>
-                <p-chart
-                  type="doughnut"
-                  [data]="courseChartData"
-                  [options]="chartOptions"
-                  class="w-full h-48"
-                >
+                <p-chart type="doughnut" [data]="courseChartData" [options]="chartOptions" class="w-full h-48">
                 </p-chart>
               </div>
 
               <div class="bg-white rounded-2xl p-6 shadow-lg">
                 <h4 class="text-lg font-semibold text-gray-900 mb-4">Haftalik Faollik</h4>
-                <p-chart
-                  type="bar"
-                  [data]="activityChartData"
-                  [options]="activityChartOptions"
-                  class="w-full h-48"
-                >
+                <p-chart type="bar" [data]="activityChartData" [options]="activityChartOptions" class="w-full h-48">
                 </p-chart>
               </div>
             </div>
           </div>
-        </p-tabpanel>
+        </p-tabpanel> -->
 
         <!-- Tests Tab -->
         <p-tabpanel value="tests">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Test Results -->
             <div class="lg:col-span-2">
               <div class="space-y-4">
-                <div *ngFor="let test of testResults" class="bg-white rounded-2xl p-6 shadow-lg">
-                  <div class="flex items-center justify-between mb-4">
+                <div *ngFor="let test of testResultsFull" class="bg-white rounded-2xl p-6 shadow-lg">
+                  <div class="flex items-start justify-between mb-4">
                     <div>
-                      <h3 class="text-lg font-semibold text-gray-900">{{ test.testName }}</h3>
-                      <p class="text-gray-600 text-sm">
-                        {{ test.category }} • {{ formatDate(test.date) }}
-                      </p>
+                      <h3 class="text-lg font-semibold text-gray-900">{{ test.test.name }}</h3>
+                      <p class="text-gray-600 text-sm flex items-center gap-2 mt-2">{{ test.test.description }}</p>
                     </div>
-                    <div class="text-right">
-                      <div class="text-2xl font-bold" [class]="getScoreColor(test.percentage)">
-                        {{ test.percentage }}%
+                    <div class="text-right space-y-2">
+                      <div class="text-2xl font-bold"
+                        [class]="getScoreColor((test.result.correct_answers / test.result.total_questions) * 100)">
+                        {{ ((test.result.correct_answers / test.result.total_questions) * 100) | number:'1.0-0' }}%
                       </div>
-                      <div class="text-sm text-gray-600">{{ test.score }}/{{ test.maxScore }}</div>
+                      <p-tag class="text-sm ">
+                        {{ test.result.correct_answers }}/{{ test.result.total_questions }}
+                      </p-tag>
                     </div>
                   </div>
 
                   <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4 text-sm text-gray-600">
-                      <span>{{ test.attempts }} urinish</span>
-                      <p-tag
-                        [value]="getGrade(test.percentage)"
-                        [severity]="getGradeSeverity(test.percentage)"
-                        class="text-xs"
-                      >
-                      </p-tag>
+                    <div class="flex items-center space-x-2 text-sm text-gray-600">
+                      <p-button icon="pi pi-clock" label="" [text]="true" class="text-blue-600 hover:bg-blue-50 w-4 h-4"
+                        styleClass="w-[18px] h-[18px]">
+                      </p-button><span>{{ formatTime(test.result.time_spent) }}</span>
+
+                      <p class="text-gray-600 text-sm">
+                        <span>{{ formatDate(test.result.created_at) }}</span>
+                      </p>
+                      <!-- <p-tag [value]="getGrade((test.result.correct_answers / test.result.total_questions) * 100)"
+                        [severity]="getGradeSeverity((test.result.correct_answers / test.result.total_questions) * 100)"
+                        class="text-xs">
+                      </p-tag> -->
                     </div>
-                    <p-button
-                      label="Batafsil"
-                      icon="pi pi-eye"
-                      [text]="true"
-                      class="text-blue-600 hover:bg-blue-50"
-                    >
-                    </p-button>
+                    <!-- <p-button label="Batafsil" icon="pi pi-eye" [text]="true" class="text-blue-600 hover:bg-blue-50">
+                    </p-button> -->
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -226,7 +194,7 @@
                 <div class="space-y-4">
                   <div class="flex items-center justify-between">
                     <span class="text-gray-600">Jami testlar:</span>
-                    <span class="font-semibold">{{ testResults.length }}</span>
+                    <span class="font-semibold">{{ totalTests }}</span>
                   </div>
                   <div class="flex items-center justify-between">
                     <span class="text-gray-600">O'rtacha ball:</span>
@@ -240,33 +208,25 @@
                     <span class="text-gray-600">Muvaffaqiyat darajasi:</span>
                     <span class="font-semibold">{{ successRate }}%</span>
                   </div>
+
                 </div>
               </div>
 
-              <div class="bg-white rounded-2xl p-6 shadow-lg">
+              <!-- <div class="bg-white rounded-2xl p-6 shadow-lg">
                 <h4 class="text-lg font-semibold text-gray-900 mb-4">Kategoriyalar bo'yicha</h4>
-                <p-chart
-                  type="radar"
-                  [data]="categoryChartData"
-                  [options]="radarChartOptions"
-                  class="w-full h-48"
-                >
+                <p-chart type="radar" [data]="categoryChartData" [options]="radarChartOptions" class="w-full h-48">
                 </p-chart>
-              </div>
+              </div> -->
             </div>
           </div>
         </p-tabpanel>
 
         <!-- Certificates Tab -->
-        <p-tabpanel value="certificates">
+        <!-- <p-tabpanel value="certificates">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-              *ngFor="let cert of certificates"
-              class="bg-white rounded-2xl p-6 shadow-lg text-center"
-            >
+            <div *ngFor="let cert of certificates" class="bg-white rounded-2xl p-6 shadow-lg text-center">
               <div
-                class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4"
-              >
+                class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <i class="pi pi-award text-white text-2xl"></i>
               </div>
               <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ cert.courseName }}</h3>
@@ -279,7 +239,7 @@
               </div>
             </div>
           </div>
-        </p-tabpanel>
+        </p-tabpanel> -->
 
         <!-- Settings Tab -->
         <p-tabpanel value="settings">
@@ -288,67 +248,27 @@
               <h3 class="text-xl font-semibold text-gray-900 mb-6">Shaxsiy Ma'lumotlar</h3>
 
               <form class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Error Message -->
+                <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage"
+                  class="w-full mb-3 block"></p-message>
+                <!-- success message -->
+                <p-message *ngIf="successMessage" severity="success" [text]="successMessage"
+                  class="w-full mb-3 block"></p-message>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
                   <div class="flex flex-col">
                     <label class="text-sm font-medium text-gray-700 mb-2">To'liq ism</label>
-                    <input
-                      type="text"
-                      pInputText
-                      [(ngModel)]="editForm.name"
-                      name="name"
-                      class="w-full"
-                    />
+                    <input type="text" pInputText [(ngModel)]="editForm.fullname" [value]="editForm.fullname"
+                      name="name" class="w-full" />
                   </div>
-                  <div class="flex flex-col">
-                    <label class="text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input
-                      type="email"
-                      pInputText
-                      [(ngModel)]="editForm.email"
-                      name="email"
-                      class="w-full"
-                    />
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div class="flex flex-col">
+                  <!-- <div class="flex flex-col">
                     <label class="text-sm font-medium text-gray-700 mb-2">Telefon</label>
-                    <input
-                      type="tel"
-                      pInputText
-                      [(ngModel)]="editForm.phone"
-                      name="phone"
-                      class="w-full"
-                    />
-                  </div>
-                  <div class="flex flex-col">
-                    <label class="text-sm font-medium text-gray-700 mb-2">Tug'ilgan sana</label>
-                    <p-datepicker
-                      [(ngModel)]="editForm.birthDate"
-                      name="birthDate"
-                      dateFormat="dd/mm/yy"
-                      class="w-full"
-                    />
-                  </div>
+                    <input type="tel" pInputText [(ngModel)]="editForm.phone" name="phone" class="w-full" />
+                  </div> -->
                 </div>
 
-                <div class="flex space-x-4">
-                  <p-button
-                    label="Saqlash"
-                    icon="pi pi-check"
-                    class="btn-primary"
-                    (onClick)="saveProfile()"
-                  >
-                  </p-button>
-                  <p-button
-                    label="Bekor qilish"
-                    icon="pi pi-times"
-                    [outlined]="true"
-                    (onClick)="cancelEdit()"
-                  >
-                  </p-button>
-                </div>
+                <p-button label="Saqlash" [disabled]="isEditDisabled" [loading]="loading" icon="pi pi-check"
+                  class="btn-primary" (onClick)="editProfile()">
+                </p-button>
               </form>
             </div>
           </div>

@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
@@ -11,6 +11,12 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
 import { DatePickerModule } from 'primeng/datepicker';
+import { AuthService } from '../auth/auth.service';
+import { Message } from 'primeng/message';
+import { HttpClient } from '@angular/common/http';
+import { ProfileService } from './profile.service';
+import { forkJoin, map } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface UserCourse {
   id: number;
@@ -21,18 +27,40 @@ interface UserCourse {
   lastAccessed: Date;
   certificate?: boolean;
 }
-
-interface TestResult {
-  id: number;
-  testName: string;
+interface UserTestResult {
+  id: string;
+  client_user_id: string;
+  sp_tests_id: string;
   score: number;
-  maxScore: number;
-  percentage: number;
-  date: Date;
-  category: string;
-  attempts: number;
+  total_questions: number;
+  correct_answers: number;
+  time_spent: number;
+  created_at: string;
+}
+interface TestFull {
+  id: string;
+  name: string;
+  description: string;
+  duration: number;
+  icon: string;
+  sp_level_id: string;
+  created_at: string;
+  sp_tests_quessions?: any[];
 }
 
+export interface TestResultUI {
+  result: UserTestResult;
+  test: TestFull;
+  percentage: number;
+}
+
+interface IUser {
+  id: string;
+  fullname: string;
+  file_image_id?: string;
+  is_success: boolean;
+  phone: string;
+}
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -48,13 +76,24 @@ interface TestResult {
     TagModule,
     ChartModule,
     DatePickerModule,
+    Message,
+    TranslateModule,
   ],
   templateUrl: './profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent implements OnInit {
-  user: any = null;
-  editForm: any = {};
+  user: IUser | null = null;
+  editForm: any = {
+    fullname: this.user?.fullname,
+  };
+  errorMessage = '';
+  successMessage = '';
+  loading = false;
+  disabled = true;
+  selectedFile: File | null = null;
+  uploadingImage = false;
+  imageUploadError = '';
 
   userCourses: UserCourse[] = [
     {
@@ -66,68 +105,9 @@ export class ProfileComponent implements OnInit {
       lastAccessed: new Date('2024-01-20'),
       certificate: false,
     },
-    {
-      id: 2,
-      title: 'Chiziqli Algebra Asoslari',
-      progress: 100,
-      totalLessons: 24,
-      completedLessons: 24,
-      lastAccessed: new Date('2024-01-18'),
-      certificate: true,
-    },
-    {
-      id: 3,
-      title: 'Planimetriya va Stereometriya',
-      progress: 45,
-      totalLessons: 32,
-      completedLessons: 14,
-      lastAccessed: new Date('2024-01-15'),
-      certificate: false,
-    },
   ];
 
-  testResults: TestResult[] = [
-    {
-      id: 1,
-      testName: 'Chiziqli Tenglamalar',
-      score: 13,
-      maxScore: 15,
-      percentage: 87,
-      date: new Date('2024-01-19'),
-      category: 'Algebra',
-      attempts: 2,
-    },
-    {
-      id: 2,
-      testName: 'Uchburchaklar va Burchaklar',
-      score: 11,
-      maxScore: 12,
-      percentage: 92,
-      date: new Date('2024-01-17'),
-      category: 'Geometriya',
-      attempts: 1,
-    },
-    {
-      id: 3,
-      testName: 'Kvadrat Tenglamalar',
-      score: 14,
-      maxScore: 18,
-      percentage: 78,
-      date: new Date('2024-01-15'),
-      category: 'Algebra',
-      attempts: 3,
-    },
-    {
-      id: 4,
-      testName: 'Limitlar va Uzluksizlik',
-      score: 18,
-      maxScore: 20,
-      percentage: 90,
-      date: new Date('2024-01-12'),
-      category: 'Analiz',
-      attempts: 1,
-    },
-  ];
+  testResults: TestResultUI[] = [];
 
   certificates = [
     {
@@ -146,26 +126,42 @@ export class ProfileComponent implements OnInit {
   categoryChartData: any;
   radarChartOptions: any;
 
-  constructor(private router: Router) {}
+  profileService: ProfileService;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef,
+    private http: HttpClient
+  ) {
+    this.profileService = new ProfileService(this.http);
+  }
 
   ngOnInit() {
     this.loadUserData();
     this.initializeCharts();
+    this.getMyTestResults();
   }
 
   loadUserData() {
-    const userData = localStorage.getItem('currentUser');
-    if (!userData) {
-      this.router.navigate(['/login']);
-      return;
-    }
-
-    this.user = JSON.parse(userData);
-    this.editForm = { ...this.user };
+    this.authService.loadProfile().subscribe({
+      next: (user) => {
+        if (!user) {
+          this.router.navigate(['/login']);
+          return;
+        }
+        this.editForm = { ...user };
+        this.user = user;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error(err);
+        this.router.navigate(['/login']);
+      },
+    });
   }
 
   initializeCharts() {
-    // Course progress chart
     this.courseChartData = {
       labels: ['Yakunlangan', 'Jarayonda', 'Boshlanmagan'],
       datasets: [
@@ -213,19 +209,19 @@ export class ProfileComponent implements OnInit {
       },
     };
 
-    // Category performance radar chart
-    this.categoryChartData = {
-      labels: ['Algebra', 'Geometriya', 'Analiz', 'Ehtimollar', 'Diskret'],
-      datasets: [
-        {
-          label: 'Natijalar (%)',
-          data: [85, 92, 78, 88, 75],
-          backgroundColor: 'rgba(59, 130, 246, 0.2)',
-          borderColor: '#3B82F6',
-          pointBackgroundColor: '#3B82F6',
-        },
-      ],
-    };
+    // // Category performance radar chart
+    // this.categoryChartData = {
+    //   labels: ['Algebra', 'Geometriya', 'Analiz', 'Ehtimollar', 'Diskret'],
+    //   datasets: [
+    //     {
+    //       label: 'Natijalar (%)',
+    //       data: [85, 92, 78, 88, 75],
+    //       backgroundColor: 'rgba(59, 130, 246, 0.2)',
+    //       borderColor: '#3B82F6',
+    //       pointBackgroundColor: '#3B82F6',
+    //     },
+    //   ],
+    // };
 
     this.radarChartOptions = {
       responsive: true,
@@ -248,31 +244,64 @@ export class ProfileComponent implements OnInit {
     return this.userCourses.filter((course) => course.progress === 100).length;
   }
 
+  // test statistics helpers
+  formatTime(seconds: number): string {
+    if (!seconds && seconds !== 0) return '';
+    if (seconds < 60) {
+      return `${seconds} soniya`;
+    } else {
+      const minutes = Math.floor(seconds / 60);
+      return `${minutes} daqiqa`;
+    }
+  }
+
+  get totalTests(): number {
+    return this.testResultsFull.length;
+  }
+
   get averageScore(): number {
-    if (this.testResults.length === 0) return 0;
-    const total = this.testResults.reduce((sum, test) => sum + test.percentage, 0);
-    return Math.round(total / this.testResults.length);
+    if (this.testResultsFull.length === 0) return 0;
+    const totalPercentage = this.testResultsFull.reduce((sum, item) => {
+      const correct = item.result.correct_answers || 0;
+      const total = item.result.total_questions || 1;
+      const percentage = (correct / total) * 100;
+      return sum + percentage;
+    }, 0);
+    return Math.round(totalPercentage / this.testResultsFull.length);
   }
 
   get highestScore(): number {
-    if (this.testResults.length === 0) return 0;
-    return Math.max(...this.testResults.map((test) => test.percentage));
+    if (this.testResultsFull.length === 0) return 0;
+    return Math.max(
+      ...this.testResultsFull.map((item) => {
+        const correct = item.result.correct_answers || 0;
+        const total = item.result.total_questions || 1;
+        return Math.round((correct / total) * 100);
+      })
+    );
   }
 
   get successRate(): number {
-    if (this.testResults.length === 0) return 0;
-    const passed = this.testResults.filter((test) => test.percentage >= 70).length;
-    return Math.round((passed / this.testResults.length) * 100);
+    if (this.testResultsFull.length === 0) return 0;
+    const passed = this.testResultsFull.filter((item) => {
+      const correct = item.result.correct_answers || 0;
+      const total = item.result.total_questions || 1;
+      const percentage = (correct / total) * 100;
+      return percentage >= 70;
+    }).length;
+    return Math.round((passed / this.testResultsFull.length) * 100);
   }
 
-  formatDate(date: Date): string {
-    return date.toLocaleDateString('uz-UZ');
+  formatDate(date: string | Date): string {
+    if (!date) return '';
+    const d = typeof date === 'string' ? new Date(date) : date;
+    return d.toLocaleDateString('uz-UZ');
   }
 
   getScoreColor(percentage: number): string {
     if (percentage >= 90) return 'text-green-600';
     if (percentage >= 80) return 'text-blue-600';
-    if (percentage >= 70) return 'text-yellow-600';
+    if (percentage >= 60) return 'text-yellow-600';
     return 'text-red-600';
   }
 
@@ -291,22 +320,137 @@ export class ProfileComponent implements OnInit {
     return 'danger';
   }
 
+  get isEditDisabled(): boolean {
+    if (!this.user || !this.editForm.fullname) return true;
+    return this.editForm.fullname.trim() === this.user.fullname.trim();
+  }
+
   continueCourse(course: UserCourse) {
     this.router.navigate(['/courses']);
   }
 
   editProfile() {
-    // Toggle edit mode or open edit dialog
-  }
+    const trimmedName = this.editForm.fullname?.trim() || '';
 
-  saveProfile() {
-    // Save profile changes
-    this.user = { ...this.editForm };
-    localStorage.setItem('currentUser', JSON.stringify(this.user));
-    alert('Profil muvaffaqiyatli yangilandi!');
+    if (!trimmedName) {
+      this.errorMessage = 'Ismingizni kiriting!';
+      this.loading = false;
+      this.cdr.markForCheck();
+      return;
+    }
+
+    if (this.user?.fullname === trimmedName) {
+      this.disabled = true;
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, 1500);
+      this.loading = false;
+      this.cdr.markForCheck();
+      return;
+    }
+
+    this.loading = true;
+    this.errorMessage = '';
+    this.cdr.markForCheck();
+
+    this.authService.updateProfile(trimmedName).subscribe({
+      next: (res) => {
+        this.disabled = false;
+        this.user = { ...this.user, fullname: trimmedName } as IUser;
+        this.successMessage = "Profile muvaffaqiyatli o'zgardi";
+        setTimeout(() => {
+          this.successMessage = '';
+          this.cdr.markForCheck();
+        }, 1500);
+        this.loading = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error(err);
+        this.errorMessage = err.error?.message || 'Xato yuz berdi';
+        this.loading = false;
+        this.cdr.markForCheck();
+      },
+    });
   }
 
   cancelEdit() {
     this.editForm = { ...this.user };
+  }
+
+  uploadImgProfile(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (!input.files || input.files.length === 0) return;
+
+    const file = input.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    this.authService.uploadImg(formData).subscribe({
+      next: (res) => {
+        const file_image_id = res.id;
+        if (!file_image_id) {
+          this.imageUploadError = 'Fayl yuklanmadi';
+          this.uploadingImage = false;
+          this.cdr.markForCheck();
+          return;
+        }
+
+        this.authService.uploadImg(file_image_id).subscribe({
+          next: (updateRes) => {
+            if (updateRes.user) {
+              this.user = { ...this.user, file_image_id: updateRes.user.file_image_id } as IUser;
+            }
+
+            this.uploadingImage = false;
+            this.cdr.markForCheck();
+          },
+          error: (err) => {
+            console.error(err);
+            this.imageUploadError = 'Profil rasmni yangilashda xato';
+            this.uploadingImage = false;
+            this.cdr.markForCheck();
+          },
+        });
+      },
+      error: (err) => {
+        console.error(err);
+        this.imageUploadError = 'Fayl yuklashda xato';
+        this.uploadingImage = false;
+        this.cdr.markForCheck();
+      },
+    });
+  }
+
+  testResultsFull = [] as any[];
+  // get my test results
+  getMyTestResults() {
+    this.profileService.myTestResults().subscribe({
+      next: (res) => {
+        const observables = res.map((testResult) =>
+          this.profileService.getTestIDetails(testResult.sp_tests_id).pipe(
+            map((testFull) => ({
+              result: testResult,
+              test: testFull,
+            }))
+          )
+        );
+
+        forkJoin(observables).subscribe({
+          next: (fullTests) => {
+            this.testResultsFull = fullTests;
+            this.cdr.markForCheck();
+          },
+          error: (err) => {
+            console.error(err);
+            this.cdr.markForCheck();
+          },
+        });
+      },
+      error: (err) => {
+        console.error(err);
+        this.cdr.markForCheck();
+      },
+    });
   }
 }

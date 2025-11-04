@@ -40,7 +40,7 @@
 
       <!-- Progress Bar -->
       <div class="mt-4">
-        <p-progressBar [value]="progress" [showValue]="false" class="h-2"></p-progressBar>
+        <p-progressBar [value]="progress" [showValue]="false" class="h-4"></p-progressBar>
       </div>
     </div>
   </div>
@@ -273,9 +273,9 @@
           <span class="text-gray-600">Umumiy natija</span>
           <span class="font-medium">{{ testResult.correct_answers }}/{{ testResult.total_questions }}</span>
         </div>
-        <p-progressBar 
-          [value]="testResult.score" 
-          [showValue]="false" 
+        <p-progressBar
+          [value]="testResult.score"
+          [showValue]="false"
           class="h-3"
           [class.p-progressbar-success]="testResult.score >= 70"
           [class.p-progressbar-warning]="testResult.score >= 50 && testResult.score < 70"
@@ -285,8 +285,8 @@
 
       <!-- Grade Badge -->
       <div class="text-center">
-        <p-tag 
-          [value]="getGrade(testResult.score)" 
+        <p-tag
+          [value]="getGrade(testResult.score)"
           [severity]="getGradeSeverity(testResult.score)"
           class="text-lg px-4 py-2"
         >
@@ -313,7 +313,7 @@
                 [class.pi-times]="!answer.is_result"
                 [class.text-red-600]="!answer.is_result"
               ></i>
-              <span 
+              <span
                 class="text-xs px-2 py-1 rounded-full"
                 [class.bg-green-100]="answer.is_result"
                 [class.text-green-800]="answer.is_result"

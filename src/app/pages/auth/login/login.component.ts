@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -9,6 +9,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
 import { AuthService } from '../auth.service';
+import { UzPhonePipe } from './uz-phone.pipe';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,6 @@ import { AuthService } from '../auth.service';
   imports: [
     CommonModule,
     FormsModule,
-    RouterLink,
     ButtonModule,
     InputTextModule,
     PasswordModule,
@@ -29,54 +29,94 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm = {
-    email: '',
-    password: '',
-    rememberMe: false,
+    phone: '',
+    smsCode: '',
   };
 
+  showSmsCode = false;
   loading = false;
   submitted = false;
   errorMessage = '';
   googleLoading = false;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private uzPhonePipe: UzPhonePipe,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.loginWithGoogle();
+  }
+
+  formatPhone(value: string) {
+    this.loginForm.phone = this.uzPhonePipe.transform(value, true);
+  }
+
+  formatPhoneForApi(phone: string): string {
+    if (!phone) return '';
+    let digits = phone.replace(/\D+/g, '');
+    if (digits.length === 12 && digits.startsWith('998')) {
+      digits = digits.slice(3);
+    } else if (digits.length === 10 && digits.startsWith('0')) {
+      digits = digits.slice(1);
+    }
+    return digits;
   }
 
   login() {
     this.submitted = true;
     this.errorMessage = '';
 
-    if (!this.loginForm.email || !this.loginForm.password) {
-      this.errorMessage = "Barcha maydonlarni to'ldiring";
-      return;
-    }
-
-    this.loading = true;
-
-    // Demo login - real implementation would call API
-    setTimeout(() => {
-      if (this.loginForm.email === 'demo@example.com' && this.loginForm.password === 'demo123') {
-        const userData = {
-          id: 1,
-          name: 'Aziz Rahimov',
-          email: 'demo@example.com',
-          avatar:
-            'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-          joinDate: new Date('2023-01-15'),
-          completedCourses: 3,
-          totalTestScore: 87,
-        };
-
-        localStorage.setItem('currentUser', JSON.stringify(userData));
-        this.router.navigate(['/profile']);
-      } else {
-        this.errorMessage = "Email yoki parol noto'g'ri";
+    if (!this.showSmsCode) {
+      if (!this.loginForm.phone) {
+        this.errorMessage = 'Telefon raqamni kiriting';
+        return;
       }
-      this.loading = false;
-    }, 1500);
+      this.loading = true;
+      // send sms code
+      this.authService.requestSmsCode(this.formatPhoneForApi(this.loginForm.phone)).subscribe({
+        next: (res) => {
+          this.showSmsCode = true;
+          this.loading = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          this.loading = false;
+          let msg = err.error?.message || 'Xato yuz berdi';
+          if (
+            msg === 'Telegram botimizga start bosmagansiz. Iltimos telegram botimizga start bosing'
+          ) {
+            msg =
+              'Telegram botimizga start bosmagansiz. Iltimos telegram botimizga start bosing @techno_teach_bot';
+          }
+          this.errorMessage = msg;
+          this.cdr.markForCheck();
+          console.log(err.error.message, 'error');
+        },
+      });
+    } else {
+      // get sms code
+      if (!this.loginForm.smsCode) {
+        this.errorMessage = 'SMS kod kiriting';
+        return;
+      }
+      this.authService
+        .verifySmsCode(this.formatPhoneForApi(this.loginForm.phone), this.loginForm.smsCode)
+        .subscribe({
+          next: (res) => {
+            localStorage.setItem('accessToken', res.data.access_token);
+            localStorage.setItem('refreshToken', res.data.refresh_token);
+            this.router.navigate(['/profile']);
+            this.loading = false;
+          },
+          error: (err) => {
+            this.errorMessage = 'SMS kod noto‘g‘ri';
+            this.loading = false;
+          },
+        });
+    }
   }
 
   loginWithGoogle() {

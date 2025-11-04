@@ -157,6 +157,3 @@ export class TestsComponent implements OnInit {
     }
   }
 }
-
-
-

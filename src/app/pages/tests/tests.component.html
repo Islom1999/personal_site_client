@@ -16,24 +16,18 @@
         {{ 'tests.categories.title' | translate }}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
-          class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-          (click)="filterByCategory('all')"
-        >
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+          (click)="filterByCategory('all')">
           <div class="flex items-center justify-between mb-4">
-            <div
-              [class]="
+            <div [class]="
                 'w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ' +
                 getTestCategoryStyle(10).bgColor
-              "
-            >
+              ">
               <i [class]="'pi pi-list text-xl ' + getTestCategoryStyle(10).textColor"></i>
             </div>
-            <span
-              [class]="
+            <span [class]="
                 'px-3 py-1 text-xs font-medium rounded-full ' + getTestCategoryStyle(10).badgeColor
-              "
-            >
+              ">
               {{ 'common.labels.test' | translate }}
             </span>
           </div>
@@ -44,34 +38,25 @@
             <span class="text-sm text-gray-500">
               {{ getTestCategoryStyle(10).difficultyKey | translate }}
             </span>
-            <p-button
-              [label]="'common.buttons.start' | translate"
-              [text]="true"
-              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle(10).textColor"
-            >
+            <p-button [label]="'common.buttons.start' | translate" [text]="true"
+              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle(10).textColor">
             </p-button>
           </div>
         </div>
         @for (category of categories(); track $index) {
-        <div
-          class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-          (click)="filterByCategory(category.id)"
-        >
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+          (click)="filterByCategory(category.id)">
           <div class="flex items-center justify-between mb-4">
-            <div
-              [class]="
+            <div [class]="
                 'w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ' +
                 getTestCategoryStyle($index).bgColor
-              "
-            >
+              ">
               <i [class]="category.icon + ' text-xl ' + getTestCategoryStyle($index).textColor"></i>
             </div>
-            <span
-              [class]="
+            <span [class]="
                 'px-3 py-1 text-xs font-medium rounded-full ' +
                 getTestCategoryStyle($index).badgeColor
-              "
-            >
+              ">
               {{ 'common.labels.test' | translate }}
             </span>
           </div>
@@ -80,11 +65,8 @@
             <span class="text-sm text-gray-500">
               {{ getTestCategoryStyle($index).difficultyKey | translate }}
             </span>
-            <p-button
-              [label]="'common.buttons.start' | translate"
-              [text]="true"
-              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle($index).textColor"
-            >
+            <p-button [label]="'common.buttons.start' | translate" [text]="true"
+              [class]="'hover:bg-gray-50 ' + getTestCategoryStyle($index).textColor">
             </p-button>
           </div>
         </div>
@@ -94,59 +76,43 @@
 
     <!-- Available Tests -->
     <div class="mb-8">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
         <h2 class="text-2xl font-bold text-gray-900">
           {{ 'tests.available.title' | translate }}
         </h2>
 
         <div class="flex space-x-2">
-          <p-button
-            [label]="'common.filters.all' | translate"
-            [text]="true"
-            [class]="
-              selectedCategory === 'all'
-                ? 'text-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:bg-gray-50'
-            "
-            (onClick)="filterByLevel('all')"
-          >
+          <p-button [label]="'common.filters.all' | translate" [text]="true" [class]="
+      selectedLevel === 'all'
+        ? 'text-blue-600 bg-blue-50'
+        : 'text-gray-600 hover:bg-gray-50'
+    " (onClick)="filterByLevel('all')">
           </p-button>
           @for(level of levels(); track level.id){
-          <p-button
-            [label]="level.name"
-            [text]="true"
-            [class]="
-              selectedCategory === level.id
-                ? 'text-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:bg-gray-50'
-            "
-            (onClick)="filterByLevel(level.id)"
-          >
+          <p-button [label]="level.name" [text]="true" [class]="
+      selectedLevel === level.id.toString()
+        ? 'text-blue-600 bg-blue-50'
+        : 'text-gray-600 hover:bg-gray-50'
+    " (onClick)="filterByLevel(level.id)">
           </p-button>
           }
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          *ngFor="let test of filteredTests()"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-        >
+        <div *ngFor="let test of filteredTests()"
+          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
           <div class="p-6">
             <!-- Test Header -->
             <div class="flex items-center justify-between mb-4">
-              <div
-                [class]="
+              <div [class]="
                   'w-12 h-12 rounded-xl flex items-center justify-center ' + getCategoryStyleById(test.sp_category_id).bgColor
-                "
-              >
-                <i
-                  [class]="
+                ">
+                <i [class]="
                     test.icon +
                     ' text-xl ' +
                     getCategoryStyleById(test.sp_category_id).textColor
-                  "
-                ></i>
+                  "></i>
               </div>
               <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
                 {{ test.sp_level_id | selectItemLabel : levels() }}
@@ -173,21 +139,12 @@
 
             <!-- Action Buttons -->
             <div class="flex space-x-2">
-              <p-button
-                [label]="'common.buttons.startTest' | translate"
-                icon="pi pi-play"
-                class="flex-1 btn-primary"
-                (onClick)="showTestInfo(test)"
-              >
+              <p-button [label]="'common.buttons.startTest' | translate" icon="pi pi-play" class="flex-1 btn-primary"
+                (onClick)="showTestInfo(test)">
               </p-button>
-              <p-button
-                icon="pi pi-chart-bar"
-                [text]="true"
-                [rounded]="true"
-                class="text-blue-600 hover:bg-blue-50"
-                [pTooltip]="'tests.actions.results' | translate"
-              >
-              </p-button>
+              <!-- <p-button icon="pi pi-chart-bar" [text]="true" [rounded]="true" class="text-blue-600 hover:bg-blue-50"
+                [pTooltip]="'tests.actions.results' | translate">
+              </p-button> -->
             </div>
           </div>
         </div>
@@ -196,19 +153,13 @@
   </div>
 
   <!-- Test Info Modal -->
-  <p-dialog
-    [(visible)]="showTestInfoDialog"
-    [modal]="true"
-    [closable]="true"
-    [style]="{ width: '600px' }"
-    [header]="'tests.modal.title' | translate"
-  >
+  <p-dialog [(visible)]="showTestInfoDialog" [modal]="true" [closable]="true" [style]="{ width: '600px' }"
+    [header]="'tests.modal.title' | translate">
     <div *ngIf="selectedTest" class="space-y-6">
       <!-- Test Header -->
       <div class="text-center">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i [class]="selectedTest.icon" class="text-white text-2xl"></i>
         </div>
         <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ selectedTest.name }}</h2>
@@ -265,23 +216,13 @@
 
       <!-- Action Buttons -->
       <div class="flex space-x-3 pt-4">
-        <p-button
-          [label]="'common.buttons.startTest' | translate"
-          icon="pi pi-play"
-          class="flex-1 btn-primary"
-          (onClick)="startTest()"
-        >
+        <p-button [label]="'common.buttons.startTest' | translate" icon="pi pi-play" class="flex-1 btn-primary"
+          (onClick)="startTest()">
         </p-button>
-        <p-button
-          [label]="'common.buttons.cancel' | translate"
-          icon="pi pi-times"
-          [outlined]="true"
-          (onClick)="closeTestInfo()"
-        >
+        <p-button [label]="'common.buttons.cancel' | translate" icon="pi pi-times" [outlined]="true"
+          (onClick)="closeTestInfo()">
         </p-button>
       </div>
     </div>
   </p-dialog>
 </div>
-
-

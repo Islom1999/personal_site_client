@@ -32,6 +32,10 @@ export const routes: Routes = [
       import('./pages/tests/test-work/test-work.component').then((m) => m.TestWorkComponent),
   },
   {
+    path: 'ai',
+    loadComponent: () => import('./pages/ai/ai.component').then((m) => m.AiComponent),
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact.component').then((m) => m.ContactComponent),

@@ -30,10 +30,10 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    // Check if user is logged in (demo data)
-    const userData = localStorage.getItem('currentUser');
-    if (userData) {
-      this.currentUser = JSON.parse(userData);
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      console.log(token);
+
       this.isLoggedIn = true;
     }
   }

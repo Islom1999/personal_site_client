@@ -12,9 +12,9 @@ export interface IDataToken {
 
 export interface IUser {
   id: string;
-  image_file_id: string;
   fullname: string;
   phone: string;
   email: string;
   is_success: boolean;
+  file_image_id: string;
 }

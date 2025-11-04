@@ -5,9 +5,9 @@
       <div class="flex items-center space-x-3">
         <div
           class="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-lg">
-          <span class="text-white font-bold text-xl">M</span>
+          <span class="text-white font-bold text-xl">K</span>
         </div>
-        <div>
+        <div class="md:block hidden">
           <h1 class="text-xl font-bold text-gray-900">{{ 'common.fullName' | translate }}</h1>
           <p class="text-sm text-gray-600">{{ 'common.role' | translate }}</p>
         </div>
@@ -27,6 +27,10 @@
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
           {{ 'common.nav.courses' | translate }}
         </a>
+        <a routerLink="/ai" routerLinkActive="text-blue-600 font-semibold"
+          class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+          {{ 'common.nav.ai' | translate }}
+        </a>
         <a routerLink="/tests" routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
           {{ 'common.nav.tests' | translate }}
@@ -43,7 +47,7 @@
 
         <!-- User Profile -->
         <div *ngIf="isLoggedIn" class="flex items-center space-x-3">
-          <p-avatar [image]="currentUser?.avatar" [label]="currentUser?.name?.charAt(0)" shape="circle" size="normal"
+          <p-avatar [image]="currentUser?.avatar ? currentUser?.avatar : '/default-avatar.jpeg'" [label]="currentUser?.name?.charAt(0)" shape="circle" size="normal"
             class="cursor-pointer" routerLink="/profile">
           </p-avatar>
           <div class="text-sm">
@@ -57,7 +61,7 @@
       </div>
 
       <!-- Mobile menu button -->
-      <div class="md:hidden">
+      <div class="md:hidden mr-4">
         <p-button icon="pi pi-bars" [text]="true" [rounded]="true" (onClick)="toggleMobileMenu()" class="text-gray-700">
         </p-button>
       </div>
@@ -109,7 +113,7 @@
           </a>
         </div>
 
-        <div *ngIf="isLoggedIn" class="px-3 py-2 border-t border-gray-200">
+        <div *ngIf="isLoggedIn" class="py-2 border-t border-gray-200">
           <a
             routerLink="/profile"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"

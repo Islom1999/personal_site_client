@@ -43,6 +43,24 @@ export class MaterialsComponent {
   selectedCategory = '';
   selectedLevel = '';
 
+  formatFileSize(sizeInBytes: number): string {
+    if (!sizeInBytes) return '0 KB';
+
+    const kb = 1024;
+    const mb = kb * 1024;
+    const gb = mb * 1024;
+
+    if (sizeInBytes < kb) {
+      return `${sizeInBytes} B`;
+    } else if (sizeInBytes < mb) {
+      return `${(sizeInBytes / kb).toFixed(2)} KB`;
+    } else if (sizeInBytes < gb) {
+      return `${(sizeInBytes / mb).toFixed(2)} MB`;
+    } else {
+      return `${(sizeInBytes / gb).toFixed(2)} GB`;
+    }
+  }
+
   get filteredMaterials(): ISpMaterials[] {
     return this.materials().filter((material) => {
       const matchesSearch =
@@ -64,8 +82,3 @@ export class MaterialsComponent {
     window.open(link, 'pdfWindow', 'width=1000,height=800');
   }
 }
-
-
-
-
-
