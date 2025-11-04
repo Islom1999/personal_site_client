@@ -1,16 +1,12 @@
 ﻿<!-- Hero Section -->
 <section class="relative py-16 lg:py-24 overflow-hidden">
-  <div
-    class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10"
-  ></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <!-- O'qituvchi ma'lumotlari -->
       <div class="text-center lg:text-left order-2 lg:order-1">
         <div class="mb-6">
-          <span
-            class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4"
-          >
+          <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
             {{ 'home.hero.badge' | translate }}
           </span>
         </div>
@@ -61,20 +57,11 @@
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <p-button
-            [label]="'common.buttons.viewCourses' | translate"
-            icon="pi pi-book"
-            routerLink="/courses"
-            class="btn-primary"
-          >
+          <p-button [label]="'common.buttons.viewCourses' | translate" icon="pi pi-book" routerLink="/courses"
+            class="btn-primary">
           </p-button>
-          <p-button
-            [label]="'common.buttons.contact' | translate"
-            icon="pi pi-phone"
-            [outlined]="true"
-            routerLink="/contact"
-            class="border-blue-600 text-blue-600 hover:bg-blue-50"
-          >
+          <p-button [label]="'common.buttons.contact' | translate" icon="pi pi-phone" [outlined]="true"
+            routerLink="/contact" class="border-blue-600 text-blue-600 hover:bg-blue-50">
           </p-button>
         </div>
       </div>
@@ -85,24 +72,17 @@
           <!-- Asosiy rasm -->
           <div class="relative">
             <div
-              class="w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full mx-auto shadow-2xl overflow-hidden border-8 border-white"
-            >
-              <img
-                src="/person.png"
-                [attr.alt]="('common.fullName' | translate)"
-                class="w-full h-full object-cover"
-              />
+              class="w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full mx-auto shadow-2xl overflow-hidden border-8 border-white">
+              <img src="/person.jpg" [attr.alt]="('common.fullName' | translate)" class="w-full h-full object-cover" />
             </div>
 
             <!-- Floating badges -->
             <div
-              class="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-3 py-2 rounded-full text-sm font-bold shadow-lg"
-            >
+              class="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-3 py-2 rounded-full text-sm font-bold shadow-lg">
               {{ 'home.hero.floating.director' | translate }}
             </div>
             <div
-              class="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-2 rounded-full text-sm font-bold shadow-lg"
-            >
+              class="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-2 rounded-full text-sm font-bold shadow-lg">
               {{ 'home.hero.floating.degree' | translate }}
             </div>
           </div>
@@ -124,7 +104,7 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
       <!-- Ta'lim ma'lumotlari -->
       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-lg">
         <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
@@ -157,48 +137,6 @@
             <p class="text-gray-600 text-sm">
               {{ 'home.education.cards.education.items.language.subtitle' | translate }}
             </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Shaxsiy ma'lumotlar -->
-      <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg">
-        <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
-          <i class="pi pi-id-card text-white text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.education.cards.personal.title' | translate }}
-        </h3>
-        <div class="space-y-3">
-          <div class="flex items-start space-x-2">
-            <i class="pi pi-map-marker text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">
-              {{ 'home.education.cards.personal.items.birth' | translate }}
-            </span>
-          </div>
-          <div class="flex items-start space-x-2">
-            <i class="pi pi-users text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">
-              {{ 'home.education.cards.personal.items.nationality' | translate }}
-            </span>
-          </div>
-          <div class="flex items-start space-x-2">
-            <i class="pi pi-flag text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">
-              {{ 'home.education.cards.personal.items.party' | translate }}
-            </span>
-          </div>
-          <div class="flex items-start space-x-2">
-            <i class="pi pi-star text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">
-              {{ 'home.education.cards.personal.items.awards' | translate }}
-            </span>
-          </div>
-          <div class="flex items-start space-x-2">
-            <i class="pi pi-briefcase text-green-600 mt-1"></i>
-            <span class="text-gray-700 text-sm">
-              {{ 'home.education.cards.personal.items.membership' | translate }}
-            </span>
           </div>
         </div>
       </div>
@@ -248,9 +186,7 @@
       <div class="max-w-4xl mx-auto">
         <div class="space-y-8">
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.current.year' | translate }}
               </span>
@@ -269,9 +205,7 @@
           </div>
 
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.tmti.year' | translate }}
               </span>
@@ -290,9 +224,7 @@
           </div>
 
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.tdtu.year' | translate }}
               </span>
@@ -311,9 +243,7 @@
           </div>
 
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.teacher2015.year' | translate }}
               </span>
@@ -332,9 +262,7 @@
           </div>
 
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.deputy2012.year' | translate }}
               </span>
@@ -353,9 +281,7 @@
           </div>
 
           <div class="flex items-start space-x-6">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center"
-            >
+            <div class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center">
               <span class="text-white font-bold text-sm">
                 {{ 'home.timeline.items.teacher2005.year' | translate }}
               </span>
@@ -392,19 +318,19 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-calculator text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-calculator text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.analysis.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.analysis.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.analysis.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.analysis.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.analysis.tags.limit' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.analysis.tags.derivative' | translate" class="text-xs"></p-tag>
@@ -413,19 +339,19 @@
       </div>
 
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-table text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-table text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.curriculum.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.curriculum.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.curriculum.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.curriculum.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.curriculum.tags.plan' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.curriculum.tags.methodology' | translate" class="text-xs"></p-tag>
@@ -434,19 +360,19 @@
       </div>
 
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-users text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-users text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.support.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.support.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.support.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.support.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.support.tags.seminar' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.support.tags.mentorship' | translate" class="text-xs"></p-tag>
@@ -455,19 +381,19 @@
       </div>
 
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-chart-line text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-chart-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.exams.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.exams.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.exams.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.exams.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.exams.tags.dtm' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.exams.tags.assessment' | translate" class="text-xs"></p-tag>
@@ -476,19 +402,19 @@
       </div>
 
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-megaphone text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-megaphone text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.values.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.values.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.values.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.values.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.values.tags.education' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.values.tags.collaboration' | translate" class="text-xs"></p-tag>
@@ -497,19 +423,19 @@
       </div>
 
       <div
-        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-      >
-        <div
-          class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6"
-        >
-          <i class="pi pi-compass text-white text-2xl"></i>
+        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+            <i class="pi pi-compass text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ 'home.focus.cards.mentoring.title' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-4">
+            {{ 'home.focus.cards.mentoring.description' | translate }}
+          </p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">
-          {{ 'home.focus.cards.mentoring.title' | translate }}
-        </h3>
-        <p class="text-gray-600 mb-4">
-          {{ 'home.focus.cards.mentoring.description' | translate }}
-        </p>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="'home.focus.cards.mentoring.tags.consulting' | translate" class="text-xs"></p-tag>
           <p-tag [value]="'home.focus.cards.mentoring.tags.development' | translate" class="text-xs"></p-tag>
@@ -533,10 +459,10 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
+      <div
+        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
           <i class="pi pi-book text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-4">
@@ -545,19 +471,15 @@
         <p class="text-gray-600 mb-6">
           {{ 'home.services.cards.academic.description' | translate }}
         </p>
-        <p-button
-          [label]="'common.buttons.view' | translate"
-          [text]="true"
-          routerLink="/materials"
-          class="text-blue-600 hover:bg-blue-50"
-        >
+        <p-button [label]="'common.buttons.view' | translate" [text]="true" routerLink="/materials"
+          class="text-blue-600 hover:bg-blue-50">
         </p-button>
       </div>
 
-      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
+      <div
+        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
           <i class="pi pi-briefcase text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-4">
@@ -566,19 +488,15 @@
         <p class="text-gray-600 mb-6">
           {{ 'home.services.cards.management.description' | translate }}
         </p>
-        <p-button
-          [label]="'common.buttons.contact' | translate"
-          [text]="true"
-          routerLink="/contact"
-          class="text-green-600 hover:bg-green-50"
-        >
+        <p-button [label]="'common.buttons.contact' | translate" [text]="true" routerLink="/contact"
+          class="text-green-600 hover:bg-green-50">
         </p-button>
       </div>
 
-      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
+      <div
+        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
           <i class="pi pi-lightbulb text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-4">
@@ -587,19 +505,15 @@
         <p class="text-gray-600 mb-6">
           {{ 'home.services.cards.seminars.description' | translate }}
         </p>
-        <p-button
-          [label]="'common.buttons.apply' | translate"
-          [text]="true"
-          routerLink="/contact"
-          class="text-purple-600 hover:bg-purple-50"
-        >
+        <p-button [label]="'common.buttons.apply' | translate" [text]="true" routerLink="/contact"
+          class="text-purple-600 hover:bg-purple-50">
         </p-button>
       </div>
 
-      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
+      <div
+        class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
           <i class="pi pi-comment text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-4">
@@ -608,12 +522,8 @@
         <p class="text-gray-600 mb-6">
           {{ 'home.services.cards.consulting.description' | translate }}
         </p>
-        <p-button
-          [label]="'common.buttons.consult' | translate"
-          [text]="true"
-          routerLink="/contact"
-          class="text-orange-600 hover:bg-orange-50"
-        >
+        <p-button [label]="'common.buttons.consult' | translate" [text]="true" routerLink="/contact"
+          class="text-orange-600 hover:bg-orange-50">
         </p-button>
       </div>
     </div>
@@ -634,9 +544,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
       <div class="text-white">
-        <div
-          class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i class="pi pi-calendar text-white text-2xl"></i>
         </div>
         <div class="text-4xl lg:text-5xl font-bold mb-2">
@@ -650,9 +558,7 @@
         </div>
       </div>
       <div class="text-white">
-        <div
-          class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i class="pi pi-briefcase text-white text-2xl"></i>
         </div>
         <div class="text-4xl lg:text-5xl font-bold mb-2">
@@ -666,9 +572,7 @@
         </div>
       </div>
       <div class="text-white">
-        <div
-          class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i class="pi pi-graduation-cap text-white text-2xl"></i>
         </div>
         <div class="text-4xl lg:text-5xl font-bold mb-2">
@@ -682,9 +586,7 @@
         </div>
       </div>
       <div class="text-white">
-        <div
-          class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i class="pi pi-users text-white text-2xl"></i>
         </div>
         <div class="text-4xl lg:text-5xl font-bold mb-2">

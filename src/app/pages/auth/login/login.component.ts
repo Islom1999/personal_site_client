@@ -9,7 +9,6 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
 import { AuthService } from '../auth.service';
-import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',

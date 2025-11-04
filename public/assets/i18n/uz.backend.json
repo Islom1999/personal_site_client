@@ -55,6 +55,14 @@
     "translation_type": "admin",
     "is_use": true
   },
+   {
+    "key": "common.nav.auth",
+    "name_uz": "Kirish",
+    "name_ru": "Kirish ru",
+    "name_kr": "Kirish kr",
+    "translation_type": "admin",
+    "is_use": true
+  },
   {
     "key": "common.buttons.viewCourses",
     "name_uz": "Kurslarni ko'rish",

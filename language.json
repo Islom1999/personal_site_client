@@ -1,0 +1,1050 @@
+[
+  {
+    "key": "common.nav.home",
+    "name_uz": "Bosh sahifa",
+    "name_ru": "Главная",
+    "name_kr": "Бош саҳифа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.about",
+    "name_uz": "Men haqimda",
+    "name_ru": "Обо мне",
+    "name_kr": "Мен ҳақимда",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.courses",
+    "name_uz": "Kurslar",
+    "name_ru": "Курсы",
+    "name_kr": "Курслар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.materials",
+    "name_uz": "Materiallar",
+    "name_ru": "Материалы",
+    "name_kr": "Материаллар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.nav.contact",
+    "name_uz": "Aloqa",
+    "name_ru": "Контакты",
+    "name_kr": "Алоқа",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.fullName",
+    "name_uz": "Kucharov Sardorbek Akmalovich",
+    "name_ru": "Кучаров Сардорбек Акмалович",
+    "name_kr": "Кучаров Сардорбек Акмалович",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.viewCourses",
+    "name_uz": "Kurslarni ko'rish",
+    "name_ru": "Просмотреть курсы",
+    "name_kr": "Курсларни кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.contact",
+    "name_uz": "Bog'lanish",
+    "name_ru": "Связаться",
+    "name_kr": "Боғланиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.view",
+    "name_uz": "Ko'rish",
+    "name_ru": "Просмотр",
+    "name_kr": "Кўриш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.apply",
+    "name_uz": "Ariza berish",
+    "name_ru": "Подать заявку",
+    "name_kr": "Ариза бериш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "common.buttons.consult",
+    "name_uz": "Maslahat olish",
+    "name_ru": "Получить консультацию",
+    "name_kr": "Маслаҳат олиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.badge",
+    "name_uz": "Texnologik ta'lim mutaxassisi",
+    "name_ru": "Специалист по технологическому образованию",
+    "name_kr": "Технологик таълим мутахассиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.position",
+    "name_uz": "Termiz davlat pedagogika instituti o'qituvchisi",
+    "name_ru": "Преподаватель Термезского государственного педагогического института",
+    "name_kr": "Термиз давлат педагогика институти ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.description",
+    "name_uz": "Tabiiy va aniq fanlar fakulteti Texnologik ta'lim kafedrasi o'qituvchisi. Ta'lim sohasida 15 yildan ortiq tajribaga ega. Magistr, texnologik ta'lim yo'nalishi mutaxassisi.",
+    "name_ru": "Преподаватель кафедры технологического образования факультета естественных и точных наук. Имею более 15 лет опыта в сфере образования. Магистр, специалист по направлению технологического образования.",
+    "name_kr": "Табиий ва аниқ фанлар факультети Технологик таълим кафедраси ўқитувчиси. Таълим соҳасида 15 йилдан ортиқ тажрибага эга. Магистр, технологик таълим йўналиши мутахассиси.",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.experience.value",
+    "name_uz": "15+ yil",
+    "name_ru": "15+ лет",
+    "name_kr": "15+ йил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.experience.label",
+    "name_uz": "Tajriba",
+    "name_ru": "Опыт",
+    "name_kr": "Тажриба",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.deputy.value",
+    "name_uz": "3+",
+    "name_ru": "3+",
+    "name_kr": "3+",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.deputy.label",
+    "name_uz": "O'rindoshlik",
+    "name_ru": "Совместительство",
+    "name_kr": "Ўриндошлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.education.value",
+    "name_uz": "Magistr",
+    "name_ru": "Магистр",
+    "name_kr": "Магистр",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.education.label",
+    "name_uz": "Ta'lim",
+    "name_ru": "Образование",
+    "name_kr": "Таълим",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.language.value",
+    "name_uz": "Rus tili",
+    "name_ru": "Русский язык",
+    "name_kr": "Рус тили",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.stats.language.label",
+    "name_uz": "Chet tili",
+    "name_ru": "Иностранный язык",
+    "name_kr": "Чет тили",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.floating.director",
+    "name_uz": "O'qituvchi",
+    "name_ru": "Преподаватель",
+    "name_kr": "Ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.hero.floating.degree",
+    "name_uz": "Magistr",
+    "name_ru": "Магистр",
+    "name_kr": "Магистр",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.title",
+    "name_uz": "Ma'lumot va tajriba",
+    "name_ru": "Образование и опыт",
+    "name_kr": "Маълумот ва тажриба",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.subtitle",
+    "name_uz": "Professional rivojlanish va mehnat faoliyati",
+    "name_ru": "Профессиональное развитие и трудовая деятельность",
+    "name_kr": "Профессионал ривожланиш ва меҳнат фаолияти",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.title",
+    "name_uz": "Ta'lim ma'lumotlari",
+    "name_ru": "Образование",
+    "name_kr": "Таълим маълумотлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.magistr.title",
+    "name_uz": "Magistratura (2019-2021)",
+    "name_ru": "Магистратура (2019-2021)",
+    "name_kr": "Магистратура (2019-2021)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.magistr.subtitle",
+    "name_uz": "Termiz davlat universiteti - Ta'lim va tarbiya nazariyasi va metodikasi (Texnologik ta'lim)",
+    "name_ru": "Термезский государственный университет - Теория и методика обучения и воспитания (Технологическое образование)",
+    "name_kr": "Термиз давлат университети - Таълим ва тарбия назарияси ва методикаси (Технологик таълим)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.bachelor.title",
+    "name_uz": "Bakalavr (2011-2015)",
+    "name_ru": "Бакалавриат (2011-2015)",
+    "name_kr": "Бакалавр (2011-2015)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.bachelor.subtitle",
+    "name_uz": "Termiz davlat universiteti - Mehnat ta'limi yo'nalishi (kunduzgi)",
+    "name_ru": "Термезский государственный университет - Направление трудового обучения (дневное отделение)",
+    "name_kr": "Термиз давлат университети - Меҳнат таълими йўналиши (кундузги)",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.language.title",
+    "name_uz": "Chet tili bilimi",
+    "name_ru": "Знание иностранного языка",
+    "name_kr": "Чет тили билими",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.education.items.language.subtitle",
+    "name_uz": "Rus tili - yuqori daraja",
+    "name_ru": "Русский язык - высокий уровень",
+    "name_kr": "Рус тили - юқори даража",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.title",
+    "name_uz": "Shaxsiy ma'lumotlar",
+    "name_ru": "Личные данные",
+    "name_kr": "Шахсий маълумотлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.birth",
+    "name_uz": "Tug'ilgan: 28.05.1990, Surxondaryo viloyati, Termiz shahri",
+    "name_ru": "Дата рождения: 28.05.1990, Сурхандарьинская область, г. Термез",
+    "name_kr": "Туғилган: 28.05.1990, Сурхондарё вилояти, Термиз шаҳри",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.nationality",
+    "name_uz": "Millati: O'zbek",
+    "name_ru": "Национальность: Узбек",
+    "name_kr": "Миллати: Ўзбек",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.party",
+    "name_uz": "Partiyaviyligi: Yo'q",
+    "name_ru": "Партийность: Нет",
+    "name_kr": "Партиявийлиги: Йўқ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.awards",
+    "name_uz": "Davlat mukofotlari: Yo'q",
+    "name_ru": "Государственные награды: Нет",
+    "name_kr": "Давлат мукофотлари: Йўқ",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.personal.items.membership",
+    "name_uz": "Texnologik ta'lim bo'yicha mutaxassis, \"Techno-Teach\" dasturining muallifi",
+    "name_ru": "Специалист по технологическому образованию, автор программы \"Techno-Teach\"",
+    "name_kr": "Технологик таълим бўйича мутахассис, \"Techno-Teach\" дастурининг муаллифи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.title",
+    "name_uz": "Rahbarlik va o'qituvchilik tajribasi",
+    "name_ru": "Опыт руководства и преподавания",
+    "name_kr": "Раҳбарлик ва ўқитувчилик тажрибаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.current",
+    "name_uz": "2022-y. h.v. - Termiz davlat pedagogika instituti o'qituvchisi",
+    "name_ru": "С 2022 г. - Преподаватель Термезского государственного педагогического института",
+    "name_kr": "2022-й. ҳ.в. - Термиз давлат педагогика институти ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tmti",
+    "name_uz": "2021-2022 - Termiz davlat universiteti Milliy libos va san'at fakulteti o'qituvchisi",
+    "name_ru": "2021-2022 - Преподаватель факультета национальной одежды и искусства ТГУ",
+    "name_kr": "2021-2022 - Термиз давлат университети Миллий либос ва санъат факультети ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tdtu",
+    "name_uz": "2020-2021 - Termiz davlat universiteti Milliy hunarmandchilik fakulteti o'qituvchisi",
+    "name_ru": "2020-2021 - Преподаватель факультета национального ремесленничества ТГУ",
+    "name_kr": "2020-2021 - Термиз давлат университети Миллий ҳунармандчилик факультети ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.education.cards.management.items.tdu",
+    "name_uz": "2018-2020 - Termiz sanoat va transport kasb-hunar kolleji maxsus fan o'qituvchisi",
+    "name_ru": "2018-2020 - Преподаватель специальных дисциплин колледжа промышленности и транспорта",
+    "name_kr": "2018-2020 - Термиз саноат ва транспорт касб-ҳунар коллежи махсус фан ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.title",
+    "name_uz": "Mehnat faoliyati tarixi",
+    "name_ru": "История трудовой деятельности",
+    "name_kr": "Меҳнат фаолияти тарихи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.year",
+    "name_uz": "2022",
+    "name_ru": "2022",
+    "name_kr": "2022",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.title",
+    "name_uz": "O'qituvchi",
+    "name_ru": "Преподаватель",
+    "name_kr": "Ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.place",
+    "name_uz": "Termiz davlat pedagogika instituti",
+    "name_ru": "Термезский государственный педагогический институт",
+    "name_kr": "Термиз давлат педагогика институти",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.current.description",
+    "name_uz": "Tabiiy va aniq fanlar fakulteti Texnologik ta'lim kafedrasi o'qituvchisi vazifasini bajarmoqda",
+    "name_ru": "Занимает должность преподавателя кафедры технологического образования факультета естественных и точных наук",
+    "name_kr": "Табиий ва аниқ фанлар факультети Технологик таълим кафедраси ўқитувчиси вазифасини бажармоқда",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.year",
+    "name_uz": "2021",
+    "name_ru": "2021",
+    "name_kr": "2021",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.title",
+    "name_uz": "O'qituvchi",
+    "name_ru": "Преподаватель",
+    "name_kr": "Ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.place",
+    "name_uz": "Termiz davlat universiteti - Milliy libos va san'at fakulteti",
+    "name_ru": "Термезский государственный университет - Факультет национальной одежды и искусства",
+    "name_kr": "Термиз давлат университети - Миллий либос ва санъат факультети",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tmti.description",
+    "name_uz": "Texnologik ta'lim kafedrasi o'qituvchisi sifatida faoliyat yuritdi",
+    "name_ru": "Работал в качестве преподавателя кафедры технологического образования",
+    "name_kr": "Технологик таълим кафедраси ўқитувчиси сифатида фаолият юритди",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.year",
+    "name_uz": "2020",
+    "name_ru": "2020",
+    "name_kr": "2020",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.title",
+    "name_uz": "O'qituvchi",
+    "name_ru": "Преподаватель",
+    "name_kr": "Ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.place",
+    "name_uz": "Termiz davlat universiteti - Milliy hunarmandchilik fakulteti",
+    "name_ru": "Термезский государственный университет - Факультет национального ремесленничества",
+    "name_kr": "Термиз давлат университети - Миллий ҳунармандчилик факультети",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.tdtu.description",
+    "name_uz": "Texnologik ta'lim kafedrasi o'qituvchisi lavozimida ishladi",
+    "name_ru": "Работал на должности преподавателя кафедры технологического образования",
+    "name_kr": "Технологик таълим кафедраси ўқитувчиси лавозимида ишлади",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.year",
+    "name_uz": "2018",
+    "name_ru": "2018",
+    "name_kr": "2018",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.title",
+    "name_uz": "Maxsus fan o'qituvchisi",
+    "name_ru": "Преподаватель специальных дисциплин",
+    "name_kr": "Махсус фан ўқитувчиси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.place",
+    "name_uz": "Termiz sanoat va transport kasb-hunar kolleji",
+    "name_ru": "Термезский колледж промышленности и транспорта",
+    "name_kr": "Термиз саноат ва транспорт касб-ҳунар коллежи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2015.description",
+    "name_uz": "Maxsus fanlar o'qituvchisi va ishlab chiqarish ta'lim ustasi sifatida xizmat qildi",
+    "name_ru": "Служил в качестве преподавателя специальных дисциплин и мастера производственного обучения",
+    "name_kr": "Махсус фанлар ўқитувчиси ва ишлаб чиқариш таълим устаси сифатида хизмат қилди",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.year",
+    "name_uz": "2017",
+    "name_ru": "2017",
+    "name_kr": "2017",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.title",
+    "name_uz": "O'rindosh o'qituvchi",
+    "name_ru": "Совместитель-преподаватель",
+    "name_kr": "Ўриндош ўқитувчи",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.place",
+    "name_uz": "Termiz shahar 11-umumiy o'rta ta'lim maktabi",
+    "name_ru": "Термезская общеобразовательная школа №11",
+    "name_kr": "Термиз шаҳар 11-умумий ўрта таълим мактаби",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.deputy2012.description",
+    "name_uz": "O'rindosh asosida texnologiya fani o'qituvchisi bo'lib ishladi",
+    "name_ru": "Работал учителем технологии по совместительству",
+    "name_kr": "Ўриндош асосида технология фани ўқитувчиси бўлиб ишлади",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.year",
+    "name_uz": "2015",
+    "name_ru": "2015",
+    "name_kr": "2015",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.title",
+    "name_uz": "Mutaxassis",
+    "name_ru": "Специалист",
+    "name_kr": "Мутахассис",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.place",
+    "name_uz": "Surxondaryo viloyati \"Suvoqova\" DUK",
+    "name_ru": "Сурхандарьинская область ГУП \"Сувокова\"",
+    "name_kr": "Сурхондарё вилояти \"Сувоқова\" ДУК",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.timeline.items.teacher2005.description",
+    "name_uz": "Ish yurituvchi va ishlab chiqarish bo'limi mutaxassisi lavozimlarida ishladi",
+    "name_ru": "Работал делопроизводителем и специалистом производственного отдела",
+    "name_kr": "Иш юритувчи ва ишлаб чиқариш бўлими мутахассиси лавозимларида ишлади",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.title",
+    "name_uz": "Faoliyat yo'nalishlari",
+    "name_ru": "Направления деятельности",
+    "name_kr": "Фаолият йўналишлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.subtitle",
+    "name_uz": "Ta'lim sohasi va professional rivojlanish bo'yicha asosiy yo'nalishlar",
+    "name_ru": "Основные направления в области образования и профессионального развития",
+    "name_kr": "Таълим соҳаси ва профессионал ривожланиш бўйича асосий йўналишлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.title",
+    "name_uz": "Texnologik ta'lim",
+    "name_ru": "Технологическое образование",
+    "name_kr": "Технологик таълим",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.description",
+    "name_uz": "Zamonaviy texnologiyalar va metodikalarni qo'llash orqali talabalarni kasbiy faoliyatga tayyorlash",
+    "name_ru": "Подготовка студентов к профессиональной деятельности путем применения современных технологий и методик",
+    "name_kr": "Замонавий технологиялар ва методикаларни қўллаш орқали талабаларни касбий фаолиятга тайёрлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.limit",
+    "name_uz": "Amaliy mashg'ulotlar",
+    "name_ru": "Практические занятия",
+    "name_kr": "Амалий машғулотлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.derivative",
+    "name_uz": "Innovatsion yondashuvlar",
+    "name_ru": "Инновационные подходы",
+    "name_kr": "Инновацион ёндашувлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.analysis.tags.integral",
+    "name_uz": "Zamonaviy usullar",
+    "name_ru": "Современные методы",
+    "name_kr": "Замонавий усуллар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.title",
+    "name_uz": "O'quv dasturlari ishlab chiqish",
+    "name_ru": "Разработка учебных программ",
+    "name_kr": "Ўқув дастурлари ишлаб чиқиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.description",
+    "name_uz": "Davlat ta'lim standartlariga mos o'quv dasturlari va metodologiyalarni yaratish",
+    "name_ru": "Создание учебных программ и методологий в соответствии с государственными образовательными стандартами",
+    "name_kr": "Давлат таълим стандартларига мос ўқув дастурлари ва методологияларни яратиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.plan",
+    "name_uz": "Reja tuzish",
+    "name_ru": "Планирование",
+    "name_kr": "Режа тузиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.methodology",
+    "name_uz": "Metodologiya",
+    "name_ru": "Методология",
+    "name_kr": "Методология",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.curriculum.tags.assessment",
+    "name_uz": "Baholash tizimi",
+    "name_ru": "Система оценивания",
+    "name_kr": "Баҳолаш тизими",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.title",
+    "name_uz": "O'qituvchilarni qo'llab-quvvatlash",
+    "name_ru": "Поддержка преподавателей",
+    "name_kr": "Ўқитувчиларни қўллаб-қувватлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.description",
+    "name_uz": "Pedagogik kadrlarning malakasini oshirish va metodologik yordam ko'rsatish",
+    "name_ru": "Повышение квалификации педагогических кадров и оказание методологической помощи",
+    "name_kr": "Педагогик кадрларнинг малакасини ошириш ва методологик ёрдам кўрсатиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.seminar",
+    "name_uz": "Seminarlar",
+    "name_ru": "Семинары",
+    "name_kr": "Семинарлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.mentorship",
+    "name_uz": "Mentorlik",
+    "name_ru": "Менторство",
+    "name_kr": "Менторлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.support.tags.methodology",
+    "name_uz": "Metodologik yordam",
+    "name_ru": "Методологическая помощь",
+    "name_kr": "Методологик ёрдам",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.title",
+    "name_uz": "Test va imtihonlarga tayyorgarlik",
+    "name_ru": "Подготовка к тестам и экзаменам",
+    "name_kr": "Тест ва имтихонларга тайёргарлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.description",
+    "name_uz": "Talabalarni DTM testlari va davlat imtihonlariga professional tayyorlash",
+    "name_ru": "Профессиональная подготовка студентов к тестам ГТК и государственным экзаменам",
+    "name_kr": "Талабаларни ДТМ тестлари ва давлат имтихонларига профессионал тайёрлаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.dtm",
+    "name_uz": "DTM testlari",
+    "name_ru": "Тесты ГТК",
+    "name_kr": "ДТМ тестлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.assessment",
+    "name_uz": "Baholash",
+    "name_ru": "Оценивание",
+    "name_kr": "Баҳолаш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.exams.tags.strategy",
+    "name_uz": "Strategiya",
+    "name_ru": "Стратегия",
+    "name_kr": "Стратегия",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.title",
+    "name_uz": "Ta'lim tizimini rivojlantirish",
+    "name_ru": "Развитие системы образования",
+    "name_kr": "Таълим тизимини ривожлантириш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.description",
+    "name_uz": "Ta'lim sifatini oshirish va zamonaviy standartlarni joriy etish",
+    "name_ru": "Повышение качества образования и внедрение современных стандартов",
+    "name_kr": "Таълим сифатини ошириш ва замонавий стандартларни жорий этиш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.education",
+    "name_uz": "Ta'lim sifati",
+    "name_ru": "Качество образования",
+    "name_kr": "Таълим сифати",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.collaboration",
+    "name_uz": "Hamkorlik",
+    "name_ru": "Сотрудничество",
+    "name_kr": "Ҳамкорлик",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.values.tags.project",
+    "name_uz": "Loyihalar",
+    "name_ru": "Проекты",
+    "name_kr": "Лойиҳалар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.title",
+    "name_uz": "Kasbiy maslahat berish",
+    "name_ru": "Профессиональное консультирование",
+    "name_kr": "Касбий маслаҳат бериш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.description",
+    "name_uz": "Ta'lim muassasalari va o'qituvchilarga kasbiy rivojlanish bo'yicha maslahat",
+    "name_ru": "Консультирование образовательных учреждений и преподавателей по профессиональному развитию",
+    "name_kr": "Таълим муассасалари ва ўқитувчиларга касбий ривожланиш бўйича маслаҳат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.consulting",
+    "name_uz": "Konsalting",
+    "name_ru": "Консалтинг",
+    "name_kr": "Консалтинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.development",
+    "name_uz": "Rivojlantirish",
+    "name_ru": "Развитие",
+    "name_kr": "Ривожлантириш",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.focus.cards.mentoring.tags.monitoring",
+    "name_uz": "Monitoring",
+    "name_ru": "Мониторинг",
+    "name_kr": "Мониторинг",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.title",
+    "name_uz": "Ta'lim xizmatlari",
+    "name_ru": "Образовательные услуги",
+    "name_kr": "Таълим хизматлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.subtitle",
+    "name_uz": "Professional ta'lim va maslahat xizmatlari",
+    "name_ru": "Профессиональные образовательные и консультационные услуги",
+    "name_kr": "Профессионал таълим ва маслаҳат хизматлари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.academic.title",
+    "name_uz": "O'quv materiallari",
+    "name_ru": "Учебные материалы",
+    "name_kr": "Ўқув материаллари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.academic.description",
+    "name_uz": "Texnologik ta'lim bo'yicha o'quv qo'llanmalar, ma'ruzalar va amaliy materiallar",
+    "name_ru": "Учебные пособия, лекции и практические материалы по технологическому образованию",
+    "name_kr": "Технологик таълим бўйича ўқув қўлланмалар, маърузалар ва амалий материаллар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.management.title",
+    "name_uz": "Rahbarlik maslahat",
+    "name_ru": "Консультации по управлению",
+    "name_kr": "Раҳбарлик маслаҳат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.management.description",
+    "name_uz": "Ta'lim muassasalarini boshqarish va rivojlantirish bo'yicha professional maslahat",
+    "name_ru": "Профессиональные консультации по управлению и развитию образовательных учреждений",
+    "name_kr": "Таълим муассасаларини бошқариш ва ривожлантириш бўйича профессионал маслаҳат",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.seminars.title",
+    "name_uz": "Seminar va treninglar",
+    "name_ru": "Семинары и тренинги",
+    "name_kr": "Семинар ва тренинглар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.seminars.description",
+    "name_uz": "O'qituvchilar uchun malaka oshirish seminarlari va amaliy treninglar",
+    "name_ru": "Семинары повышения квалификации и практические тренинги для преподавателей",
+    "name_kr": "Ўқитувчилар учун малака ошириш семинарлари ва амалий тренинглар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.consulting.title",
+    "name_uz": "Individual konsultatsiya",
+    "name_ru": "Индивидуальная консультация",
+    "name_kr": "Индивидуал консултация",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.services.cards.consulting.description",
+    "name_uz": "Ta'lim va kasbiy rivojlanish masalalari bo'yicha shaxsiy konsultatsiyalar",
+    "name_ru": "Персональные консультации по вопросам образования и профессионального развития",
+    "name_kr": "Таълим ва касбий ривожланиш масалалари бўйича шахсий консултациялар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.title",
+    "name_uz": "Natijalar va yutuqlar",
+    "name_ru": "Результаты и достижения",
+    "name_kr": "Натижалар ва ютуқлар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.subtitle",
+    "name_uz": "Professional faoliyat ko'rsatkichlari va erishilgan natijalar",
+    "name_ru": "Показатели профессиональной деятельности и достигнутые результаты",
+    "name_kr": "Профессионал фаолият кўрсаткичлари ва эришилган натижалар",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.value",
+    "name_uz": "2005",
+    "name_ru": "2005",
+    "name_kr": "2005",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.label",
+    "name_uz": "Faoliyat boshlanishi",
+    "name_ru": "Начало деятельности",
+    "name_kr": "Фаолият бошланиши",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.start.detail",
+    "name_uz": "Ta'lim sohasida",
+    "name_ru": "В сфере образования",
+    "name_kr": "Таълим соҳасида",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.value",
+    "name_uz": "5+",
+    "name_ru": "5+",
+    "name_kr": "5+",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.label",
+    "name_uz": "Ta'lim muassasalari",
+    "name_ru": "Образовательные учреждения",
+    "name_kr": "Таълим муассасалари",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.institutions.detail",
+    "name_uz": "Ish tajribasi",
+    "name_ru": "Опыт работы",
+    "name_kr": "Иш тажрибаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.value",
+    "name_uz": "2",
+    "name_ru": "2",
+    "name_kr": "2",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.label",
+    "name_uz": "Oliy ma'lumot",
+    "name_ru": "Высшее образование",
+    "name_kr": "Олий маълумот",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.degrees.detail",
+    "name_uz": "Bakalavr va Magistr",
+    "name_ru": "Бакалавр и Магистр",
+    "name_kr": "Бакалавр ва Магистр",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.value",
+    "name_uz": "15+",
+    "name_ru": "15+",
+    "name_kr": "15+",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.label",
+    "name_uz": "Yillik tajriba",
+    "name_ru": "Лет опыта",
+    "name_kr": "Йиллик тажриба",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.cards.experience.detail",
+    "name_uz": "Ta'lim va pedagogikada",
+    "name_ru": "В образовании и педагогике",
+    "name_kr": "Таълим ва педагогикада",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.deputy.value",
+    "name_uz": "3+ yil",
+    "name_ru": "3+ года",
+    "name_kr": "3+ йил",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.deputy.label",
+    "name_uz": "O'rindoshlik tajribasi",
+    "name_ru": "Опыт совместительства",
+    "name_kr": "Ўриндошлик тажрибаси",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.tdtu.value",
+    "name_uz": "2020-2022",
+    "name_ru": "2020-2022",
+    "name_kr": "2020-2022",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.tdtu.label",
+    "name_uz": "Termiz davlat universitetida",
+    "name_ru": "В Термезском государственном университете",
+    "name_kr": "Термиз давлат университетида",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.current.value",
+    "name_uz": "2022-hozir",
+    "name_ru": "2022-наст. вр.",
+    "name_kr": "2022-ҳозир",
+    "translation_type": "admin",
+    "is_use": true
+  },
+  {
+    "key": "home.results.highlights.current.label",
+    "name_uz": "Pedagogika institutida",
+    "name_ru": "В педагогическом институте",
+    "name_kr": "Педагогика институтида",
+    "translation_type": "admin",
+    "is_use": true
+  }
+]
