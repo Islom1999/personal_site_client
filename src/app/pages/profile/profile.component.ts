@@ -94,6 +94,7 @@ export class ProfileComponent implements OnInit {
   selectedFile: File | null = null;
   uploadingImage = false;
   imageUploadError = '';
+  imageUrl: string | null = null;
 
   userCourses: UserCourse[] = [
     {
@@ -141,6 +142,8 @@ export class ProfileComponent implements OnInit {
     this.loadUserData();
     this.initializeCharts();
     this.getMyTestResults();
+
+    console.log(this.user); // null
   }
 
   loadUserData() {
@@ -150,9 +153,17 @@ export class ProfileComponent implements OnInit {
           this.router.navigate(['/login']);
           return;
         }
+
         this.editForm = { ...user };
         this.user = user;
         this.cdr.markForCheck();
+
+        // this.authService.getFileImg(user.file_image_id).subscribe({
+        //   next: (res) => {
+        //     console.log("Fayl ma'lumotlari:", res);
+        //     this.cdr.markForCheck();
+        //   },
+        // });
       },
       error: (err) => {
         console.error(err);
@@ -353,7 +364,7 @@ export class ProfileComponent implements OnInit {
     this.errorMessage = '';
     this.cdr.markForCheck();
 
-    this.authService.updateProfile(trimmedName).subscribe({
+    this.authService.updateProfile({ fullname: trimmedName }).subscribe({
       next: (res) => {
         this.disabled = false;
         this.user = { ...this.user, fullname: trimmedName } as IUser;
@@ -383,35 +394,56 @@ export class ProfileComponent implements OnInit {
     if (!input.files || input.files.length === 0) return;
 
     const file = input.files[0];
+
+    // Fayl formatini tekshirish
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+      this.imageUploadError = 'Faqat JPG, PNG yoki WEBP formatlar ruxsat etiladi';
+      this.cdr.markForCheck();
+      return;
+    }
+
+    this.uploadingImage = true;
+    this.imageUploadError = '';
     const formData = new FormData();
     formData.append('file', file);
 
+    // 1️⃣ Rasmni yuklaymiz
     this.authService.uploadImg(formData).subscribe({
-      next: (res) => {
-        const file_image_id = res.id;
+      next: (uploadRes) => {
+        const file_image_id = uploadRes?.id;
         if (!file_image_id) {
-          this.imageUploadError = 'Fayl yuklanmadi';
+          this.imageUploadError = 'Serverdan fayl ID qaytmadi';
           this.uploadingImage = false;
           this.cdr.markForCheck();
           return;
         }
 
-        this.authService.uploadImg(file_image_id).subscribe({
-          next: (updateRes) => {
-            if (updateRes.user) {
-              this.user = { ...this.user, file_image_id: updateRes.user.file_image_id } as IUser;
-            }
+        // 2️⃣ Profilni yangilaymiz
+        this.authService
+          .updateProfile({ fullname: this.user?.fullname || '', file_image_id: file_image_id })
+          .subscribe({
+            next: (updateRes) => {
+              if (this.user) {
+                this.user = {
+                  ...this.user,
+                  file_image_id,
+                };
+              }
 
-            this.uploadingImage = false;
-            this.cdr.markForCheck();
-          },
-          error: (err) => {
-            console.error(err);
-            this.imageUploadError = 'Profil rasmni yangilashda xato';
-            this.uploadingImage = false;
-            this.cdr.markForCheck();
-          },
-        });
+              this.successMessage = 'Rasm muvaffaqiyatli yangilandi';
+              setTimeout(() => (this.successMessage = ''), 1500);
+
+              this.uploadingImage = false;
+              this.cdr.markForCheck();
+            },
+            error: (err) => {
+              console.error(err);
+              this.imageUploadError = 'Profilni yangilashda xato';
+              this.uploadingImage = false;
+              this.cdr.markForCheck();
+            },
+          });
       },
       error: (err) => {
         console.error(err);

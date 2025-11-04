@@ -67,12 +67,18 @@ export class AuthService {
     );
   }
 
-  updateProfile(fullname?: string, file_image_id?: string) {
-    return this.http.post<{ data: IUser }>(`${this.baseUrl}/client/auth/profile`, {
-      fullname,
-      file_image_id,
-    });
+  // updateProfile(data: { fullname?: string; file_image_id?: string }) {
+  //   return this.http.post<{ data: IUser }>(`${this.baseUrl}/client/auth/profile`, data);
+  // }
+  updateProfile(data: { fullname?: string; file_image_id?: string }) {
+    return this.http.post<{ data: IUser }>(`${this.baseUrl}/client/auth/profile`, data);
   }
+
+  getFileImg(id: string) {
+    return this.http.get<{ data: IUser }>(`${this.baseUrl}/files/${id}/stream`);
+
+  }
+
 
   logout() {
     localStorage.clear();
@@ -87,12 +93,10 @@ export class AuthService {
     });
   }
 
-  // auth.service.ts
   uploadImg(formData: FormData) {
-    return this.http.post<{
-      id: any;
-      message: string;
-      user?: IUser;
-    }>(`${this.baseUrl}/client/auth/profile/upload/image`, formData);
+    return this.http.post<{ id: string }>(
+      `${this.baseUrl}/client/auth/profile/upload/image`,
+      formData
+    );
   }
 }

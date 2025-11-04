@@ -6,9 +6,12 @@
         <!-- Avatar -->
         <div class="relative flex flex-col items-center">
           <div class="relative">
-            <p-avatar [image]="user?.file_image_id ? user?.file_image_id : '/default-avatar.jpeg'" shape="circle"
-              size="xlarge" class="w-32 h-32 border-4 border-white shadow-lg">
+            <p-avatar
+              [image]="user?.file_image_id ? `https://api.techno-teach.uz/api/files/${user?.file_image_id}/stream` : '/default-avatar.jpeg'"
+              shape="circle" size="xlarge" class="profile-avatar w-32 h-32 border-4 border-white shadow-lg object-cover">
             </p-avatar>
+
+
             <input type="file" #fileInput class="hidden" (change)="uploadImgProfile($event)">
             <button (click)="fileInput.click()"
               class="absolute bottom-2 right-2 w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors">
@@ -16,7 +19,6 @@
             </button>
           </div>
         </div>
-
 
         <!-- User Info -->
         <div class="flex-1 text-center md:text-left">

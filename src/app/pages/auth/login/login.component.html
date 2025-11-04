@@ -7,8 +7,8 @@
         class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
         <span class="text-white font-bold text-2xl">K</span>
       </div>
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">Tizimga kirish</h2>
-      <p class="text-gray-600">Hisobingizga kirib, o'qishni davom ettiring</p>
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">{{'login.title' | translate}}</h2>
+      <p class="text-gray-600">{{'login.subtitle' | translate}}</p>
     </div>
 
     <!-- Login Form -->
@@ -20,7 +20,7 @@
         </p-message>
 
         <div class="flex flex-col">
-          <label class="text-sm font-medium text-gray-700 mb-2">Telfon raqamingizni kiriting</label>
+          <label class="text-sm font-medium text-gray-700 mb-2">{{'login.enterPhone' | translate}}</label>
           <input type="tel" pInputText placeholder="+998 XX XXX XX XX" [(ngModel)]="loginForm.phone" name="phone"
             required class="w-full" [class.p-invalid]="submitted && !loginForm.phone" [value]=""
             (ngModelChange)="formatPhone($event)" />
@@ -28,9 +28,9 @@
 
 
         <div class="flex flex-col" *ngIf="showSmsCode">
-          <label class="text-sm font-medium text-gray-700 mb-2">Tasdiqlash kodini kiriting</label>
+          <label class="text-sm font-medium text-gray-700 mb-2">{{'login.enterSmsCode' | translate}}</label>
           <input type="number" maxlength="4" minlength="4" [(ngModel)]="loginForm.smsCode" name="smsCode"
-            placeholder="Tasdiqlash kodini kiriting" required class="w-full block p-inputtext"
+            placeholder="{{'login.enterSmsCode' | translate}}" required class="w-full block p-inputtext"
             [class.p-invalid]="submitted && !loginForm.smsCode">
 
         </div>
@@ -49,9 +49,11 @@
           <a href="#" class="text-sm text-blue-600 hover:text-blue-500">Parolni unutdingizmi?</a>
         </div> -->
 
-        <p-button type="submit" (onClick)="showSmsCode" [label]="showSmsCode ? 'Kirish' : 'SMS kodni olish'"
+        <p-button type="submit" (onClick)="showSmsCode"
+          [label]="showSmsCode ? ('login' | translate) : ('login.getSmsCode' | translate)"
           [icon]="showSmsCode ? 'pi pi-sign-in' : ''" [loading]="loading" styleClass="w-full" class="btn-primary">
         </p-button>
+
       </form>
     </div>
   </div>

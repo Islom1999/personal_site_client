@@ -35,27 +35,28 @@
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
           {{ 'common.nav.tests' | translate }}
         </a>
-        <a routerLink="/contact" routerLinkActive="text-blue-600 font-semibold"
+        <!-- <a routerLink="/contact" routerLinkActive="text-blue-600 font-semibold"
           class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
           {{ 'common.nav.contact' | translate }}
-        </a>
+        </a> -->
 
         <!-- Auth Section -->
         <div *ngIf="!isLoggedIn" class="flex items-center space-x-3">
-          <p-button label="Kirish" routerLink="/login" class="btn-primary"> </p-button>
+          <p-button label="{{ 'login' | translate }}" routerLink="/login" class="btn-primary"> </p-button>
         </div>
 
         <!-- User Profile -->
         <div *ngIf="isLoggedIn" class="flex items-center space-x-3">
-          <p-avatar [image]="currentUser?.avatar ? currentUser?.avatar : '/default-avatar.jpeg'" [label]="currentUser?.name?.charAt(0)" shape="circle" size="normal"
-            class="cursor-pointer" routerLink="/profile">
+          <p-avatar [image]="currentUser?.avatar ? currentUser?.avatar : '/default-avatar.jpeg'"
+            [label]="currentUser?.name?.charAt(0)" shape="circle" size="normal" class="cursor-pointer"
+            routerLink="/profile">
           </p-avatar>
           <div class="text-sm">
             <div class="font-medium text-gray-900">{{ currentUser?.name }}</div>
             <div class="text-gray-500">{{ currentUser?.email }}</div>
           </div>
           <p-button icon="pi pi-sign-out" [text]="true" [rounded]="true" class="text-red-600 hover:bg-red-50"
-            (onClick)="logout()" pTooltip="Chiqish">
+            (onClick)="logout()" title="{{'header.logout' | translate}}">
           </p-button>
         </div>
       </div>
@@ -97,34 +98,28 @@
         </a>
 
         <div *ngIf="!isLoggedIn" class="px-3 py-2 space-y-2">
-          <a
-            routerLink="/login"
+          <a routerLink="/login"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
-            (click)="closeMobileMenu()"
-          >
-            Kirish
+            (click)="closeMobileMenu()">
+            {{'login'| translate}}
           </a>
-          <a
+          <!-- <a
             routerLink="/register"
             class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200"
             (click)="closeMobileMenu()"
           >
             Ro'yxatdan o'tish
-          </a>
+          </a> -->
         </div>
 
         <div *ngIf="isLoggedIn" class="py-2 border-t border-gray-200">
-          <a
-            routerLink="/profile"
+          <a routerLink="/profile"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
-            (click)="closeMobileMenu()"
-          >
+            (click)="closeMobileMenu()">
             Profil
           </a>
-          <button
-            (click)="logout(); closeMobileMenu()"
-            class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-600 hover:bg-red-50 transition-colors duration-200"
-          >
+          <button (click)="logout(); closeMobileMenu()"
+            class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-600 hover:bg-red-50 transition-colors duration-200">
             Chiqish
           </button>
         </div>
