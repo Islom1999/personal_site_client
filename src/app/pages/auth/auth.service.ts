@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { IRootTokenRes, IUser } from './user.model';
-import { map, Observable, catchError, throwError } from 'rxjs';
+import { map, Observable, catchError, throwError, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,20 @@ import { map, Observable, catchError, throwError } from 'rxjs';
 export class AuthService {
   http = inject(HttpClient);
   baseUrl: string = environment.apiBaseUrl;
+
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.loggedIn.asObservable();
+
+  constructor() {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.loggedIn.next(true);
+    }
+  }
+
+  loginSuccess() {
+    this.loggedIn.next(true);
+  }
 
   requestSmsCode(phone: string) {
     return this.http

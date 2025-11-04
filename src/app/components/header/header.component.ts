@@ -1,4 +1,4 @@
-﻿import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+﻿import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
@@ -27,15 +27,13 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   currentUser: any = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      console.log(token);
-
-      this.isLoggedIn = true;
-    }
+    this.authService.isLoggedIn$.subscribe((val) => {
+      this.isLoggedIn = val;
+      this.cdr.markForCheck();
+    });
   }
 
   toggleMobileMenu() {
