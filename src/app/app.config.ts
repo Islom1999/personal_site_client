@@ -20,6 +20,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { headerInterceptor } from '../core/interceptors/header.interceptor';
 import { environment } from '../environments/environment';
+import { errorInterceptor } from '../core/interceptors/error.interceptor';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `${environment.apiBaseUrl}/client/translation/`, '');
@@ -41,7 +42,7 @@ export const appConfig: ApplicationConfig = {
         },
       })
     ),
-    provideHttpClient(withInterceptors([headerInterceptor])),
+    provideHttpClient(withInterceptors([headerInterceptor, errorInterceptor])),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
