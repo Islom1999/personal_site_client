@@ -39,4 +39,5 @@ export abstract class BaseService<T> {
   getById(id: string) {
     return this.http.get<T>(`${this.fullUrl}/${id}`);
   }
+
 }

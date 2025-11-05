@@ -102,49 +102,54 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div *ngFor="let test of filteredTests()"
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-          <div class="p-6">
-            <!-- Test Header -->
-            <div class="flex items-center justify-between mb-4">
-              <div [class]="
+          <div class="p-6 flex flex-col justify-between h-full">
+            <div>
+              <!-- Test Header -->
+              <div class="flex items-center justify-between mb-4">
+                <div [class]="
                   'w-12 h-12 rounded-xl flex items-center justify-center ' + getCategoryStyleById(test.sp_category_id).bgColor
                 ">
-                <i [class]="
+                  <i [class]="
                     test.icon +
                     ' text-xl ' +
                     getCategoryStyleById(test.sp_category_id).textColor
                   "></i>
+                </div>
+                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
+                  {{ test.sp_level_id | selectItemLabel : levels() }}
+                </span>
               </div>
-              <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
-                {{ test.sp_level_id | selectItemLabel : levels() }}
-              </span>
+
+              <!-- Test Title -->
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{{ test.name }}</h3>
+
+              <!-- Test Description -->
+              <p class="text-gray-600 mb-4 line-clamp-2">{{ test.description }}</p>
             </div>
 
-            <!-- Test Title -->
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ test.name }}</h3>
+            <div>
+              <!-- Test Info -->
+              <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                <div class="flex items-center text-gray-500">
+                  <i class="pi pi-question-circle mr-2"></i>
+                  {{ 'tests.card.questions' | translate:{ count: test.questions_count ?? 0 } }}
+                </div>
 
-            <!-- Test Description -->
-            <p class="text-gray-600 mb-4 line-clamp-2">{{ test.description }}</p>
-
-            <!-- Test Info -->
-            <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
-              <div class="flex items-center text-gray-500">
-                <i class="pi pi-question-circle mr-2"></i>
-                {{ 'tests.card.questions' | translate:{ count: test.questions_count ?? 0 } }}
+                <div class="flex items-center text-gray-500">
+                  <i class="pi pi-clock mr-2"></i>
+                  {{ 'tests.card.duration' | translate:{ minutes: test.duration } }}
+                </div>
               </div>
-              <div class="flex items-center text-gray-500">
-                <i class="pi pi-clock mr-2"></i>
-                {{ 'tests.card.duration' | translate:{ minutes: test.duration } }}
-              </div>
-            </div>
 
-            <!-- Action Buttons -->
-            <div class="flex space-x-2">
-              <p-button [label]="'common.buttons.startTest' | translate" icon="pi pi-play" class="flex-1 btn-primary"
-                (onClick)="showTestInfo(test)">
-              </p-button>
-              <!-- <p-button icon="pi pi-chart-bar" [text]="true" [rounded]="true" class="text-blue-600 hover:bg-blue-50"
+              <!-- Action Buttons -->
+              <div class="flex space-x-2">
+                <p-button [label]="'common.buttons.startTest' | translate" icon="pi pi-play" class="flex-1 btn-primary"
+                  (onClick)="showTestInfo(test)">
+                </p-button>
+                <!-- <p-button icon="pi pi-chart-bar" [text]="true" [rounded]="true" class="text-blue-600 hover:bg-blue-50"
                 [pTooltip]="'tests.actions.results' | translate">
               </p-button> -->
+              </div>
             </div>
           </div>
         </div>

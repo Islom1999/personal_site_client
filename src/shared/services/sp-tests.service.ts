@@ -14,4 +14,10 @@ export class SpTestsService extends BaseService<ISpTests> {
   submitTestResult(testResult: any): Observable<IClientResult> {
     return this.http.post<IClientResult>(`${this.fullUrl}/check`, testResult);
   }
+
+  // sp-tests.service.ts
+  getTestById(id: string) {
+    console.log(id);
+    return this.http.get<any>(`${this.baseUrl}/client/sp-tests/${id}`);
+  }
 }

@@ -8,7 +8,8 @@
           <div class="relative">
             <p-avatar
               [image]="user?.file_image_id ? `https://api.techno-teach.uz/api/files/${user?.file_image_id}/stream` : '/default-avatar.jpeg'"
-              shape="circle" size="xlarge" class="profile-avatar w-32 h-32 border-4 border-white shadow-lg object-cover">
+              shape="circle" size="xlarge"
+              class="profile-avatar w-32 h-32 border-4 border-white shadow-lg object-cover">
             </p-avatar>
 
 
@@ -149,44 +150,50 @@
         <p-tabpanel value="tests">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2">
-              <div class="space-y-4">
-                <div *ngFor="let test of testResultsFull" class="bg-white rounded-2xl p-6 shadow-lg">
-                  <div class="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 class="text-lg font-semibold text-gray-900">{{ test.test.name }}</h3>
-                      <p class="text-gray-600 text-sm flex items-center gap-2 mt-2">{{ test.test.description }}</p>
-                    </div>
-                    <div class="text-right space-y-2">
-                      <div class="text-2xl font-bold"
-                        [class]="getScoreColor((test.result.correct_answers / test.result.total_questions) * 100)">
-                        {{ ((test.result.correct_answers / test.result.total_questions) * 100) | number:'1.0-0' }}%
+              <div *ngIf="testResultsFull && testResultsFull.length > 0; else noData">
+                <div class="space-y-4">
+                  <div *ngFor="let test of testResultsFull" class="bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ test.test.name }}</h3>
+                        <p class="text-gray-600 text-sm flex items-center gap-2 mt-2">{{ test.test.description }}</p>
                       </div>
-                      <p-tag class="text-sm ">
-                        {{ test.result.correct_answers }}/{{ test.result.total_questions }}
-                      </p-tag>
+                      <div class="text-right space-y-2">
+                        <div class="text-2xl font-bold"
+                          [class]="getScoreColor((test.result.correct_answers / test.result.total_questions) * 100)">
+                          {{ ((test.result.correct_answers / test.result.total_questions) * 100) | number:'1.0-0' }}%
+                        </div>
+                        <p-tag class="text-sm ">
+                          {{ test.result.correct_answers }}/{{ test.result.total_questions }}
+                        </p-tag>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-2 text-sm text-gray-600">
-                      <p-button icon="pi pi-clock" label="" [text]="true" class="text-blue-600 hover:bg-blue-50 w-4 h-4"
-                        styleClass="w-[18px] h-[18px]">
-                      </p-button><span>{{ formatTime(test.result.time_spent) }}</span>
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center space-x-2 text-sm text-gray-600">
+                        <p-button icon="pi pi-clock" label="" [text]="true"
+                          class="text-blue-600 hover:bg-blue-50 w-4 h-4" styleClass="w-[18px] h-[18px]">
+                        </p-button><span>{{ formatTime(test.result.time_spent) }}</span>
 
-                      <p class="text-gray-600 text-sm">
-                        <span>{{ formatDate(test.result.created_at) }}</span>
-                      </p>
-                      <!-- <p-tag [value]="getGrade((test.result.correct_answers / test.result.total_questions) * 100)"
+                        <p class="text-gray-600 text-sm">
+                          <span>{{ formatDate(test.result.created_at) }}</span>
+                        </p>
+                        <!-- <p-tag [value]="getGrade((test.result.correct_answers / test.result.total_questions) * 100)"
                         [severity]="getGradeSeverity((test.result.correct_answers / test.result.total_questions) * 100)"
                         class="text-xs">
                       </p-tag> -->
-                    </div>
-                    <!-- <p-button label="Batafsil" icon="pi pi-eye" [text]="true" class="text-blue-600 hover:bg-blue-50">
+                      </div>
+                      <!-- <p-button label="Batafsil" icon="pi pi-eye" [text]="true" class="text-blue-600 hover:bg-blue-50">
                     </p-button> -->
+                    </div>
                   </div>
                 </div>
-
               </div>
+              <ng-template #noData>
+                <div class="text-center text-gray-500 py-8 text-lg">
+                  Ma’lumotlar mavjud emas
+                </div>
+              </ng-template>
             </div>
 
             <!-- Test Statistics -->

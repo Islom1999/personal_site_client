@@ -111,12 +111,25 @@ export class TestsComponent implements OnInit {
   constructor() {
     effect(() => {
       this.filteredTests.set(this.tests());
+      const tests = this.tests();
+      if (tests.length > 0) {
+        this.filteredTests.set(tests);
+
+        tests.forEach((test) => {
+          this.getTestById(test.id);
+        });
+      }
     });
   }
 
   ngOnInit() {
     this.filteredTests.set(this.tests());
     this._cdr.markForCheck();
+
+    console.log(this.tests());
+    this.tests().forEach((test) => {
+      this.getTestById(test.id);
+    });
   }
 
   filterByCategory(category_id: string) {
@@ -155,5 +168,27 @@ export class TestsComponent implements OnInit {
     } else {
       this.closeTestInfo();
     }
+  }
+
+  getTestById(testId: string) {
+    this._spTestsService.getTestById(testId).subscribe({
+      next: (testData) => {
+        const questionsCount = testData.sp_tests_quessions?.length || 0;
+        console.log(questionsCount);
+
+        const updatedTests = this.filteredTests().map((t) => {
+          if (t.id === testId) {
+            return { ...t, questions_count: questionsCount };
+          }
+          return t;
+        });
+
+        this.filteredTests.set(updatedTests);
+        this._cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Testni olishda xato:', err);
+      },
+    });
   }
 }
