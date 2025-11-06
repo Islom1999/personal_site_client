@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 @import 'primeicons/primeicons.css';
+@import 'github-markdown-css/github-markdown.css';
 
 .profile-avatar img {
   object-fit: cover;
+}
+
+.markdown-body {
+  @apply bg-gray-100 text-black
 }

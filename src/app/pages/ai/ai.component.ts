@@ -4,6 +4,7 @@ import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/co
 import { FormsModule } from '@angular/forms';
 import { AIService } from './ai.service';
 import { Button } from 'primeng/button';
+import { MarkdownModule } from 'ngx-markdown';
 
 interface Message {
   role: 'user' | 'bot';
@@ -14,7 +15,13 @@ interface Message {
 @Component({
   selector: 'app-ai',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, Button],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    Button,
+    MarkdownModule,
+],
   templateUrl: './ai.component.html',
   styleUrl: './ai.component.css',
 })
@@ -35,7 +42,7 @@ export class AiComponent {
     this.messages.push({
       role: 'bot',
       content:
-        'Salom! Men AI yuridik yordamchiman. Sizning yuridik savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
+        'Salom! Men AI yordamchiman. Sizning savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
       time: this.getCurrentTime(),
     });
   }
@@ -65,6 +72,62 @@ export class AiComponent {
     }, 30);
   }
 
+  // sendMsg(message: string) {
+  //   if (!message.trim()) {
+  //     this.errorMessage = "Ma'lumot kiriting";
+  //     return;
+  //   }
+
+  //   this.isSending = true;
+  //   this.errorMessage = '';
+
+  //   // Foydalanuvchi xabari
+  //   this.messages.push({
+  //     role: 'user',
+  //     content: message,
+  //     time: this.getCurrentTime(),
+  //   });
+  //   this.aiMsg = '';
+  //   this.scrollToBottom();
+
+  //   this.aiService.sendMsgAI(message).subscribe({
+  //     next: (res) => {
+  //       const fullText = res.assistant || '';
+  //       let displayedText = '';
+  //       let i = 0;
+
+  //       // avval bo‘sh bot xabarini qo‘shamiz
+  //       this.messages.push({
+  //         role: 'bot',
+  //         content: '',
+  //         time: this.getCurrentTime(),
+  //       });
+
+  //       const typingInterval = setInterval(() => {
+  //         displayedText += fullText[i];
+  //         i++;
+
+  //         this.messages[this.messages.length - 1].content = displayedText; // oxirgi bot xabarni yangilaymiz
+
+  //         this.scrollToBottom();
+  //         this.cdr.detectChanges(); // UI ni yangilaydi
+
+  //         if (i >= fullText.length) {
+  //           clearInterval(typingInterval);
+  //           this.isSending = false;
+  //           this.scrollToBottom();
+  //         }
+  //       }, 25); // typing tezligi
+  //     },
+  //     error: (err) => {
+  //       console.error(err);
+  //       this.isSending = false;
+  //       this.errorMessage = 'Xatolik yuz berdi';
+  //       this.cdr.markForCheck();
+  //     },
+  //   });
+  // }
+
   sendMsg(message: string) {
     if (!message.trim()) {
       this.errorMessage = "Ma'lumot kiriting";
@@ -74,7 +137,6 @@ export class AiComponent {
     this.isSending = true;
     this.errorMessage = '';
 
-    // Foydalanuvchi xabari
     this.messages.push({
       role: 'user',
       content: message,
@@ -83,40 +145,40 @@ export class AiComponent {
     this.aiMsg = '';
     this.scrollToBottom();
 
+    this.messages.push({
+      role: 'bot',
+      content: '...',
+      time: this.getCurrentTime(),
+    });
+    this.scrollToBottom();
+
     this.aiService.sendMsgAI(message).subscribe({
       next: (res) => {
         const fullText = res.assistant || '';
         let displayedText = '';
         let i = 0;
 
-        // avval bo‘sh bot xabarini qo‘shamiz
-        this.messages.push({
-          role: 'bot',
-          content: '',
-          time: this.getCurrentTime(),
-        });
-
         const typingInterval = setInterval(() => {
           displayedText += fullText[i];
           i++;
 
-          this.messages[this.messages.length - 1].content = displayedText; // oxirgi bot xabarni yangilaymiz
+          this.messages[this.messages.length - 1].content = displayedText;
 
           this.scrollToBottom();
-          this.cdr.detectChanges(); // UI ni yangilaydi
+          this.cdr.detectChanges();
 
           if (i >= fullText.length) {
             clearInterval(typingInterval);
             this.isSending = false;
             this.scrollToBottom();
           }
-        }, 25); // typing tezligi
+        }, 25);
       },
       error: (err) => {
         console.error(err);
         this.isSending = false;
-        this.errorMessage = 'Xatolik yuz berdi';
-        this.cdr.markForCheck();
+        this.messages[this.messages.length - 1].content = 'Xatolik yuz berdi';
+        this.cdr.detectChanges();
       },
     });
   }
@@ -143,7 +205,7 @@ export class AiComponent {
             {
               role: 'bot',
               content:
-                'Salom! Men AI yuridik yordamchiman. Sizning yuridik savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
+                'Salom! Men AI yordamchiman. Sizning savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
               time: this.getCurrentTime(),
             },
           ];
@@ -156,7 +218,7 @@ export class AiComponent {
           {
             role: 'bot',
             content:
-              'Salom! Men AI yuridik yordamchiman. Sizning yuridik savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
+              'Salom! Men AI yordamchiman. Sizning savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
             time: this.getCurrentTime(),
           },
         ];
@@ -164,13 +226,21 @@ export class AiComponent {
     });
   }
 
-  scrollToBottom() {
+  scrollToBottom(force = false) {
     const el = this.scrollContainer.nativeElement;
-    el.scrollTo({
-      top: el.scrollHeight,
-      behavior: 'smooth',
-    });
-    this.showScrollButton = false;
+
+    const isNearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 150;
+    if (isNearBottom || force) {
+      setTimeout(() => {
+        el.scrollTo({
+          top: el.scrollHeight,
+          behavior: 'smooth',
+        });
+      }, 50);
+      this.showScrollButton = false;
+    } else {
+      this.showScrollButton = true;
+    }
   }
 
   onScroll(event: Event) {
@@ -194,7 +264,7 @@ export class AiComponent {
           this.messages.push({
             role: 'bot',
             content:
-              'Salom! Men AI yuridik yordamchiman. Sizning yuridik savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
+              'Salom! Men AI yordamchiman. Sizning savollaringizga javob berishga tayyorman. Qanday yordam kerak?',
             time: this.getCurrentTime(),
           });
 
