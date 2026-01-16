@@ -24,6 +24,7 @@ import { SpLevelService } from '../../../shared/services/sp-level.service';
 import { SpCoursesService } from '../../../shared/services/sp-courses.service';
 import { ISpCourses } from '../../../shared/models/sp-courses.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
+import { FileUrlPipe } from '../../../shared/pipes/file-url.pipe';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -44,6 +45,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CheckboxModule,
     TooltipModule,
     SelectItemLabelPipe,
+    FileUrlPipe,
     CommonModule,
     TranslateModule,
   ],
