@@ -136,8 +136,9 @@
                   <span class="flex items-center">
                     <i
                       class="mr-1"
-                      [class.pi-play-circle]="currentPart?.file_video_id"
+                      [class.pi-play-circle]="isServerVideoType(currentPart?.type)"
                       [class.pi-file-text]="currentPart?.type === 'text'"
+                      [class.pi-youtube]="currentPart?.type === 'youtube'"
                     ></i>
                     {{ getContentTypeLabel(currentPart?.type) }}
                   </span>
@@ -189,11 +190,11 @@
             </div>
 
             <!-- Video Content -->
-            <div *ngIf="currentPart?.type === 'video_youtube'" class="mb-6">
+            <div *ngIf="isYoutubeType(currentPart?.type)" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <iframe
-                  *ngIf="getYouTubeEmbedUrl(currentPart.content)"
-                  [src]="getYouTubeEmbedUrl(currentPart.content)"
+                  *ngIf="getYouTubeEmbedUrl(currentPart?.youtube_link || currentPart?.content)"
+                  [src]="getYouTubeEmbedUrl(currentPart?.youtube_link || currentPart?.content)"
                   class="w-full h-full"
                   frameborder="0"
                   allowfullscreen
@@ -213,7 +214,7 @@
             </div>
 
             <!-- Server Video Content -->
-            <div *ngIf="currentPart?.file_video_id" class="mb-6">
+            <div *ngIf="isServerVideoType(currentPart?.type)" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <video
                   *ngIf="currentPart?.file_video_id"
@@ -237,7 +238,7 @@
             </div>
 
             <!-- Text Content -->
-            <div *ngIf="currentPart?.content" class="prose max-w-none">
+            <div *ngIf="isTextType(currentPart?.type) && currentPart?.content" class="prose max-w-none">
               <div [innerHTML]="currentPart?.content" class="text-gray-700 leading-relaxed"></div>
             </div>
 

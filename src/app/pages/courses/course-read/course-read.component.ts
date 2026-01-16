@@ -187,9 +187,9 @@ export class CourseReadComponent implements OnInit {
 
   getContentTypeLabel(type?: string): string {
     switch (type) {
-      case 'video_youtube':
+      case 'youtube':
         return 'YouTube Video';
-      case 'video_server':
+      case 'video':
         return 'Video';
       case 'text':
         return 'Matn';
@@ -200,23 +200,31 @@ export class CourseReadComponent implements OnInit {
     }
   }
 
-  getYouTubeEmbedUrl(content?: string): SafeResourceUrl | null {
-    if (!content) return null;
+  getYouTubeEmbedUrl(link?: string): SafeResourceUrl | null {
+    if (!link) return null;
 
-    // Extract YouTube video ID from various URL formats
     const youtubeRegex =
       /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-    const match = content.match(youtubeRegex);
+    const match = link.match(youtubeRegex);
 
-    if (match && match[1]) {
-      const embedUrl = `https://www.youtube.com/embed/${match[1]}`;
-      return this._sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-    }
-
-    return null;
+    if (!match?.[1]) return null;
+    const embedUrl = `https://www.youtube.com/embed/${match[1]}?rel=0&modestbranding=1`;
+    return this._sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 
   getServerVideoUrl(fileId: string): string {
     return `${environment.apiBaseUrl}/files/${fileId}/stream`;
+  }
+
+  isYoutubeType(type?: string): boolean {
+    return type === 'youtube' || type === 'gibrid';
+  }
+
+  isServerVideoType(type?: string): boolean {
+    return type === 'video' || type === 'gibrid';
+  }
+
+  isTextType(type?: string): boolean {
+    return type === 'text' || type === 'gibrid';
   }
 }
