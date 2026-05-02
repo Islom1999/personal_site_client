@@ -35,7 +35,7 @@ export class AuthService {
   logout() {
     // Clear all stored data
     localStorage.clear();
-    
+
     // Call backend logout
     this.http.post(this.baseUrl + '/client/auth/logout', {}).subscribe({
       next: () => {
@@ -43,7 +43,7 @@ export class AuthService {
       },
       error: () => {
         window.location.href = '/';
-      }
+      },
     });
   }
 }
