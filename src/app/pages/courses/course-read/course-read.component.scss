@@ -3,8 +3,8 @@
 }
 
 .lesson-viewport {
-  height: calc(100vh - 17.5rem);
-  min-height: 20rem;
+  height: calc(100vh - 19rem);
+  min-height: 18rem;
   width: 100%;
 
   ::ng-deep .cdk-virtual-scroll-content-wrapper {
@@ -17,7 +17,7 @@
 }
 
 .sidebar-panel {
-  max-height: calc(100vh - 5.5rem);
+  max-height: calc(100vh - 11rem);
 }
 
 @media (max-width: 1023px) {

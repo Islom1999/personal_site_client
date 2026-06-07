@@ -1,65 +1,70 @@
-<div class="min-h-screen bg-slate-50">
-  <!-- Top bar -->
-  <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-    <div class="mx-auto flex max-w-[1600px] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
-      <p-button
-        icon="pi pi-arrow-left"
-        [text]="true"
-        [rounded]="true"
-        routerLink="/courses"
-        pTooltip="Kurslarga qaytish"
-        styleClass="text-slate-600"
-      />
+<div class="min-h-screen bg-slate-50 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Course toolbar — nav/footer bilan bir xil container -->
+    <div
+      class="sticky top-20 z-20 -mx-4 mb-4 border-b border-slate-200/80 bg-slate-50/95 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+    >
+      <div class="flex items-center gap-4">
+        <p-button
+          icon="pi pi-arrow-left"
+          [text]="true"
+          [rounded]="true"
+          routerLink="/courses"
+          pTooltip="Kurslarga qaytish"
+          styleClass="text-slate-600"
+        />
 
-      <div class="min-w-0 flex-1">
-        <div class="flex flex-wrap items-center gap-2">
-          <h1 class="truncate text-lg font-bold text-slate-900 sm:text-xl">{{ courseName }}</h1>
-          @if (totalLessons) {
-            <p-badge [value]="totalLessons + ' dars'" severity="info" />
+        <div class="min-w-0 flex-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="truncate text-lg font-bold text-slate-900 sm:text-xl">{{ courseName }}</h1>
+            @if (totalLessons) {
+              <p-badge [value]="totalLessons + ' dars'" severity="info" />
+            }
+          </div>
+          <p class="truncate text-sm text-slate-500">{{ courseData?.instructor }}</p>
+        </div>
+
+        <div class="hidden items-center gap-4 md:flex">
+          @if (currentLessonNumber) {
+            <span class="text-sm text-slate-600">
+              {{ currentLessonNumber }} / {{ totalLessons }}
+            </span>
           }
-        </div>
-        <p class="truncate text-sm text-slate-500">{{ courseData?.instructor }}</p>
-      </div>
-
-      <div class="hidden items-center gap-4 md:flex">
-        @if (currentLessonNumber) {
-          <span class="text-sm text-slate-600">
-            {{ currentLessonNumber }} / {{ totalLessons }}
+          <div class="w-36">
+            <p-progressBar [value]="courseProgress" [showValue]="false" styleClass="h-2" />
+          </div>
+          <span class="min-w-[3rem] text-right text-sm font-semibold text-indigo-600">
+            {{ courseProgress }}%
           </span>
-        }
-        <div class="w-36">
-          <p-progressBar [value]="courseProgress" [showValue]="false" styleClass="h-2" />
         </div>
-        <span class="min-w-[3rem] text-right text-sm font-semibold text-indigo-600">
-          {{ courseProgress }}%
-        </span>
-      </div>
 
-      <p-button
-        class="lg:hidden"
-        [icon]="sidebarOpen ? 'pi pi-times' : 'pi pi-list'"
-        [outlined]="true"
-        (onClick)="toggleSidebar()"
-        [label]="sidebarOpen ? '' : 'Darslar'"
-      />
-    </div>
-  </header>
-
-  @if (loading) {
-    <div class="flex min-h-[60vh] items-center justify-center">
-      <div class="text-center">
-        <i class="pi pi-spin pi-spinner text-3xl text-indigo-500"></i>
-        <p class="mt-3 text-slate-500">Kurs yuklanmoqda...</p>
+        <p-button
+          class="lg:hidden"
+          [icon]="sidebarOpen ? 'pi pi-times' : 'pi pi-list'"
+          [outlined]="true"
+          (onClick)="toggleSidebar()"
+          [label]="sidebarOpen ? '' : 'Darslar'"
+        />
       </div>
     </div>
-  } @else {
-    <div class="mx-auto grid max-w-[1600px] grid-cols-1 gap-0 lg:grid-cols-[340px_minmax(0,1fr)] xl:grid-cols-[380px_minmax(0,1fr)]">
-      <!-- Sidebar -->
-      <aside
-        class="sidebar-panel border-r border-slate-200 bg-white lg:sticky lg:top-[4.25rem] lg:block lg:h-[calc(100vh-4.25rem)]"
-        [class.hidden]="!sidebarOpen"
-        [class.block]="sidebarOpen"
+
+    @if (loading) {
+      <div class="flex min-h-[50vh] items-center justify-center">
+        <div class="text-center">
+          <i class="pi pi-spin pi-spinner text-3xl text-indigo-500"></i>
+          <p class="mt-3 text-slate-500">Kurs yuklanmoqda...</p>
+        </div>
+      </div>
+    } @else {
+      <div
+        class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(260px,300px)_minmax(0,1fr)] xl:grid-cols-[minmax(280px,320px)_minmax(0,1fr)]"
       >
+      <!-- Sidebar -->
+        <aside
+          class="sidebar-panel overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm lg:sticky lg:top-[11rem] lg:block lg:h-[calc(100vh-11rem)]"
+          [class.hidden]="!sidebarOpen"
+          [class.block]="sidebarOpen"
+        >
         <div class="flex h-full flex-col p-4">
           <div class="mb-3 shrink-0">
             <p-iconfield iconPosition="left" styleClass="w-full">
@@ -224,9 +229,9 @@
         </div>
       </aside>
 
-      <!-- Main -->
-      <main class="min-w-0 p-4 sm:p-6 lg:p-8">
-        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <!-- Main -->
+        <main class="min-w-0">
+          <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm lg:rounded-2xl">
           @if (!currentPart) {
             <div class="px-6 py-10 sm:px-10">
               <div class="mx-auto max-w-3xl text-center">
@@ -388,8 +393,9 @@
           }
         </div>
       </main>
-    </div>
-  }
+      </div>
+    }
+  </div>
 
   @if (sidebarOpen) {
     <button
