@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TooltipModule } from 'primeng/tooltip';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SpCoursesService } from '../../../../shared/services/sp-courses.service';
 import {
@@ -23,7 +24,7 @@ import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'app-course-read',
   standalone: true,
-  imports: [RouterLink, FormsModule, ButtonModule, ProgressBarModule, CheckboxModule, CommonModule],
+  imports: [RouterLink, FormsModule, ButtonModule, ProgressBarModule, CheckboxModule, TooltipModule, CommonModule],
   templateUrl: './course-read.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -187,9 +188,9 @@ export class CourseReadComponent implements OnInit {
 
   getContentTypeLabel(type?: string): string {
     switch (type) {
-      case 'video_youtube':
+      case 'youtube':
         return 'YouTube Video';
-      case 'video_server':
+      case 'video':
         return 'Video';
       case 'text':
         return 'Matn';
@@ -200,23 +201,50 @@ export class CourseReadComponent implements OnInit {
     }
   }
 
-  getYouTubeEmbedUrl(content?: string): SafeResourceUrl | null {
-    if (!content) return null;
+  getYouTubeEmbedUrl(link?: string): SafeResourceUrl | null {
+    if (!link) return null;
 
-    // Extract YouTube video ID from various URL formats
     const youtubeRegex =
       /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-    const match = content.match(youtubeRegex);
+    const match = link.match(youtubeRegex);
 
-    if (match && match[1]) {
-      const embedUrl = `https://www.youtube.com/embed/${match[1]}`;
-      return this._sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    if (!match?.[1]) return null;
+    const embedUrl = `https://www.youtube.com/embed/${match[1]}?rel=0&modestbranding=1`;
+    return this._sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+  }
+
+  getCurrentPartYoutubeEmbedUrl(): SafeResourceUrl | null {
+    return this.getYouTubeEmbedUrl(
+      this.currentPart?.youtube_link || this.currentPart?.content,
+    );
+  }
+
+  getPartIconClass(type?: string): string {
+    switch (type) {
+      case 'youtube':
+        return 'pi pi-youtube';
+      case 'text':
+        return 'pi pi-file-text';
+      case 'gibrid':
+        return 'pi pi-clone';
+      default:
+        return 'pi pi-play-circle';
     }
-
-    return null;
   }
 
   getServerVideoUrl(fileId: string): string {
     return `${environment.apiBaseUrl}/files/${fileId}/stream`;
+  }
+
+  isYoutubeType(type?: string): boolean {
+    return type === 'youtube' || type === 'gibrid';
+  }
+
+  isServerVideoType(type?: string): boolean {
+    return type === 'video' || type === 'gibrid';
+  }
+
+  isTextType(type?: string): boolean {
+    return type === 'text' || type === 'gibrid';
   }
 }

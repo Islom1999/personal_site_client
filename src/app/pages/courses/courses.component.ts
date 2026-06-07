@@ -24,6 +24,7 @@ import { SpLevelService } from '../../../shared/services/sp-level.service';
 import { SpCoursesService } from '../../../shared/services/sp-courses.service';
 import { ISpCourses } from '../../../shared/models/sp-courses.model';
 import { SelectItemLabelPipe } from '../../../shared/pipes/select-item-label.pipe';
+import { FileUrlPipe } from '../../../shared/pipes/file-url.pipe';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -44,6 +45,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CheckboxModule,
     TooltipModule,
     SelectItemLabelPipe,
+    FileUrlPipe,
     CommonModule,
     TranslateModule,
   ],
@@ -78,6 +80,7 @@ export class CoursesComponent implements OnInit {
 
   filterCourses(level_id: string) {
     this.selectedFilter = level_id;
+
     if (level_id == 'all') {
       this.filteredCourses.set([...this.courses()]);
     } else {
@@ -97,6 +100,9 @@ export class CoursesComponent implements OnInit {
       ]);
     }
     this._cdr.markForCheck();
+  }
+  hasCategory(id: string): boolean {
+    return !!this.categories()?.some((cat) => cat.id === id);
   }
 
   showCourseOnboard(course: ISpCourses) {
@@ -125,6 +131,3 @@ export class CoursesComponent implements OnInit {
     this.closeCourseOnboard();
   }
 }
-
-
-

@@ -77,25 +77,25 @@
             {{ 'common.filters.all' | translate }}
           </h3>
         </div>
-        @for(category of categories(); track category.id){
-        <div
-          class="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-          (click)="filterByCategory(category.id)"
-        >
+        @for (category of categories(); track category.id) {
           <div
-            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+            class="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+            (click)="filterByCategory(category.id)"
           >
-            <i [class]="category.icon" class="text-white text-xl"></i>
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i [class]="category.icon" class="text-white text-xl"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-sm">{{ category.name }}</h3>
           </div>
-          <h3 class="font-semibold text-gray-900 text-sm">{{ category.name }}</h3>
-        </div>
         }
       </div>
     </div>
 
     <!-- Courses Grid -->
     <div class="mb-8">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
         <h2 class="text-2xl font-bold text-gray-900">
           {{ 'courses.list.title' | translate }}
         </h2>
@@ -111,99 +111,103 @@
             (onClick)="filterCourses('all')"
           >
           </p-button>
-          @for(level of levels(); track level.id){
-          <p-button
-            [label]="level.name"
-            [text]="true"
-            [class]="
-              selectedFilter === level.id
-                ? 'text-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:bg-gray-50'
-            "
-            (onClick)="filterCourses(level.id)"
-          >
-          </p-button>
+          @for (level of levels(); track level.id) {
+            <p-button
+              [label]="level.name"
+              [text]="true"
+              [class]="
+                selectedFilter === level.id
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-600 hover:bg-gray-50'
+              "
+              (onClick)="filterCourses(level.id)"
+            >
+            </p-button>
           }
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for(course of filteredCourses(); track course.id){
-        <div
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-        >
-          <div class="relative">
-            <img
-              *ngIf="course.cover_image"
-              [src]="course.cover_image"
-              class="w-full h-48 object-cover"
-              [attr.alt]="course.name"
-            />
-            <div
-              *ngIf="!course.cover_image"
-              class="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center"
-            >
-              <i class="pi pi-book text-blue-500 text-4xl"></i>
-            </div>
-            <div class="absolute top-4 left-4 px-3 py-1 bg-white/80 rounded-full text-xs font-medium text-gray-800">
-              {{ course.sp_category_id | selectItemLabel : categories() }}
-            </div>
-          </div>
+        @for (course of filteredCourses(); track course.id) {
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+          >
+            <div class="relative">
+              <img
+                *ngIf="course.file_image_id"
+                [src]="course.file_image_id | fileUrl"
+                class="w-full h-48 object-cover"
+                [attr.alt]="course.name"
+              />
+              <div
+                *ngIf="!course.file_image_id"
+                class="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center"
+              >
+                <i class="pi pi-book text-blue-500 text-4xl"></i>
+              </div>
 
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
-              <span class="flex items-center">
-                <i class="pi pi-clock mr-2"></i>
-                {{ 'courses.card.duration' | translate:{ duration: course.duration } }}
-              </span>
-              <span class="flex items-center">
-                <i class="pi pi-users mr-2"></i>
-                {{ 'courses.card.students' | translate:{ count: course.students_count ?? 0 } }}
-              </span>
-            </div>
-
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ course.name }}</h3>
-            <p class="text-gray-600 mb-4 line-clamp-2">{{ course.description }}</p>
-
-            <div class="flex items-center justify-between mb-6">
-              <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
-                {{ course.sp_level_id | selectItemLabel : levels() }}
-              </span>
-              <span class="text-sm font-semibold text-gray-900">
-                {{
-                  course.price === 0
-                    ? ('courses.card.priceFree' | translate)
-                    : (course.price + ' ' + ('courses.card.currency' | translate))
-                }}
-              </span>
-            </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center space-x-2">
-                <p-rating [(ngModel)]="course.rating" [readonly]="true" class="text-sm"> </p-rating>
-                <span class="text-sm text-gray-600">({{ course.rating }})</span>
+              <div
+                *ngIf="hasCategory(course.sp_category_id)"
+                class="absolute top-4 left-4 px-3 py-1 bg-white/80 rounded-full text-xs font-medium text-gray-800"
+              >
+                {{ course.sp_category_id | selectItemLabel: categories() }}
               </div>
             </div>
 
-            <div class="flex space-x-2">
-              <p-button
-                [label]="'common.buttons.details' | translate"
-                [icon]="'pi pi-play'"
-                class="flex-1 btn-primary"
-                (onClick)="showCourseOnboard(course)"
-              >
-              </p-button>
-              <p-button
-                icon="pi pi-eye"
-                [text]="true"
-                [rounded]="true"
-                class="text-blue-600 hover:bg-blue-50"
-                [pTooltip]="'courses.actions.view' | translate"
-              >
-              </p-button>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                <span class="flex items-center">
+                  <i class="pi pi-clock mr-2"></i>
+                  {{ 'courses.card.duration' | translate: { duration: course.duration } }}
+                </span>
+                <!-- <span class="flex items-center">
+                <i class="pi pi-users mr-2"></i>
+                {{ 'courses.card.students' | translate:{ count: course.students_count ?? 0 } }}
+              </span> -->
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{{ course.name }}</h3>
+              <p class="text-gray-600 mb-4 line-clamp-2">{{ course.description }}</p>
+
+              <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
+                  {{ course.sp_level_id | selectItemLabel: levels() }}
+                </span>
+                <span class="text-sm font-semibold text-gray-900">
+                  {{
+                    course.price === 0
+                      ? ('courses.card.priceFree' | translate)
+                      : course.price + ' ' + ('courses.card.currency' | translate)
+                  }}
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+                <div class="flex items-center space-x-2">
+                  <p-rating [(ngModel)]="course.rating" [readonly]="true" class="text-sm">
+                  </p-rating>
+                  <span class="text-sm text-gray-600">({{ course.rating }})</span>
+                </div>
+              </div>
+
+              <div class="flex space-x-2">
+                <!-- <p-button [label]="'common.buttons.details' | translate" [icon]="'pi pi-play'" class="flex-1 btn-primary"
+                (click)="showCourseOnboard(course)">
+              </p-button> -->
+                <p-button
+                  [label]="'common.buttons.details' | translate"
+                  icon="pi pi-play"
+                  class="flex-1 btn-primary"
+                  (click)="showCourseOnboard(course)"
+                >
+                </p-button>
+
+                <!-- <p-button icon="pi pi-eye" [text]="true" [rounded]="true" class="text-blue-600 hover:bg-blue-50"
+                [pTooltip]="'courses.actions.view' | translate">
+              </p-button> -->
+              </div>
             </div>
           </div>
-        </div>
         }
       </div>
     </div>
@@ -247,7 +251,7 @@
         </div>
         <div class="bg-gray-50 rounded-xl p-4 text-center">
           <div class="text-2xl font-bold text-purple-600 mb-1">
-            {{ selectedCourse.sp_level_id | selectItemLabel : levels() }}
+            {{ selectedCourse.sp_level_id | selectItemLabel: levels() }}
           </div>
           <div class="text-sm text-gray-600">
             {{ 'courses.modal.stats.level' | translate }}
@@ -258,7 +262,7 @@
             {{
               selectedCourse.price === 0
                 ? ('courses.card.priceFree' | translate)
-                : (selectedCourse.price + ' ' + ('courses.card.currency' | translate))
+                : selectedCourse.price + ' ' + ('courses.card.currency' | translate)
             }}
           </div>
           <div class="text-sm text-gray-600">

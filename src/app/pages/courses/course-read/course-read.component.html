@@ -28,7 +28,7 @@
             <div class="font-semibold text-blue-600">{{ courseProgress }}%</div>
           </div>
           <div class="w-32">
-            <p-progressBar [value]="courseProgress" [showValue]="false" class="h-2"></p-progressBar>
+            <p-progressBar [value]="courseProgress" [showValue]="false" class="h-4"></p-progressBar>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
                       {{ moduleIndex + 1 }}
                     </div>
                     <span class="font-medium text-gray-900 text-sm">
-                      {{ module.name_uz || module.name_ru || module.name_kr }}
+                      {{ module.name || module.name_uz || module.name_ru || module.name_kr }}
                     </span>
                   </div>
                   <i
@@ -85,7 +85,8 @@
                 >
                   <div class="flex items-center space-x-2">
                     <i
-                      class="text-sm pi pi-play-circle"
+                      class="text-sm"
+                      [ngClass]="getPartIconClass(part.type)"
                       [class.text-green-600]="
                         currentModuleIndex === moduleIndex && currentPartIndex === partIndex
                       "
@@ -102,7 +103,7 @@
                         currentModuleIndex === moduleIndex && currentPartIndex === partIndex
                       "
                     >
-                      {{ part.name_uz || part.name_ru || part.name_kr }}
+                      {{ part.name || part.name_uz || part.name_ru || part.name_kr }}
                     </span>
                   </div>
                   <div class="text-xs text-gray-500 ml-6">{{ part.duration }}</div>
@@ -122,7 +123,8 @@
               <div>
                 <h2 class="text-2xl font-bold text-gray-900 mb-2">
                   {{
-                    currentPart?.name_uz ||
+                    currentPart?.name ||
+                      currentPart?.name_uz ||
                       currentPart?.name_ru ||
                       currentPart?.name_kr ||
                       'Kursga xush kelibsiz'
@@ -136,8 +138,10 @@
                   <span class="flex items-center">
                     <i
                       class="mr-1"
-                      [class.pi-play-circle]="currentPart?.file_video_id"
+                      [class.pi-play-circle]="isServerVideoType(currentPart?.type)"
                       [class.pi-file-text]="currentPart?.type === 'text'"
+                      [class.pi-youtube]="currentPart?.type === 'youtube'"
+                      [class.pi-clone]="currentPart?.type === 'gibrid'"
                     ></i>
                     {{ getContentTypeLabel(currentPart?.type) }}
                   </span>
@@ -189,11 +193,11 @@
             </div>
 
             <!-- Video Content -->
-            <div *ngIf="currentPart?.type === 'video_youtube'" class="mb-6">
+            <div *ngIf="isYoutubeType(currentPart?.type)" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <iframe
-                  *ngIf="getYouTubeEmbedUrl(currentPart.content)"
-                  [src]="getYouTubeEmbedUrl(currentPart.content)"
+                  *ngIf="getCurrentPartYoutubeEmbedUrl()"
+                  [src]="getCurrentPartYoutubeEmbedUrl()"
                   class="w-full h-full"
                   frameborder="0"
                   allowfullscreen
@@ -201,7 +205,7 @@
                 >
                 </iframe>
                 <div
-                  *ngIf="!getYouTubeEmbedUrl(currentPart.content)"
+                  *ngIf="!getCurrentPartYoutubeEmbedUrl()"
                   class="w-full h-full flex items-center justify-center"
                 >
                   <div class="text-center text-white">
@@ -213,7 +217,7 @@
             </div>
 
             <!-- Server Video Content -->
-            <div *ngIf="currentPart?.file_video_id" class="mb-6">
+            <div *ngIf="isServerVideoType(currentPart?.type)" class="mb-6">
               <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <video
                   *ngIf="currentPart?.file_video_id"
@@ -237,7 +241,7 @@
             </div>
 
             <!-- Text Content -->
-            <div *ngIf="currentPart?.content" class="prose max-w-none">
+            <div *ngIf="isTextType(currentPart?.type) && currentPart?.content" class="prose max-w-none">
               <div [innerHTML]="currentPart?.content" class="text-gray-700 leading-relaxed"></div>
             </div>
 

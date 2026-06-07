@@ -7,9 +7,9 @@ export enum PremiumType {
 
 export enum LessonType {
   text = 'text',
-  video_youtube = 'video_youtube',
-  video_server = 'video_server',
+  video = 'video',
   gibrid = 'gibrid',
+  youtube = 'youtube',
 }
 
 export interface ISpCourses extends IBaseModel {
@@ -37,6 +37,7 @@ export interface ISpCourses extends IBaseModel {
 }
 
 export interface ISpCoursesModule extends IBaseModel {
+  name?: string;
   name_uz: string;
   name_ru: string;
   name_kr: string;
@@ -46,7 +47,9 @@ export interface ISpCoursesModule extends IBaseModel {
 }
 
 export interface ISpCoursesModulePart extends IBaseModel {
-  file_video_id: string;
+  name?: string;
+  file_video_id?: string;
+  youtube_link?: string;
   name_uz: string;
   name_ru: string;
   name_kr: string;
