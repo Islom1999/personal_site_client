@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.lesson-viewport {
+  height: calc(100vh - 17.5rem);
+  min-height: 20rem;
+  width: 100%;
+
+  ::ng-deep .cdk-virtual-scroll-content-wrapper {
+    width: 100%;
+  }
+}
+
+.lesson-row {
+  scroll-margin: 0.5rem;
+}
+
+.sidebar-panel {
+  max-height: calc(100vh - 5.5rem);
+}
+
+@media (max-width: 1023px) {
+  .lesson-viewport {
+    height: min(55vh, 28rem);
+  }
+
+  .sidebar-panel {
+    max-height: none;
+  }
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(147 197 253) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(147 197 253);
+  border-radius: 999px;
+}

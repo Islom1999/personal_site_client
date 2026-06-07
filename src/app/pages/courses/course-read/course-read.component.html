@@ -1,276 +1,402 @@
-<!-- Course Read Page -->
-<div class="min-h-screen bg-gray-50">
-  <!-- Course Header -->
-  <div class="bg-white shadow-sm border-b sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex items-center justify-between">
-        <!-- Course Info -->
-        <div class="flex items-center space-x-4">
-          <p-button
-            icon="pi pi-arrow-left"
-            [text]="true"
-            [rounded]="true"
-            class="text-gray-600 hover:bg-gray-100"
-            routerLink="/courses"
-            pTooltip="Kurslarga qaytish"
-          >
-          </p-button>
-          <div>
-            <h1 class="text-xl font-bold text-gray-900">{{ courseData?.name }}</h1>
-            <p class="text-sm text-gray-600">{{ courseData?.instructor }}</p>
-          </div>
-        </div>
+<div class="min-h-screen bg-slate-50">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-[1600px] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <p-button
+        icon="pi pi-arrow-left"
+        [text]="true"
+        [rounded]="true"
+        routerLink="/courses"
+        pTooltip="Kurslarga qaytish"
+        styleClass="text-slate-600"
+      />
 
-        <!-- Course Progress -->
-        <div class="flex items-center space-x-4">
-          <div class="text-right">
-            <div class="text-sm text-gray-600">Jarayon</div>
-            <div class="font-semibold text-blue-600">{{ courseProgress }}%</div>
-          </div>
-          <div class="w-32">
-            <p-progressBar [value]="courseProgress" [showValue]="false" class="h-4"></p-progressBar>
-          </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <h1 class="truncate text-lg font-bold text-slate-900 sm:text-xl">{{ courseName }}</h1>
+          @if (totalLessons) {
+            <p-badge [value]="totalLessons + ' dars'" severity="info" />
+          }
         </div>
+        <p class="truncate text-sm text-slate-500">{{ courseData?.instructor }}</p>
+      </div>
+
+      <div class="hidden items-center gap-4 md:flex">
+        @if (currentLessonNumber) {
+          <span class="text-sm text-slate-600">
+            {{ currentLessonNumber }} / {{ totalLessons }}
+          </span>
+        }
+        <div class="w-36">
+          <p-progressBar [value]="courseProgress" [showValue]="false" styleClass="h-2" />
+        </div>
+        <span class="min-w-[3rem] text-right text-sm font-semibold text-indigo-600">
+          {{ courseProgress }}%
+        </span>
+      </div>
+
+      <p-button
+        class="lg:hidden"
+        [icon]="sidebarOpen ? 'pi pi-times' : 'pi pi-list'"
+        [outlined]="true"
+        (onClick)="toggleSidebar()"
+        [label]="sidebarOpen ? '' : 'Darslar'"
+      />
+    </div>
+  </header>
+
+  @if (loading) {
+    <div class="flex min-h-[60vh] items-center justify-center">
+      <div class="text-center">
+        <i class="pi pi-spin pi-spinner text-3xl text-indigo-500"></i>
+        <p class="mt-3 text-slate-500">Kurs yuklanmoqda...</p>
       </div>
     </div>
-  </div>
-
-  <!-- Course Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <!-- Course Modules Sidebar -->
-      <div class="lg:col-span-1">
-        <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
-          <h3 class="text-lg font-bold text-gray-900 mb-4">Kurs Modullari</h3>
-
-          <div class="space-y-3">
-            <div
-              *ngFor="let module of courseData?.sp_courses_modules; let moduleIndex = index"
-              class="border rounded-lg overflow-hidden"
-            >
-              <!-- Module Header -->
-              <div
-                class="p-3 bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors"
-                (click)="toggleModule(moduleIndex)"
+  } @else {
+    <div class="mx-auto grid max-w-[1600px] grid-cols-1 gap-0 lg:grid-cols-[340px_minmax(0,1fr)] xl:grid-cols-[380px_minmax(0,1fr)]">
+      <!-- Sidebar -->
+      <aside
+        class="sidebar-panel border-r border-slate-200 bg-white lg:sticky lg:top-[4.25rem] lg:block lg:h-[calc(100vh-4.25rem)]"
+        [class.hidden]="!sidebarOpen"
+        [class.block]="sidebarOpen"
+      >
+        <div class="flex h-full flex-col p-4">
+          <div class="mb-3 shrink-0">
+            <p-iconfield iconPosition="left" styleClass="w-full">
+              <p-inputicon styleClass="pi pi-search" />
+              <input
+                pInputText
+                type="search"
+                class="w-full"
+                placeholder="Dars qidirish..."
+                [(ngModel)]="lessonSearch"
+                (ngModelChange)="applyLessonFilter()"
+              />
+            </p-iconfield>
+            @if (lessonSearch) {
+              <button
+                type="button"
+                class="mt-2 text-xs font-medium text-indigo-600 hover:text-indigo-700"
+                (click)="clearLessonSearch()"
               >
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center space-x-2">
-                    <div
-                      class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold"
-                    >
-                      {{ moduleIndex + 1 }}
-                    </div>
-                    <span class="font-medium text-gray-900 text-sm">
-                      {{ module.name || module.name_uz || module.name_ru || module.name_kr }}
-                    </span>
-                  </div>
-                  <i
-                    class="pi text-gray-400 text-sm transition-transform"
-                    [class.pi-chevron-down]="!expandedModules[moduleIndex]"
-                    [class.pi-chevron-up]="expandedModules[moduleIndex]"
-                  ></i>
-                </div>
-                <div class="text-xs text-gray-500 mt-1 ml-8">{{ module.duration }}</div>
-              </div>
+                Qidiruvni tozalash
+              </button>
+            }
+          </div>
 
-              <!-- Module Parts -->
-              <div *ngIf="expandedModules[moduleIndex]" class="border-t">
-                <div
-                  *ngFor="let part of module.sp_courses_module_parts; let partIndex = index"
-                  class="p-3 hover:bg-gray-50 cursor-pointer transition-colors border-b last:border-b-0"
-                  [class.bg-blue-50]="
-                    currentModuleIndex === moduleIndex && currentPartIndex === partIndex
-                  "
-                  (click)="selectPart(moduleIndex, partIndex)"
-                >
-                  <div class="flex items-center space-x-2">
-                    <i
-                      class="text-sm"
-                      [ngClass]="getPartIconClass(part.type)"
-                      [class.text-green-600]="
-                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
-                      "
-                      [class.text-gray-400]="
-                        !(currentModuleIndex === moduleIndex && currentPartIndex === partIndex)
-                      "
-                    ></i>
-                    <span
-                      class="text-sm"
-                      [class.text-blue-600]="
-                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
-                      "
-                      [class.font-medium]="
-                        currentModuleIndex === moduleIndex && currentPartIndex === partIndex
-                      "
-                    >
-                      {{ part.name || part.name_uz || part.name_ru || part.name_kr }}
-                    </span>
-                  </div>
-                  <div class="text-xs text-gray-500 ml-6">{{ part.duration }}</div>
-                </div>
+          <div class="mb-3 flex shrink-0 items-center justify-between text-xs text-slate-500">
+            <span>
+              @if (lessonSearch) {
+                {{ visibleLessons.length }} ta natija
+              } @else {
+                {{ totalLessons }} ta dars
+              }
+            </span>
+            @if (currentLessonNumber && !useGroupedView) {
+              <button
+                type="button"
+                class="font-medium text-indigo-600 hover:text-indigo-700"
+                (click)="scrollToCurrentLesson()"
+              >
+                Joriy darsga
+              </button>
+            }
+          </div>
+
+          <div class="min-h-0 flex-1 overflow-hidden">
+            @if (!visibleLessons.length) {
+              <div class="rounded-xl border border-dashed border-slate-200 p-6 text-center text-sm text-slate-500">
+                Dars topilmadi
               </div>
-            </div>
+            } @else if (useGroupedView) {
+              <!-- Accordion groups for large courses -->
+              <div class="custom-scrollbar h-full space-y-2 overflow-y-auto pr-1">
+                @for (group of lessonGroups; track trackGroup($index, group)) {
+                  <div class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50/50">
+                    <button
+                      type="button"
+                      class="flex w-full items-center justify-between px-3 py-2.5 text-left transition hover:bg-slate-100"
+                      (click)="toggleGroup(group.id)"
+                    >
+                      <span class="text-sm font-semibold text-slate-800">{{ group.label }}</span>
+                      <span class="flex items-center gap-2 text-xs text-slate-500">
+                        {{ group.lessons.length }}
+                        <i
+                          class="pi text-xs"
+                          [class.pi-chevron-down]="!isGroupExpanded(group.id)"
+                          [class.pi-chevron-up]="isGroupExpanded(group.id)"
+                        ></i>
+                      </span>
+                    </button>
+
+                    @if (isGroupExpanded(group.id)) {
+                      <div class="border-t border-slate-200 bg-white p-1">
+                        <cdk-virtual-scroll-viewport
+                          [itemSize]="lessonItemSize"
+                          class="lesson-viewport !h-72 min-h-0"
+                        >
+                          <button
+                            type="button"
+                            *cdkVirtualFor="let lesson of group.lessons; trackBy: trackLesson"
+                            class="lesson-row mb-0.5 flex w-full items-start gap-2 rounded-lg px-2 py-2 text-left transition"
+                            [class.bg-indigo-50]="isLessonActive(lesson)"
+                            [class.ring-1]="isLessonActive(lesson)"
+                            [class.ring-indigo-200]="isLessonActive(lesson)"
+                            [class.hover:bg-slate-50]="!isLessonActive(lesson)"
+                            (click)="selectFlatLesson(lesson)"
+                          >
+                            <span
+                              class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold"
+                              [class.bg-indigo-600]="isLessonActive(lesson)"
+                              [class.text-white]="isLessonActive(lesson)"
+                              [class.bg-slate-100]="!isLessonActive(lesson)"
+                              [class.text-slate-600]="!isLessonActive(lesson)"
+                            >
+                              {{ lesson.globalIndex + 1 }}
+                            </span>
+                            <span class="min-w-0 flex-1">
+                              <span
+                                class="line-clamp-2 text-sm leading-snug"
+                                [class.font-medium]="isLessonActive(lesson)"
+                                [class.text-indigo-700]="isLessonActive(lesson)"
+                                [class.text-slate-700]="!isLessonActive(lesson)"
+                              >
+                                {{ getLessonTitle(lesson.part) }}
+                              </span>
+                              <span class="mt-0.5 flex items-center gap-2 text-[11px] text-slate-400">
+                                <i [class]="getPartIconClass(lesson.part.type)"></i>
+                                {{ lesson.part.duration }}
+                                @if (isLessonCompleted(lesson)) {
+                                  <i class="pi pi-check-circle text-emerald-500"></i>
+                                }
+                              </span>
+                            </span>
+                          </button>
+                        </cdk-virtual-scroll-viewport>
+                      </div>
+                    }
+                  </div>
+                }
+              </div>
+            } @else {
+              <!-- Virtual scroll for search / smaller lists -->
+              <cdk-virtual-scroll-viewport [itemSize]="lessonItemSize" class="lesson-viewport custom-scrollbar">
+                <button
+                  type="button"
+                  *cdkVirtualFor="let lesson of visibleLessons; trackBy: trackLesson"
+                  class="lesson-row mb-0.5 flex w-full items-start gap-2 rounded-lg px-2 py-2 text-left transition"
+                  [class.bg-indigo-50]="isLessonActive(lesson)"
+                  [class.ring-1]="isLessonActive(lesson)"
+                  [class.ring-indigo-200]="isLessonActive(lesson)"
+                  [class.hover:bg-slate-50]="!isLessonActive(lesson)"
+                  (click)="selectFlatLesson(lesson)"
+                >
+                  <span
+                    class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold"
+                    [class.bg-indigo-600]="isLessonActive(lesson)"
+                    [class.text-white]="isLessonActive(lesson)"
+                    [class.bg-slate-100]="!isLessonActive(lesson)"
+                    [class.text-slate-600]="!isLessonActive(lesson)"
+                  >
+                    {{ lesson.globalIndex + 1 }}
+                  </span>
+                  <span class="min-w-0 flex-1">
+                    <span
+                      class="line-clamp-2 text-sm leading-snug"
+                      [class.font-medium]="isLessonActive(lesson)"
+                      [class.text-indigo-700]="isLessonActive(lesson)"
+                      [class.text-slate-700]="!isLessonActive(lesson)"
+                    >
+                      {{ getLessonTitle(lesson.part) }}
+                    </span>
+                    <span class="mt-0.5 flex items-center gap-2 text-[11px] text-slate-400">
+                      <i [class]="getPartIconClass(lesson.part.type)"></i>
+                      {{ lesson.part.duration }}
+                      @if (isLessonCompleted(lesson)) {
+                        <i class="pi pi-check-circle text-emerald-500"></i>
+                      }
+                    </span>
+                  </span>
+                </button>
+              </cdk-virtual-scroll-viewport>
+            }
           </div>
         </div>
-      </div>
+      </aside>
 
-      <!-- Main Content Area -->
-      <div class="lg:col-span-3">
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <!-- Content Header -->
-          <div class="p-6 border-b">
-            <div class="flex items-center justify-between">
-              <div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                  {{
-                    currentPart?.name ||
-                      currentPart?.name_uz ||
-                      currentPart?.name_ru ||
-                      currentPart?.name_kr ||
-                      'Kursga xush kelibsiz'
-                  }}
-                </h2>
-                <div class="flex items-center space-x-4 text-sm text-gray-600">
-                  <span class="flex items-center">
-                    <i class="pi pi-clock mr-1"></i>
-                    {{ currentPart?.duration || '0 min' }}
-                  </span>
-                  <span class="flex items-center">
-                    <i
-                      class="mr-1"
-                      [class.pi-play-circle]="isServerVideoType(currentPart?.type)"
-                      [class.pi-file-text]="currentPart?.type === 'text'"
-                      [class.pi-youtube]="currentPart?.type === 'youtube'"
-                      [class.pi-clone]="currentPart?.type === 'gibrid'"
-                    ></i>
-                    {{ getContentTypeLabel(currentPart?.type) }}
-                  </span>
+      <!-- Main -->
+      <main class="min-w-0 p-4 sm:p-6 lg:p-8">
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          @if (!currentPart) {
+            <div class="px-6 py-10 sm:px-10">
+              <div class="mx-auto max-w-3xl text-center">
+                @if (courseData?.file_image_id) {
+                  <img
+                    [src]="courseData!.file_image_id | fileUrl"
+                    [alt]="courseName"
+                    class="mx-auto mb-6 h-44 w-full max-w-xl rounded-2xl object-cover shadow-md"
+                  />
+                } @else {
+                  <div
+                    class="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full bg-indigo-50"
+                  >
+                    <i class="pi pi-book text-5xl text-indigo-500"></i>
+                  </div>
+                }
+
+                <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">{{ courseName }}</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-slate-600">{{ courseDescription }}</p>
+
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
+                  <span class="inline-flex items-center gap-1"><i class="pi pi-list"></i> {{ totalLessons }} dars</span>
+                  <span class="inline-flex items-center gap-1"><i class="pi pi-clock"></i> {{ courseData?.duration }}</span>
+                  <span class="inline-flex items-center gap-1"><i class="pi pi-user"></i> {{ courseData?.instructor }}</span>
+                </div>
+
+                <p-button
+                  class="mt-8"
+                  label="Birinchi darsni boshlash"
+                  icon="pi pi-play"
+                  (onClick)="startFirstLesson()"
+                />
+              </div>
+            </div>
+          } @else {
+            <!-- Lesson header -->
+            <div class="border-b border-slate-100 px-4 py-4 sm:px-6">
+              <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                <div class="min-w-0 flex-1">
+                  <div class="mb-2 flex flex-wrap items-center gap-2">
+                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
+                      Dars {{ currentLessonNumber }}
+                    </span>
+                    <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600">
+                      {{ getContentTypeLabel(currentPart.type) }}
+                    </span>
+                    <span class="text-xs text-slate-400">{{ currentPart.duration }}</span>
+                  </div>
+                  <h2 class="text-xl font-bold leading-snug text-slate-900 sm:text-2xl">
+                    {{ getLessonTitle(currentPart) }}
+                  </h2>
+                </div>
+
+                <div class="flex shrink-0 gap-2">
+                  <p-button
+                    icon="pi pi-chevron-left"
+                    [outlined]="true"
+                    [disabled]="!hasPreviousPart()"
+                    (onClick)="goToPreviousPart()"
+                    pTooltip="Oldingi dars"
+                  />
+                  <p-button
+                    icon="pi pi-chevron-right"
+                    [disabled]="!hasNextPart()"
+                    (onClick)="goToNextPart()"
+                    pTooltip="Keyingi dars"
+                  />
                 </div>
               </div>
 
-              <!-- Navigation Buttons -->
-              <div class="flex space-x-2">
-                <p-button
-                  icon="pi pi-chevron-left"
-                  [outlined]="true"
-                  [disabled]="!hasPreviousPart()"
-                  (onClick)="goToPreviousPart()"
-                  pTooltip="Oldingi dars"
-                >
-                </p-button>
-                <p-button
-                  icon="pi pi-chevron-right"
-                  [disabled]="!hasNextPart()"
-                  (onClick)="goToNextPart()"
-                  pTooltip="Keyingi dars"
-                >
-                </p-button>
+              <div class="mt-3 md:hidden">
+                <p-progressBar [value]="courseProgress" [showValue]="false" styleClass="h-2" />
+                <div class="mt-1 flex justify-between text-xs text-slate-500">
+                  <span>{{ currentLessonNumber }} / {{ totalLessons }}</span>
+                  <span>{{ courseProgress }}%</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Content Body -->
-          <div class="p-6">
-            <!-- Welcome Message -->
-            <div *ngIf="!currentPart" class="text-center py-16">
-              <div
-                class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
-              >
-                <i class="pi pi-book text-blue-600 text-4xl"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                {{ courseData?.name }} kursiga xush kelibsiz!
-              </h3>
-              <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-                {{ courseData?.description }}
-              </p>
-              <p-button
-                label="Birinchi darsni boshlash"
-                icon="pi pi-play"
-                (onClick)="startFirstLesson()"
-              >
-              </p-button>
-            </div>
-
-            <!-- Video Content -->
-            <div *ngIf="isYoutubeType(currentPart?.type)" class="mb-6">
-              <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <iframe
-                  *ngIf="getCurrentPartYoutubeEmbedUrl()"
-                  [src]="getCurrentPartYoutubeEmbedUrl()"
-                  class="w-full h-full"
-                  frameborder="0"
-                  allowfullscreen
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                >
-                </iframe>
-                <div
-                  *ngIf="!getCurrentPartYoutubeEmbedUrl()"
-                  class="w-full h-full flex items-center justify-center"
-                >
-                  <div class="text-center text-white">
-                    <i class="pi pi-video text-4xl mb-4"></i>
-                    <p>Video mavjud emas</p>
+            <!-- Player / content -->
+            <div class="p-4 sm:p-6">
+              @if (isYoutubeType(currentPart.type)) {
+                <div class="overflow-hidden rounded-xl bg-slate-950 shadow-lg ring-1 ring-slate-900/10">
+                  <div class="aspect-video">
+                    @if (getCurrentPartYoutubeEmbedUrl()) {
+                      <iframe
+                        [src]="getCurrentPartYoutubeEmbedUrl()"
+                        class="h-full w-full"
+                        frameborder="0"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        title="YouTube video player"
+                      ></iframe>
+                    } @else {
+                      <div class="flex h-full items-center justify-center text-white">
+                        <div class="text-center">
+                          <i class="pi pi-youtube mb-3 text-4xl"></i>
+                          <p>Video mavjud emas</p>
+                        </div>
+                      </div>
+                    }
                   </div>
                 </div>
-              </div>
-            </div>
+              }
 
-            <!-- Server Video Content -->
-            <div *ngIf="isServerVideoType(currentPart?.type)" class="mb-6">
-              <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <video
-                  *ngIf="currentPart?.file_video_id"
-                  [src]="getServerVideoUrl(currentPart.file_video_id!)"
-                  class="w-full h-full"
-                  controls
-                  preload="metadata"
-                >
-                  Brauzeringiz video formatini qo'llab-quvvatlamaydi.
-                </video>
-                <div
-                  *ngIf="!currentPart?.file_video_id"
-                  class="w-full h-full flex items-center justify-center"
-                >
-                  <div class="text-center text-white">
-                    <i class="pi pi-video text-4xl mb-4"></i>
-                    <p>Video mavjud emas</p>
+              @if (isServerVideoType(currentPart.type)) {
+                <div class="overflow-hidden rounded-xl bg-slate-950 shadow-lg">
+                  <div class="aspect-video">
+                    @if (currentPart.file_video_id) {
+                      <video
+                        [src]="getServerVideoUrl(currentPart.file_video_id)"
+                        class="h-full w-full"
+                        controls
+                        preload="metadata"
+                      >
+                        Brauzeringiz video formatini qo'llab-quvvatlamaydi.
+                      </video>
+                    } @else {
+                      <div class="flex h-full items-center justify-center text-white">
+                        <div class="text-center">
+                          <i class="pi pi-video mb-3 text-4xl"></i>
+                          <p>Video mavjud emas</p>
+                        </div>
+                      </div>
+                    }
                   </div>
                 </div>
-              </div>
-            </div>
+              }
 
-            <!-- Text Content -->
-            <div *ngIf="isTextType(currentPart?.type) && currentPart?.content" class="prose max-w-none">
-              <div [innerHTML]="currentPart?.content" class="text-gray-700 leading-relaxed"></div>
-            </div>
+              @if (isTextType(currentPart.type) && currentPart.content) {
+                <div class="prose prose-slate max-w-none rounded-xl border border-slate-100 bg-slate-50/50 p-5">
+                  <div [innerHTML]="currentPart.content"></div>
+                </div>
+              }
 
-            <!-- Lesson Completion -->
-            <div *ngIf="currentPart" class="mt-8 pt-6 border-t">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
+              <div class="mt-6 flex flex-col gap-4 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex items-center gap-3">
                   <p-checkbox
                     [(ngModel)]="currentPartCompleted"
                     [binary]="true"
+                    inputId="lesson-complete"
                     (onChange)="markPartAsCompleted()"
-                  >
-                  </p-checkbox>
-                  <label class="text-sm text-gray-700">Darsni yakunlangan deb belgilash</label>
+                  />
+                  <label for="lesson-complete" class="cursor-pointer text-sm text-slate-700">
+                    Darsni yakunlangan deb belgilash
+                  </label>
                 </div>
 
-                <p-button
-                  *ngIf="hasNextPart()"
-                  label="Keyingi dars"
-                  icon="pi pi-chevron-right"
-                  iconPos="right"
-                  (onClick)="goToNextPart()"
-                >
-                </p-button>
+                @if (hasNextPart()) {
+                  <p-button
+                    label="Keyingi dars"
+                    icon="pi pi-chevron-right"
+                    iconPos="right"
+                    (onClick)="goToNextPart()"
+                  />
+                }
               </div>
             </div>
-          </div>
+          }
         </div>
-      </div>
+      </main>
     </div>
-  </div>
+  }
+
+  @if (sidebarOpen) {
+    <button
+      type="button"
+      class="fixed inset-0 z-20 bg-slate-900/40 lg:hidden"
+      aria-label="Sidebarni yopish"
+      (click)="toggleSidebar()"
+    ></button>
+  }
 </div>
